@@ -4,7 +4,7 @@ import { projects } from "@/data/projects";
 
 const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mcqueencloud.com"
-).replace(/\/$/, "");
+).replace(/\/+$/, "");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

@@ -4,11 +4,28 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a consultation with McQueen Cloud Advisory to discuss analytics, workflow automation, Google Cloud architecture, or AI-enabled knowledge workflows.",
+    "Book a consultation with McQueen Cloud Advisory or follow the company on LinkedIn and YouTube for cloud, analytics, automation, and AI content.",
 };
 
 const consultationUrl =
   "https://calendar.app.google/d9FXHWJLp8udKsvJ7";
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/mcqueen-cloud-advisory",
+    description:
+      "Follow company updates, project announcements, and practical perspectives on cloud, analytics, automation, and AI.",
+    action: "Visit LinkedIn",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@McQueenCloudAdvisory",
+    description:
+      "Watch technical walkthroughs, architecture discussions, and demonstrations of practical cloud solutions.",
+    action: "Visit YouTube",
+  },
+];
 
 const goodFitExamples = [
   "A reporting process depends on spreadsheets, manual consolidation, or undocumented knowledge.",
@@ -248,6 +265,56 @@ export default function ContactPage() {
       </section>
 
       <section className="px-6 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+              Follow and learn
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Stay connected beyond the initial conversation.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-slate-300">
+              Follow McQueen Cloud Advisory for project updates, practical
+              technical guidance, and demonstrations of cloud, analytics,
+              automation, and AI solutions.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {socialLinks.map((socialLink) => (
+              <article
+                key={socialLink.name}
+                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/40 p-8"
+              >
+                <h3 className="text-2xl font-semibold text-white">
+                  {socialLink.name}
+                </h3>
+
+                <p className="mt-4 flex-1 leading-7 text-slate-300">
+                  {socialLink.description}
+                </p>
+
+                <a
+                  href={socialLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 inline-flex items-center font-semibold text-blue-400 transition hover:text-blue-300"
+                  aria-label={`${socialLink.action} in a new tab`}
+                >
+                  {socialLink.action}
+                  <span aria-hidden="true" className="ml-2">
+                    ↗
+                  </span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-800 px-6 py-24 lg:px-8">
         <div className="mx-auto max-w-5xl rounded-3xl border border-blue-400/20 bg-blue-400/10 px-8 py-14 text-center sm:px-14">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
             Ready to begin?
