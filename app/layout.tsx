@@ -33,8 +33,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-slate-950 text-white antialiased`}
       >
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-white px-4 py-3 font-semibold text-slate-950 shadow-xl transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950"
+        >
+          Skip to main content
+        </a>
+
         <Header />
-        <main className="flex-1">{children}</main>
+
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex-1 focus:outline-none"
+        >
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>
