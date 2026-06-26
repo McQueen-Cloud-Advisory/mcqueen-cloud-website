@@ -14,13 +14,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mcqueencloud.com";
+
+const siteDescription =
+  "Practical analytics, workflow automation, and Google Cloud solutions for organizations outgrowing manual processes.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+
   title: {
     default: "McQueen Cloud Advisory",
     template: "%s | McQueen Cloud Advisory",
   },
-  description:
-    "Practical analytics, workflow automation, and Google Cloud solutions for organizations outgrowing manual processes.",
+
+  description: siteDescription,
+
+  applicationName: "McQueen Cloud Advisory",
+
+  creator: "McQueen Cloud Advisory",
+  publisher: "McQueen Cloud Advisory",
+
+  openGraph: {
+    title: "McQueen Cloud Advisory",
+    description: siteDescription,
+    siteName: "McQueen Cloud Advisory",
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "McQueen Cloud Advisory",
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
