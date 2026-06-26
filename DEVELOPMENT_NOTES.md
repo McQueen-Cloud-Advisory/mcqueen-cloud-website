@@ -742,7 +742,7 @@ Once the pull request was created, the workflow executed successfully.
 
 The successful workflow produced a warning that `actions/checkout@v4` and `actions/setup-node@v4` used the deprecated Node.js 20 action runtime.
 
-The planned remediation was to update to newer major versions of those GitHub actions while retaining Node.js 22 for the application build.
+This warning was later resolved by upgrading the actions and pinning them to immutable commit SHAs while retaining Node.js 22 for the application build. See Section 22.
 
 ---
 
@@ -783,18 +783,288 @@ A branch cannot be deleted while it is still checked out in the active worktree.
 
 ---
 
+## 22. Hardened the GitHub Actions supply chain
+
+The CI workflow was updated after the initial pull request produced a warning about the Node.js runtime used by older GitHub Actions releases.
+
+The workflow now uses newer official releases and pins each action to a full, immutable commit SHA rather than a moving major-version tag.
+
+### Final action configuration
+
+```yaml
+- name: Check out repository
+  uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+  with:
+    persist-credentials: false
+
+- name: Set up Node.js
+  uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+  with:
+    node-version: 22
+    cache: npm
+```
+
+### Security rationale
+
+A reference such as:
+
+```yaml
+uses: actions/checkout@v7
+```
+
+can later resolve to a different commit if the tag moves.
+
+A full commit SHA is immutable, which reduces the risk of unexpectedly executing a compromised or breaking action release.
+
+The readable version remains in a comment so maintainers and automated dependency tools can still identify the intended release.
+
+The checkout step also uses:
+
+```yaml
+persist-credentials: false
+```
+
+The CI job only needs read access, so the GitHub token does not need to remain stored in the repository's local Git configuration after checkout.
+
+The updated workflow was validated through the pull-request process and merged successfully.
+
+---
+
+## 23. Expanded site-wide search and social metadata
+
+The root layout metadata was expanded beyond the original page title and description.
+
+Updated:
+
+```text
+app/layout.tsx
+```
+
+### Added metadata
+
+- Production-aware `metadataBase`
+- Default title and title template
+- Site description
+- Application name
+- Creator and publisher
+- Open Graph title, description, site name, locale, and content type
+- Twitter/X large-image card configuration
+
+The production URL is read from:
+
+```text
+NEXT_PUBLIC_SITE_URL
+```
+
+with a fallback to:
+
+```text
+https://www.mcqueencloud.com
+```
+
+This preserves local and hosted flexibility without hard-coding different metadata configurations for each environment.
+
+### Browser validation
+
+The rendered metadata was checked in the browser console.
+
+Examples:
+
+```javascript
+document.querySelector('meta[property="og:title"]')?.content
+document.querySelector('meta[property="og:description"]')?.content
+document.querySelector('meta[name="twitter:card"]')?.content
+document.querySelector('meta[name="application-name"]')?.content
+```
+
+The returned values matched the intended site title, description, application name, and `summary_large_image` card type.
+
+A root canonical URL was deliberately not added because a single homepage canonical in the shared layout could incorrectly identify every route as a duplicate of the homepage.
+
+---
+
+## 24. Added generated social-sharing images
+
+A reusable social-card renderer was created with the Next.js `ImageResponse` API.
+
+Created:
+
+```text
+lib/social-image.tsx
+app/opengraph-image.tsx
+app/twitter-image.tsx
+```
+
+### Shared visual design
+
+The generated image uses:
+
+- A dark blue gradient aligned with the website
+- McQueen Cloud Advisory branding
+- Analytics, automation, and architecture positioning
+- The company slogan
+- The public domain
+- A Google Cloud positioning label
+- A 1200 × 630 layout suitable for large social preview cards
+
+The shared renderer prevents the Open Graph and Twitter/X versions from drifting into separate designs.
+
+### Metadata routes
+
+Next.js exposes the generated images through:
+
+```text
+/opengraph-image
+/twitter-image
+```
+
+These file-based metadata routes also connect the generated images to the corresponding page metadata.
+
+### Implementation correction
+
+During implementation, the reusable renderer was accidentally placed in the route file.
+
+This caused errors stating that:
+
+- The route had no default export
+- `createSocialImage` was defined more than once
+
+The issue was fixed by restoring the intended separation:
+
+- `lib/social-image.tsx` contains the reusable `ImageResponse` renderer
+- Each file in `app` contains a small route wrapper with a default-exported function
+
+Both image routes were then previewed successfully in the local development environment, and the production build passed.
+
+---
+
+## 25. Added crawler and sitemap metadata routes
+
+Two additional metadata routes were created:
+
+```text
+app/robots.ts
+app/sitemap.ts
+```
+
+### `robots.txt`
+
+The robots route:
+
+- Allows crawling of the public site
+- Identifies the preferred host
+- Links search engines to the sitemap
+
+The generated route was validated at:
+
+```text
+/robots.txt
+```
+
+### Dynamic sitemap
+
+The sitemap includes:
+
+- Homepage
+- Services
+- Work
+- Insights
+- About
+- Contact
+- Every project defined in `data/projects.ts`
+- Every article defined in `data/insights.ts`
+
+The data-driven approach ensures that new projects and insights are added to the sitemap automatically when their shared data records are created.
+
+The sitemap also assigns relative priorities and suggested crawl frequencies.
+
+Artificial `lastModified` timestamps were intentionally omitted. Assigning the build time to every route would incorrectly tell search engines that every page changed during every deployment.
+
+The generated route was validated at:
+
+```text
+/sitemap.xml
+```
+
+### URL-normalization follow-up
+
+A pull-request review identified that `robots.ts` should normalize `NEXT_PUBLIC_SITE_URL` in the same way as `sitemap.ts`.
+
+Without normalization, a configured value ending in `/` could generate:
+
+```text
+https://www.mcqueencloud.com//sitemap.xml
+```
+
+The follow-up change strips one or more trailing slashes:
+
+```ts
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mcqueencloud.com"
+).replace(/\/+$/, "");
+```
+
+This keeps host and sitemap URLs consistent even if the environment variable is copied with a trailing slash.
+
+---
+
+## 26. Completed Phase 1 application work
+
+The metadata and CI hardening changes were completed on a feature branch and submitted through a pull request.
+
+The pull request included:
+
+- Immutable GitHub Actions pins
+- Disabled persisted checkout credentials
+- Expanded Open Graph and Twitter/X metadata
+- Generated social-preview images
+- `robots.txt`
+- Dynamic sitemap
+- Updated public development notes
+
+All automated checks passed, the pull request was merged, and the branch was deleted remotely.
+
+The local repository was then returned to `main`, synchronized with the remote repository, and cleaned up.
+
+Firebase App Hosting created a successful production rollout from the merged commit.
+
+### Production verification
+
+The deployed application was checked for:
+
+- Homepage availability
+- Open Graph image route
+- Twitter/X image route
+- `robots.txt`
+- `sitemap.xml`
+- Rendered Open Graph metadata
+- Rendered Twitter/X metadata
+
+All application and deployment checks passed.
+
+The custom-domain connection and SSL provisioning remain the only unfinished Phase 1 activity. DNS records are publicly resolvable, and Firebase is processing the migration.
+
+---
+
 ## Current state
 
-At the time these notes were written:
+At the time these notes were updated:
 
-- The website is a viable MVP
+- The website is a viable production MVP
 - Firebase App Hosting deployment is operational
 - GitHub-based CI is operational
 - Firebase-based CD is operational
-- The custom domain records are publicly resolvable
-- Firebase is detecting the custom-domain records incrementally
-- The final SSL/domain connection is still completing
-- Additional content and application features are optional post-MVP work
+- GitHub Actions are pinned to immutable commit SHAs
+- Production dependency auditing, linting, and builds run automatically
+- Search and social-sharing metadata are implemented
+- Generated Open Graph and Twitter/X images are implemented
+- `robots.txt` is implemented
+- The dynamic sitemap is implemented
+- Production metadata routes have been verified
+- The custom-domain DNS records are publicly resolvable
+- Firebase is still completing the final custom-domain and SSL connection
+- Phase 1 application development is complete
+- Phase 2 can begin while the external domain migration finishes
 
 ---
 
@@ -803,14 +1073,17 @@ At the time these notes were written:
 Potential future improvements include:
 
 - Branch protection or repository rulesets requiring CI before merge
-- Social preview images
-- Expanded structured metadata
+- Structured data and richer schema metadata
 - Analytics and conversion tracking
 - Automated accessibility testing
 - End-to-end browser testing
 - Additional completed case studies
-- Interactive maturity assessment
+- Operational maturity assessment
 - Architecture recommendation explorer
+- Technical project walkthroughs
+- Embedded demonstration videos
+- Additional architecture diagrams
+- Selected public GitHub repository links
 - Secure inquiry form
 - Firestore-backed lead records
 - Consultation workflow integration
@@ -845,3 +1118,12 @@ These items should be added only when they solve a real business or operating ne
 
 8. **Stop when the MVP is viable.**  
    The site did not need every possible feature before launch. Production hardening became more valuable than continued page creation.
+
+9. **Pin workflow dependencies when practical.**  
+   Immutable action references reduce the chance that CI behavior changes without a corresponding repository change.
+
+10. **Separate shared rendering logic from framework routes.**  
+    Reusable helpers and route entry points have different responsibilities. Keeping them separate makes errors easier to diagnose and prevents framework-specific export problems.
+
+11. **Validate generated metadata as real endpoints.**  
+    A successful TypeScript build is not enough. Social images, crawler files, sitemaps, and rendered meta tags should also be opened and inspected directly.
