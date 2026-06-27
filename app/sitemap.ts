@@ -24,6 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${siteUrl}/assessment`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${siteUrl}/insights`,
       changeFrequency: "monthly",
       priority: 0.8,

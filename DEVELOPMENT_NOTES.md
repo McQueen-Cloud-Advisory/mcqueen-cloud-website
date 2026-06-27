@@ -372,6 +372,8 @@ The Contact page was created around the existing Google Calendar consultation sc
 
 - Book a consultation
 - Review selected work
+- Follow McQueen Cloud Advisory on LinkedIn
+- Watch technical content on YouTube
 
 The page also explains:
 
@@ -382,6 +384,13 @@ The page also explains:
 - What clients should expect from the first conversation
 
 A fake contact form was deliberately avoided because there was no backend submission path yet.
+
+The page was later expanded with a secondary **Follow and learn** section linking to:
+
+- LinkedIn company updates and project announcements
+- YouTube technical walkthroughs, architecture discussions, and solution demonstrations
+
+These links remain secondary to the consultation call to action so they support trust and ongoing engagement without competing with the primary conversion path.
 
 ### Copy/paste issue
 
@@ -425,13 +434,11 @@ data/insights.ts
 
 ---
 
-## 13. Added a second project case study
+## 13. Evaluated an additional analytics case study
 
-A second public project was added:
+A possible **Cloud Financial Analytics Platform** case study was evaluated for inclusion.
 
-**Cloud Financial Analytics Platform**
-
-The case study demonstrates:
+The proposed case study would have demonstrated technologies such as:
 
 - BigQuery
 - dbt
@@ -442,11 +449,12 @@ The case study demonstrates:
 - Automated data tests
 - Layered data modeling
 
-The page emphasizes that a dashboard is only the visible end of an analytics system. Reliability depends on transformation logic, testing, deployment, access controls, and ownership.
+The project was not retained as a current public case study because there was no completed standalone project page that could be represented accurately. The site continues to follow the rule that only completed, supportable work should be published.
+
 
 ---
 
-## 14. Added an anonymized enterprise case study
+## 14. Added a second anonymized enterprise case study
 
 A third case study was added:
 
@@ -586,7 +594,7 @@ The site was considered ready for production-domain migration after it included:
 - Homepage
 - Services
 - Work portfolio
-- Three case studies
+- Two completed public case studies
 - About page
 - Contact and booking flow
 - Insights hub
@@ -968,6 +976,7 @@ The sitemap includes:
 - Homepage
 - Services
 - Work
+- Assessment
 - Insights
 - About
 - Contact
@@ -1042,7 +1051,435 @@ The deployed application was checked for:
 
 All application and deployment checks passed.
 
-The custom-domain connection and SSL provisioning remain the only unfinished Phase 1 activity. DNS records are publicly resolvable, and Firebase is processing the migration.
+The custom domain is now serving the application over HTTPS. The earlier DNS migration and certificate-provisioning work no longer blocks application development.
+
+---
+
+## 27. Added public LinkedIn and YouTube paths
+
+The Contact page was expanded to include the company’s public channels:
+
+```text
+https://www.linkedin.com/company/mcqueen-cloud-advisory
+https://www.youtube.com/@McQueenCloudAdvisory
+```
+
+A new **Follow and learn** section was placed above the final consultation call to action.
+
+### Design decision
+
+The consultation path remains the primary action.
+
+LinkedIn and YouTube are presented as secondary trust-building paths for visitors who are not yet ready to schedule a discussion but want to review:
+
+- Company updates
+- Project announcements
+- Technical walkthroughs
+- Architecture discussions
+- Cloud, analytics, automation, and AI demonstrations
+
+Both external links open in a new tab and use:
+
+```tsx
+target="_blank"
+rel="noopener noreferrer"
+```
+
+---
+
+## 28. Designed the Operational Modernization Readiness Assessment
+
+Phase 2 began with an interactive assessment intended to demonstrate advisory reasoning, product thinking, front-end development, and explainable decision logic.
+
+The feature is available at:
+
+```text
+/assessment
+```
+
+### Customer-value requirement
+
+The assessment was deliberately designed to do more than produce a maturity score.
+
+It is intended to answer:
+
+> What should the organization improve next, what should it defer, and what support model is appropriate?
+
+The final result includes:
+
+- Organizational profile
+- Modernization stage
+- Primary constraint
+- Best next opportunity
+- Existing strengths
+- Prioritized 90-day roadmap
+- Investments to defer
+- Recommended support model
+- Six-domain maturity breakdown
+- Consultation call to action
+
+### Assessment domains
+
+The assessment contains 24 questions across six domains:
+
+1. Data and Reporting
+2. Workflow Automation
+3. Cloud Architecture
+4. Governance and Reliability
+5. AI and Knowledge Workflows
+6. Technical Capability and Support Model
+
+Each question has four operating-state responses:
+
+- Reactive
+- Emerging
+- Managed
+- Scalable
+
+Users see descriptive operating states rather than numeric values.
+
+### Human-readable specification
+
+Created:
+
+```text
+docs/assessment-spec.md
+```
+
+The specification documents:
+
+- All questions and answer choices
+- Maturity thresholds
+- Critical-capability flags
+- Dependency rules
+- Opportunity-readiness rules
+- Primary-constraint selection
+- Modernization-stage classification
+- Delivery-model guidance
+- Constraint and opportunity playbooks
+- Deferred-investment rules
+- Result hierarchy
+- Initial privacy and architecture boundaries
+
+---
+
+## 29. Implemented typed assessment data
+
+Created:
+
+```text
+data/assessment.ts
+data/recommendations.ts
+```
+
+### `data/assessment.ts`
+
+Contains:
+
+- Domain metadata
+- All 24 questions
+- Four answer choices per question
+- Maturity scores and labels
+- Critical-capability identifiers
+- Flattened question exports
+- Domain and question lookup records
+
+### `data/recommendations.ts`
+
+Contains:
+
+- Six primary-constraint playbooks
+- Six opportunity playbooks
+- 90-day actions grouped by phase
+- Critical-risk overrides
+- Deferred-investment guidance
+- Four delivery and support models
+
+### TypeScript tuple issue
+
+The first assessment-data implementation used:
+
+```ts
+as const satisfies readonly AssessmentDomain[]
+```
+
+This preserved each domain’s question collection as a different literal tuple.
+
+TypeScript then rejected:
+
+```ts
+assessmentDomains.flatMap((domain) => domain.questions)
+```
+
+because question IDs from different domains were inferred as incompatible tuple members.
+
+The fix was to type the collection directly:
+
+```ts
+export const assessmentDomains: readonly AssessmentDomain[] = [
+  // domains
+];
+```
+
+This preserved validation while allowing the questions to be flattened into a shared `AssessmentQuestion[]`.
+
+---
+
+## 30. Built the deterministic assessment engine
+
+The assessment uses a transparent rules engine rather than an opaque AI-generated recommendation.
+
+Created:
+
+```text
+lib/assessment/score-domains.ts
+lib/assessment/evaluate-gaps.ts
+lib/assessment/evaluate-readiness.ts
+lib/assessment/select-priorities.ts
+lib/assessment/build-roadmap.ts
+lib/assessment/analyze-assessment.ts
+```
+
+### Domain scoring
+
+`score-domains.ts` calculates:
+
+- Domain average
+- Maturity level
+- Lowest score
+- Highest score
+- Score spread
+- Count of Reactive answers
+- Count of Emerging-or-lower answers
+- Critical-capability flags
+- Completion status
+- Overall average
+
+Averages do not erase material weaknesses. A domain can be strong overall while still carrying a critical capability flag.
+
+### Gap evaluation
+
+`evaluate-gaps.ts` identifies:
+
+- Meaningful strengths
+- Supporting capabilities
+- Critical gaps
+- Capability imbalances
+- Foundational constraints
+- Opportunities blocked by weak prerequisites
+
+### Readiness evaluation
+
+`evaluate-readiness.ts` classifies modernization opportunities as:
+
+- Ready
+- Conditional
+- Premature
+- Blocked
+- Established
+- Incomplete
+
+Opportunities are evaluated against prerequisite domains and relevant critical controls.
+
+For example, weak AI maturity can be interpreted differently depending on whether data, governance, and technical capabilities are already strong.
+
+### Priority selection
+
+`select-priorities.ts` applies this hierarchy:
+
+1. Critical-capability gaps
+2. Foundational constraints
+3. Prerequisite bottlenecks
+4. Lowest remaining domain
+
+The lowest score does not automatically become the first recommendation.
+
+The best next opportunity is ranked using:
+
+- Capability gap
+- Prerequisite readiness
+- Existing supporting strengths
+- Opportunity status
+
+An edge case was corrected so an organization scoring Scalable in every domain does not receive an artificial primary constraint.
+
+### Roadmap assembly
+
+`build-roadmap.ts` combines:
+
+- Critical overrides
+- Primary-constraint actions
+- Best-opportunity actions
+- Delivery-model guidance
+- Deferred investments
+
+The roadmap is deduplicated and capped at five actions.
+
+### Analysis orchestration
+
+`analyze-assessment.ts` runs the full pipeline:
+
+```text
+24 responses
+→ Domain scores
+→ Gaps and strengths
+→ Opportunity readiness
+→ Primary constraint
+→ Best opportunity
+→ Modernization stage
+→ Organizational profile
+→ 90-day roadmap
+→ Deferred investments
+→ Delivery model
+```
+
+Final recommendations are not produced until all 24 questions are complete.
+
+---
+
+## 31. Built the interactive assessment experience
+
+Created:
+
+```text
+app/assessment/page.tsx
+components/assessment/Assessment.tsx
+components/assessment/AssessmentQuestion.tsx
+components/assessment/AssessmentProgress.tsx
+components/assessment/AssessmentResults.tsx
+```
+
+### User experience
+
+The assessment provides:
+
+- Introductory overview
+- Approximately 10-minute completion estimate
+- One question at a time
+- Visible progress
+- Current domain name
+- Back and Next controls
+- Disabled Next control until an answer is selected
+- Native radio-button semantics
+- Keyboard-accessible response selection
+- Focus movement when the question changes
+- Preserved answers when navigating backward
+- Immediate result generation after question 24
+- Restart option
+
+### Result experience
+
+The results page presents:
+
+- Modernization stage and modifier
+- Organizational profile
+- Overall maturity context
+- Primary constraint
+- Best next opportunity
+- Critical capability warnings
+- Existing strengths
+- Five-action 90-day roadmap
+- Investments to defer
+- Recommended support model
+- Six-domain score breakdown
+- Roadmap-review call to action
+- Directional-guidance disclaimer
+
+### Privacy and data boundary
+
+The initial implementation is intentionally client-side only.
+
+- No login
+- No database
+- No answer persistence
+- No personal information collection
+- No hidden tracking requirement
+- No backend scoring dependency
+
+The assessment remains useful without requiring the visitor to submit contact information.
+
+### Route naming issue
+
+The initial route file was named:
+
+```text
+app/assessment/assessment-page.tsx
+```
+
+Next.js App Router did not recognize that file as a page, so `/assessment` returned a 404.
+
+The file was renamed to:
+
+```text
+app/assessment/page.tsx
+```
+
+The route then rendered successfully.
+
+### Editor diagnostic issue
+
+After adding the assessment components, VS Code temporarily reported that local component and analysis-module imports could not be found even though the files were in the correct directories.
+
+The production build passed.
+
+Restarting the TypeScript language server cleared the stale editor diagnostics.
+
+---
+
+## 32. Added assessment navigation and crawler discovery
+
+The shared navigation was updated to include:
+
+```text
+Services | Work | Assessment | Insights | About
+```
+
+The Assessment link is available in both:
+
+- Desktop navigation
+- Mobile navigation
+
+Active-route highlighting continues to use `usePathname`.
+
+The dynamic sitemap was also updated with:
+
+```text
+https://www.mcqueencloud.com/assessment
+```
+
+The assessment route uses:
+
+- `changeFrequency: "monthly"`
+- `priority: 0.9`
+
+The generated XML was opened and inspected successfully.
+
+The browser message stating that the XML has no style information is expected and does not indicate an error.
+
+---
+
+## 33. Completed assessment implementation validation
+
+The assessment was manually validated through the complete 24-question flow.
+
+Confirmed behaviors include:
+
+- The route renders at `/assessment`
+- All questions can be selected
+- Back and Next navigation work
+- Answers remain selected when navigating backward
+- Next remains disabled until a response is selected
+- The final results screen renders
+- The analysis engine returns a modernization stage
+- Primary constraint and opportunity content render
+- The roadmap, deferrals, support model, and domain scores render
+- Restart clears the assessment
+- The production build passes
+- The sitemap includes the assessment
+- Desktop and mobile navigation include the assessment
+
+The feature remains pending repository commit, pull-request validation, merge, and Firebase production rollout.
+
 
 ---
 
@@ -1060,11 +1497,15 @@ At the time these notes were updated:
 - Generated Open Graph and Twitter/X images are implemented
 - `robots.txt` is implemented
 - The dynamic sitemap is implemented
-- Production metadata routes have been verified
-- The custom-domain DNS records are publicly resolvable
-- Firebase is still completing the final custom-domain and SSL connection
+- The custom production domain is serving the application over HTTPS
+- The Contact page includes consultation, LinkedIn, and YouTube paths
+- Two completed public case studies are currently published
 - Phase 1 application development is complete
-- Phase 2 can begin while the external domain migration finishes
+- The Operational Modernization Readiness Assessment has been implemented locally as the first major Phase 2 capability
+- The assessment currently runs entirely in the browser and does not persist answers or collect personal information
+- The assessment feature has passed local production builds and end-to-end manual testing
+- The assessment changes are pending final commit, pull-request validation, merge, and production rollout
+
 
 ---
 
@@ -1076,9 +1517,11 @@ Potential future improvements include:
 - Structured data and richer schema metadata
 - Analytics and conversion tracking
 - Automated accessibility testing
+- Unit tests for assessment scoring and dependency rules
 - End-to-end browser testing
+- Printable or downloadable assessment results
+- Optional assessment result sharing
 - Additional completed case studies
-- Operational maturity assessment
 - Architecture recommendation explorer
 - Technical project walkthroughs
 - Embedded demonstration videos
@@ -1086,6 +1529,7 @@ Potential future improvements include:
 - Selected public GitHub repository links
 - Secure inquiry form
 - Firestore-backed lead records
+- Optional assessment lead capture
 - Consultation workflow integration
 - Internal lead-status tooling
 
@@ -1127,3 +1571,15 @@ These items should be added only when they solve a real business or operating ne
 
 11. **Validate generated metadata as real endpoints.**  
     A successful TypeScript build is not enough. Social images, crawler files, sitemaps, and rendered meta tags should also be opened and inspected directly.
+
+12. **An assessment must guide a decision, not merely label maturity.**  
+    Users already have a general sense of whether their organization is technically mature. The product becomes valuable when it identifies what to do next, what to defer, and why.
+
+13. **Uneven capability profiles require dependency-aware interpretation.**  
+    A strong cloud and engineering organization with weak AI maturity should receive a different recommendation from an organization that is weak across every prerequisite.
+
+14. **Keep recommendation logic deterministic and explainable.**  
+    Structured rules make results consistent, testable, and auditable. Generative AI may improve wording later, but it should not replace the source-of-truth decision logic.
+
+15. **Test high-maturity and low-maturity edge cases.**  
+    A scoring engine should not invent a primary constraint for an organization that is already strong across every domain.
