@@ -21,7 +21,7 @@ describe("analyzeAssessment", () => {
 
     expect(analysis.isComplete).toBe(false);
     expect(analysis.answeredCount).toBe(0);
-    expect(analysis.questionCount).toBe(24);
+    expect(analysis.questionCount).toBe(assessmentQuestions.length);
     expect(analysis.overallAverage).toBeNull();
     expect(analysis.modernizationStage).toBeNull();
     expect(analysis.priorities).toBeNull();
