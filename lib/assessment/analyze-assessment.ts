@@ -205,7 +205,7 @@ const buildStageModifier = (
     primaryConstraint !== null &&
     primaryConstraint.criticalCapabilities.length > 0
   ) {
-    return `with ${primaryConstraint.domain.shortName.toLowerCase()} remediation`;
+    return `requires ${primaryConstraint.domain.shortName} remediation`;
   }
 
   if (
@@ -215,7 +215,7 @@ const buildStageModifier = (
       bestOpportunity.opportunity.status === "conditional"
     )
   ) {
-    return `with a ${bestOpportunity.opportunity.name.toLowerCase()} opportunity`;
+    return `prioritizes ${bestOpportunity.opportunity.name}`;
   }
 
   const technicalStrength = gapEvaluation.strengths.find(
@@ -226,7 +226,7 @@ const buildStageModifier = (
     technicalStrength !== undefined &&
     stage !== "Optimize"
   ) {
-    return "with strong internal technical capability";
+    return "supported by strong internal technical capability";
   }
 
   return null;
