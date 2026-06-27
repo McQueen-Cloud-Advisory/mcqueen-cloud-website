@@ -65,6 +65,13 @@ const getDomain = (
 const unique = <T>(values: readonly T[]): readonly T[] =>
   [...new Set(values)];
 
+const prerequisiteBottleneckStatuses =
+  new Set<OpportunityStatus>([
+    "blocked",
+    "premature",
+    "conditional",
+  ]);
+
 const getCriticalDomainImpacts = (
   domainScores: readonly DomainScore[],
   gapEvaluation: GapEvaluation,
@@ -136,8 +143,7 @@ const getPrerequisiteBottlenecks = (
       const blockedOpportunityIds = readinessEvaluations
         .filter(
           (evaluation) =>
-            evaluation.status !== "incomplete" &&
-            evaluation.status !== "established" &&
+            prerequisiteBottleneckStatuses.has(evaluation.status) &&
             evaluation.prerequisiteDomainIds.includes(domain.id) &&
             domain.average < 2.5,
         )

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
+  assessmentDomainById,
   assessmentMetadata,
   assessmentQuestions,
   type MaturityScore,
@@ -26,6 +27,11 @@ export default function Assessment() {
     currentQuestion === undefined
       ? undefined
       : responses[currentQuestion.id];
+
+  const currentDomainName =
+    currentQuestion === undefined
+      ? ""
+      : assessmentDomainById[currentQuestion.domainId].name;
 
   const analysis = useMemo(
     () => analyzeAssessment(responses),
@@ -168,19 +174,7 @@ export default function Assessment() {
       <AssessmentProgress
         currentQuestionNumber={currentQuestionIndex + 1}
         totalQuestions={assessmentQuestions.length}
-        domainName={
-          currentQuestion.domainId === "data-reporting"
-            ? "Data and Reporting"
-            : currentQuestion.domainId === "workflow-automation"
-              ? "Workflow Automation"
-              : currentQuestion.domainId === "cloud-architecture"
-                ? "Cloud Architecture"
-                : currentQuestion.domainId === "governance-reliability"
-                  ? "Governance and Reliability"
-                  : currentQuestion.domainId === "ai-knowledge-workflows"
-                    ? "AI and Knowledge Workflows"
-                    : "Technical Capability and Support Model"
-        }
+        domainName={currentDomainName}
       />
 
       <div
