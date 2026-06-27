@@ -32,7 +32,7 @@ describe("analyzeAssessment", () => {
     const analysis = analyzeAssessment(buildUniformResponses(1));
 
     expect(analysis.isComplete).toBe(true);
-    expect(analysis.answeredCount).toBe(24);
+    expect(analysis.answeredCount).toBe(assessmentQuestions.length);
     expect(analysis.overallAverage).toBe(1);
     expect(analysis.overallMaturityLevel).toBe("Reactive");
     expect(analysis.modernizationStage).toBe("Stabilize");
