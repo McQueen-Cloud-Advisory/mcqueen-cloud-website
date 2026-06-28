@@ -146,15 +146,9 @@ const classifyOpportunity = ({
 const buildRationale = ({
   status,
   opportunity,
-  targetDomainScore,
-  prerequisiteAverage,
-  blockingCapabilities,
 }: {
   status: OpportunityStatus;
   opportunity: OpportunityDefinition;
-  targetDomainScore: number | null;
-  prerequisiteAverage: number | null;
-  blockingCapabilities: readonly CriticalCapabilityId[];
 }): string => {
   switch (status) {
     case "incomplete":
@@ -217,9 +211,6 @@ export function evaluateReadiness(
       rationale: buildRationale({
         status,
         opportunity,
-        targetDomainScore,
-        prerequisiteAverage,
-        blockingCapabilities,
       }),
     };
   });

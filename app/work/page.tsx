@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 import { projects } from "@/data/projects";
 
 export default function WorkPage() {
@@ -71,6 +72,15 @@ export default function WorkPage() {
             </article>
           ))}
         </div>
+      </section>
+      <section>
+        <AssessmentPathCta
+          eyebrow="Apply the same thinking to your organization"
+          title="Not sure whether automation is the right next investment?"
+          description="The readiness assessment evaluates whether your data, governance, cloud architecture, and technical support model are strong enough to sustain workflow automation—or whether another constraint should be addressed first."
+          assessmentLabel="Assess your readiness"
+          contactLabel="Discuss an automation opportunity"
+        />
       </section>
     </>
   );

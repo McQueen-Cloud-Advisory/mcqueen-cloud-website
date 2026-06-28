@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 
 export const metadata: Metadata = {
   title: "Why This Website Uses Firebase App Hosting",
@@ -400,22 +401,16 @@ export default function FirebaseAppHostingInsightPage() {
                 meets the current need while preserving a reasonable path
                 toward known future requirements.
               </p>
+            </section>
 
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/work"
-                  className="rounded-md bg-blue-500 px-6 py-3 text-center font-semibold text-white transition hover:bg-blue-400"
-                >
-                  View selected work
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="rounded-md border border-slate-600 px-6 py-3 text-center font-semibold text-white transition hover:border-slate-400"
-                >
-                  Discuss a project
-                </Link>
-              </div>
+            <section>
+              <AssessmentPathCta
+                eyebrow="Evaluate your architecture in context"
+                title="Not sure whether your cloud platform is the real constraint?"
+                description="The readiness assessment evaluates cloud architecture alongside data, workflow, governance, AI, and internal support capability so you can identify the area most likely to limit progress before committing to a platform change."
+                assessmentLabel="Assess your modernization readiness"
+                contactLabel="Discuss a cloud architecture decision"
+              />
             </section>
           </div>
         </div>

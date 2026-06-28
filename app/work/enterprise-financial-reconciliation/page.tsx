@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 
 export const metadata: Metadata = {
   title: "Enterprise Financial Reconciliation Automation",
@@ -402,6 +403,14 @@ Human review and investigation`}
                 </p>
 
                 <p>
+                  That reduction shifted time away from repetitive file
+                  collection, conversion, and consolidation and toward the work
+                  that required professional judgment: reviewing exceptions,
+                  investigating differences, and evaluating the financial
+                  result.
+                </p>
+
+                <p>
                   The larger benefit was consistency. The reconciliation no
                   longer depended on rebuilding the preparation process
                   manually during every reporting period.
@@ -410,7 +419,9 @@ Human review and investigation`}
                 <p>
                   Reviewers received more structured output, clearer exception
                   visibility, and a more traceable path between source files,
-                  processing logic, and reported results.
+                  processing logic, and reported results. The process became
+                  easier to review, explain, and support without removing human
+                  accountability.
                 </p>
               </div>
             </section>
@@ -472,21 +483,16 @@ Human review and investigation`}
                 ))}
               </ul>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/work"
-                  className="rounded-md bg-blue-500 px-6 py-3 text-center font-semibold text-white transition hover:bg-blue-400"
-                >
-                  View more work
-                </Link>
+            </section>
 
-                <Link
-                  href="/contact"
-                  className="rounded-md border border-slate-600 px-6 py-3 text-center font-semibold text-white transition hover:border-slate-400"
-                >
-                  Discuss a project
-                </Link>
-              </div>
+            <section>
+              <AssessmentPathCta
+                eyebrow="Evaluate your own operating foundation"
+                title="Not sure whether financial process automation is the right next step?"
+                description="The readiness assessment helps identify whether data quality, governance, architecture, workflow design, or internal support capability should be addressed first—and whether automation is ready to deliver sustainable value."
+                assessmentLabel="Assess your readiness"
+                contactLabel="Discuss a financial automation opportunity"
+              />
             </section>
 
             <aside className="rounded-2xl border border-slate-800 bg-slate-950 p-7">

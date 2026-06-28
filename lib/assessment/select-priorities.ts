@@ -1,7 +1,4 @@
-import type {
-  AssessmentDomainId,
-  CriticalCapabilityId,
-} from "../../data/assessment";
+import type { CriticalCapabilityId } from "../../data/assessment";
 import type {
   FoundationalConstraint,
   GapEvaluation,
@@ -55,12 +52,6 @@ const getCompletedDomains = (
     (domain): domain is DomainScore & { average: number } =>
       domain.average !== null,
   );
-
-const getDomain = (
-  domainScores: readonly DomainScore[],
-  domainId: AssessmentDomainId,
-): DomainScore | undefined =>
-  domainScores.find((domain) => domain.id === domainId);
 
 const unique = <T>(values: readonly T[]): readonly T[] =>
   [...new Set(values)];

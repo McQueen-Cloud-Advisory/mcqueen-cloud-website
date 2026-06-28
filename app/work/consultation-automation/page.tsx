@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 
 const technologies = [
   "Google Forms",
@@ -76,8 +77,9 @@ export default function ConsultationAutomationCaseStudy() {
               Outcome
             </p>
             <p className="mt-3 leading-7 text-slate-300">
-              A tailored consultation brief can be generated within minutes of
-              a client submitting the intake form.
+              A tailored brief can be generated within minutes, giving the
+              consultant more time to evaluate the client&apos;s situation and
+              prepare for a focused discussion.
             </p>
           </div>
         </div>
@@ -237,11 +239,18 @@ Human review before consultation`}
               </p>
 
               <p>
-                The primary value is not simply speed. The workflow creates a
-                repeatable preparation standard, reduces omitted information,
-                and frees the consultant to spend more time evaluating the
-                client&apos;s situation rather than assembling background
-                material.
+                That changes the preparation experience from a last-minute
+                research exercise into a repeatable, reviewable process. The
+                consultant can enter the meeting with the client&apos;s stated
+                needs, operating context, likely constraints, and relevant
+                background already organized.
+              </p>
+
+              <p>
+                The primary value is not simply speed. It is the ability to spend
+                more preparation time evaluating the client&apos;s situation
+                and shaping useful questions, rather than collecting and
+                assembling background material.
               </p>
             </div>
           </section>
@@ -259,6 +268,16 @@ Human review before consultation`}
               <li>• CI/CD through GitHub Actions</li>
               <li>• Translation of business needs into technical design</li>
             </ul>
+          </section>
+
+          <section>
+            <AssessmentPathCta
+              eyebrow="Apply the same thinking to your organization"
+              title="Not sure whether automation is the right next investment?"
+              description="The readiness assessment evaluates whether your data, governance, cloud architecture, and technical support model are strong enough to sustain workflow automation—or whether another constraint should be addressed first."
+              assessmentLabel="Assess your readiness"
+              contactLabel="Discuss an automation opportunity"
+            />
           </section>
         </div>
       </section>

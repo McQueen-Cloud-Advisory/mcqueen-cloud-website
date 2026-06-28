@@ -1478,7 +1478,230 @@ Confirmed behaviors include:
 - The sitemap includes the assessment
 - Desktop and mobile navigation include the assessment
 
-The feature remains pending repository commit, pull-request validation, merge, and Firebase production rollout.
+The assessment was subsequently committed, reviewed through a pull request, merged, and deployed to production.
+
+## 34. Added automated assessment-engine validation
+
+The deterministic recommendation engine was reinforced with automated unit tests using Vitest.
+
+Created:
+
+```text
+vitest.config.ts
+tests/assessment/analyze-assessment.test.ts
+tests/assessment/readiness-priorities.test.ts
+tests/assessment/roadmap-safeguards.test.ts
+```
+
+Added scripts:
+
+```json
+"test": "vitest run",
+"test:watch": "vitest"
+```
+
+### Test coverage
+
+The suite validates:
+
+- Incomplete assessments
+- Fully Reactive profiles
+- Fully Scalable profiles
+- Opportunity-readiness statuses
+- Prerequisite bottlenecks
+- Critical-control overrides
+- Primary-constraint selection
+- Roadmap deduplication
+- Five-action roadmap limit
+- Three-item deferral limit
+- Delivery-model selection
+- High-maturity edge cases
+- AI-related stage-modifier capitalization
+
+The high-maturity test specifically prevents the engine from inventing a primary constraint when every domain is already Scalable.
+
+### CI integration
+
+The GitHub Actions workflow now runs:
+
+```bash
+npm test
+```
+
+after linting and before the production build.
+
+The required validation sequence is therefore:
+
+```text
+Dependency audit
+→ Lint
+→ Unit tests
+→ Production build
+```
+
+This keeps recommendation logic changes subject to the same pull-request controls as application code.
+
+---
+
+## 35. Established repository rules for protected delivery
+
+A GitHub repository ruleset was configured for the default branch.
+
+The rules require:
+
+- Changes through pull requests
+- Successful `Build` status validation
+- The branch to be current with `main`
+- Resolution of review conversations
+- Protection against branch deletion
+- Protection against force pushes
+
+The repository uses a solo-maintainer model, so a formal approval count is not required. The pull-request process still provides:
+
+- A visible change set
+- Automated CI validation
+- Copilot review
+- Review-comment resolution
+- A clear merge boundary before Firebase deployment
+
+This preserves a controlled delivery process without introducing an artificial second-person approval requirement.
+
+---
+
+## 36. Improved the engagement and conversion path
+
+A site review identified that the website relied too heavily on a single high-commitment call to action:
+
+```text
+Discuss a project
+```
+
+That path remains useful for visitors with a defined initiative, but it is too large a jump for readers who are still diagnosing the problem or evaluating the firm.
+
+A reusable dual-path engagement component was created:
+
+```text
+components/engagement/AssessmentPathCta.tsx
+```
+
+### Engagement model
+
+The component presents two distinct next steps:
+
+1. Use the Operational Modernization Readiness Assessment to identify the likely starting point.
+2. Start a direct conversation when the problem, scope, and desired outcome are already defined.
+
+The component accepts contextual labels and messaging so each page can connect the next step to the material the visitor just reviewed.
+
+### Contextual placements
+
+The dual-path CTA was added to:
+
+```text
+app/services/page.tsx
+app/work/consultation-automation/page.tsx
+app/work/enterprise-financial-reconciliation/page.tsx
+app/insights/why-this-site-uses-firebase-app-hosting/page.tsx
+app/about/page.tsx
+```
+
+Examples include:
+
+- Determining whether workflow automation is the appropriate next investment
+- Evaluating whether financial automation is ready to deliver sustainable value
+- Identifying whether cloud architecture is the actual limiting constraint
+- Clarifying the primary modernization priority before selecting a solution
+
+### Design rationale
+
+The readiness assessment is now treated as an active diagnostic pathway rather than only a top-level navigation destination.
+
+The direct consultation path was not removed. The site now distinguishes between:
+
+- Visitors who need help defining the right initiative
+- Visitors who are ready to discuss a specific project
+
+This reduces conversion friction without weakening the primary business-development path.
+
+---
+
+## 37. Connected technical outcomes to operational experience
+
+The case studies were revised to explain how technical improvements affected the work performed by the people using the solutions.
+
+### Consultation workflow
+
+The outcome now explains that the workflow changes consultation preparation from a last-minute research exercise into a repeatable, reviewable process.
+
+The consultant can spend more time:
+
+- Evaluating the client’s situation
+- Preparing useful questions
+- Understanding likely constraints
+- Focusing the meeting on strategy
+
+The wording still preserves human review and does not imply that AI replaces professional judgment.
+
+### Financial reconciliation workflow
+
+The approximately 30-hour monthly reduction is now connected to the work that those hours displaced.
+
+The updated outcome explains that time moved away from:
+
+- File collection
+- Conversion
+- Consolidation
+- Repetitive preparation
+
+and toward:
+
+- Exception review
+- Difference investigation
+- Financial analysis
+- Accountable judgment
+
+The case study continues to avoid unsupported claims about eliminating close-cycle stress or replacing controls.
+
+### Communication principle
+
+Technical metrics remain important, but they are stronger when the reader can understand what changed in the operating experience.
+
+The objective is not to replace architecture detail with emotional marketing. It is to show that disciplined architecture produces:
+
+- More useful work
+- Clearer decisions
+- Lower operational friction
+- Better traceability
+- More sustainable processes
+
+---
+
+## 38. Strengthened founder positioning
+
+The About page was revised so the founder narrative leads with the firm’s operating philosophy rather than a résumé-style inventory of skills.
+
+The revised positioning centers on the belief that:
+
+> A tool is never a substitute for a strategy.
+
+The page now connects Scott McQueen directly to the firm’s working principles:
+
+- Start with the operating problem
+- Make architecture explainable
+- Prefer useful over impressive
+- Preserve accountability
+- Avoid complexity the organization cannot support
+
+The founder biography now emphasizes advisory judgment, visible tradeoffs, and practical system design.
+
+Technical experience and certifications remain present, but they support the point of view rather than replacing it.
+
+This creates a clearer distinction between:
+
+- A vendor that implements requested technology
+- An advisor that helps determine whether the technology is justified
+
+---
 
 
 ---
@@ -1487,25 +1710,28 @@ The feature remains pending repository commit, pull-request validation, merge, a
 
 At the time these notes were updated:
 
-- The website is a viable production MVP
+- The website is a viable production application
 - Firebase App Hosting deployment is operational
 - GitHub-based CI is operational
 - Firebase-based CD is operational
+- The default branch is protected by a repository ruleset
+- Pull requests require successful CI and resolved review conversations
 - GitHub Actions are pinned to immutable commit SHAs
-- Production dependency auditing, linting, and builds run automatically
+- Production dependency auditing, linting, unit tests, and builds run automatically
 - Search and social-sharing metadata are implemented
 - Generated Open Graph and Twitter/X images are implemented
 - `robots.txt` is implemented
 - The dynamic sitemap is implemented
 - The custom production domain is serving the application over HTTPS
 - The Contact page includes consultation, LinkedIn, and YouTube paths
-- Two completed public case studies are currently published
-- Phase 1 application development is complete
-- The Operational Modernization Readiness Assessment has been implemented locally as the first major Phase 2 capability
-- The assessment currently runs entirely in the browser and does not persist answers or collect personal information
-- The assessment feature has passed local production builds and end-to-end manual testing
-- The assessment changes are pending final commit, pull-request validation, merge, and production rollout
-
+- Two completed public case studies are published
+- The Operational Modernization Readiness Assessment is live
+- The assessment runs entirely in the browser and does not persist answers or collect personal information
+- The deterministic recommendation engine is covered by automated tests
+- Services, case studies, insights, and the About page now use contextual assessment and consultation paths
+- Case-study outcomes connect technical results to operational value
+- The founder narrative is explicitly tied to the firm’s working principles
+- Current engagement-path improvements are being completed through a protected feature-branch and pull-request workflow
 
 ---
 
@@ -1513,11 +1739,9 @@ At the time these notes were updated:
 
 Potential future improvements include:
 
-- Branch protection or repository rulesets requiring CI before merge
 - Structured data and richer schema metadata
 - Analytics and conversion tracking
 - Automated accessibility testing
-- Unit tests for assessment scoring and dependency rules
 - End-to-end browser testing
 - Printable or downloadable assessment results
 - Optional assessment result sharing
@@ -1583,3 +1807,15 @@ These items should be added only when they solve a real business or operating ne
 
 15. **Test high-maturity and low-maturity edge cases.**  
     A scoring engine should not invent a primary constraint for an organization that is already strong across every domain.
+
+16. **Offer different engagement paths for different levels of readiness.**
+    A visitor who is still diagnosing the problem should not be forced into the same call to action as a buyer with an approved, defined initiative.
+
+17. **Connect technical outcomes to the work people perform.**
+    Time savings and architecture metrics are more persuasive when the reader can see how they improve review, decision-making, reliability, or operational focus.
+
+18. **A founder’s point of view is part of the product.**
+    Technical credentials establish capability, but clear principles and deliberate boundaries establish advisory trust.
+
+19. **Keep conversion logic consistent with the consulting philosophy.**
+    The site should not recommend a project before helping the visitor determine whether that project is actually the right next step.
