@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EngineeringKnowledgeBaseLink } from "@/components/engagement/EngineeringKnowledgeBaseLink";
 
 export function Footer() {
   return (
@@ -20,7 +21,7 @@ export function Footer() {
             Turning data into action. Turning action into impact.
           </p>
 
-          <div className="mt-4 flex gap-5 md:justify-end">
+          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3 md:justify-end">
             <Link
               href="/about"
               className="text-sm text-slate-400 hover:text-white"
@@ -34,6 +35,12 @@ export function Footer() {
             >
               Contact
             </Link>
+
+            <EngineeringKnowledgeBaseLink
+              variant="text"
+              label="Cloud engineering knowledge base"
+              className="text-sm"
+            />
           </div>
 
           <p className="mt-6 text-xs text-slate-500">
