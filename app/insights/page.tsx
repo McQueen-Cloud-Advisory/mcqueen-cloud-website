@@ -204,8 +204,6 @@ export default function InsightsPage() {
           </Link>
         </div>
       </section>
-    </>
-  );
 
       <section className="px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -240,5 +238,6 @@ export default function InsightsPage() {
           </div>
         </div>
       </section>
-
+    </>
+  );
 }
