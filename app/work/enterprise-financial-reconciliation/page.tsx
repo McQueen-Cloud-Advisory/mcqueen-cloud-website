@@ -17,11 +17,7 @@ const technologies = [
   "SQL",
 ];
 
-const metrics = [
-  {
-    value: "~30",
-    label: "Manual hours reduced monthly",
-  },
+const operatingSignals = [
   {
     value: "1",
     label: "Repeatable reconciliation pipeline",
@@ -29,6 +25,10 @@ const metrics = [
   {
     value: "Monthly",
     label: "Controlled reporting cycle",
+  },
+  {
+    value: "Retained",
+    label: "Human review and accountability",
   },
 ];
 
@@ -180,30 +180,49 @@ export default function EnterpriseFinancialReconciliationPage() {
               preserving review, traceability, and exception visibility.
             </p>
 
-            <ul className="mt-10 flex flex-wrap gap-2">
-              {technologies.map((technology) => (
-                <li
-                  key={technology}
-                  className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
-                >
-                  {technology}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-10 max-w-3xl rounded-2xl border border-blue-400/25 bg-blue-400/10 p-6 sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+                Primary outcome
+              </p>
+
+              <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                <p className="text-5xl font-bold tracking-tight text-white">
+                  ~30
+                </p>
+
+                <p className="text-xl font-semibold text-white">
+                  Manual hours reduced monthly
+                </p>
+              </div>
+
+              <p className="mt-4 text-lg leading-8 text-slate-300">
+                Time moved away from repetitive file preparation and toward
+                exception review, difference investigation, and accountable
+                financial analysis.
+              </p>
+            </div>
           </div>
         </header>
 
         <section className="border-y border-slate-800 bg-slate-900/40 px-6 py-16 lg:px-8">
-          <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-3">
-            {metrics.map((metric) => (
-              <div key={metric.label}>
-                <p className="text-4xl font-bold text-white">{metric.value}</p>
+          <div className="mx-auto max-w-5xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+              Operating signals
+            </p>
 
-                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
-                  {metric.label}
-                </p>
-              </div>
-            ))}
+            <div className="mt-8 grid gap-8 sm:grid-cols-3">
+              {operatingSignals.map((signal) => (
+                <div key={signal.label}>
+                  <p className="text-4xl font-bold text-white">
+                    {signal.value}
+                  </p>
+
+                  <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
+                    {signal.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -360,6 +379,34 @@ Human review and investigation`}
                   </article>
                 ))}
               </div>
+            </section>
+
+            <section>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+                Technical implementation
+              </p>
+
+              <h2 className="mt-4 text-3xl font-semibold text-white">
+                The engine behind the result
+              </h2>
+
+              <p className="mt-6 text-lg leading-8 text-slate-300">
+                The technology stack reflected the organization&apos;s existing
+                Azure environment and the need for repeatable transformation,
+                governed query access, source retention, and review-ready
+                reporting.
+              </p>
+
+              <ul className="mt-8 flex flex-wrap gap-2">
+                {technologies.map((technology) => (
+                  <li
+                    key={technology}
+                    className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
+                  >
+                    {technology}
+                  </li>
+                ))}
+              </ul>
             </section>
 
             <section>
