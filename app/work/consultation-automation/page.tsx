@@ -31,21 +31,26 @@ export default function ConsultationAutomationCaseStudy() {
           </h1>
 
           <p className="mt-8 max-w-3xl text-xl leading-9 text-slate-300">
-            An event-driven workflow that converts structured client intake
-            responses into a tailored consultation preparation brief within
-            minutes.
+            A repeatable preparation workflow that turns structured client
+            intake into decision-ready context before the consultation begins.
           </p>
 
-          <ul className="mt-10 flex flex-wrap gap-2">
-            {technologies.map((technology) => (
-              <li
-                key={technology}
-                className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
-              >
-                {technology}
-              </li>
-            ))}
-          </ul>
+          <div className="mt-10 max-w-3xl rounded-2xl border border-blue-400/25 bg-blue-400/10 p-6 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+              Primary outcome
+            </p>
+
+            <p className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Brief generated within minutes
+            </p>
+
+            <p className="mt-4 text-lg leading-8 text-slate-300">
+              Preparation time shifts away from collecting background
+              information and toward evaluating the client&apos;s situation,
+              likely constraints, and the questions that will make the meeting
+              useful.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -225,6 +230,33 @@ Human review before consultation`}
                 </p>
               </div>
             </div>
+          </section>
+
+          <section>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+              Technical implementation
+            </p>
+
+            <h2 className="mt-4 text-3xl font-semibold text-white">
+              The engine behind the result
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-slate-300">
+              The stack was selected to fit the operating workflow: low-friction
+              intake, event-driven orchestration, managed compute, structured
+              analysis, document generation, and automated delivery.
+            </p>
+
+            <ul className="mt-8 flex flex-wrap gap-2">
+              {technologies.map((technology) => (
+                <li
+                  key={technology}
+                  className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
+                >
+                  {technology}
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section>

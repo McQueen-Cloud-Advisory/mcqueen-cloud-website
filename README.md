@@ -1,172 +1,151 @@
 # McQueen Cloud Advisory Website
 
-The public website for **McQueen Cloud Advisory**, built as both a professional business site and a working demonstration of modern cloud application practices.
+The production website for **McQueen Cloud Advisory**, built as both a business-facing application and a public demonstration of disciplined cloud application delivery.
 
-The site is designed to do more than describe services. It is intended to demonstrate the same capabilities offered to clients:
+The repository is treated as a production software project rather than a collection of marketing pages. It contains the live Next.js application, the deterministic Operational Modernization Readiness Assessment, automated tests, continuous integration, deployment configuration, technical case studies, and supporting documentation.
 
-* Cloud-native application delivery
-* Automated deployment
-* Analytics and reporting
-* Workflow automation
-* Secure Google Cloud integration
-* Clear technical documentation
-* Practical architecture decisions tied to business outcomes
+Production site: `https://www.mcqueencloud.com`
 
-## Current Status
+## What this repository proves today
 
-The project is in its initial foundation phase.
+Implemented and deployed capabilities include:
 
-Currently implemented:
+- A production Next.js application written in TypeScript
+- Responsive, accessible navigation and page layouts
+- Services, Work, Insights, About, Contact, and Assessment routes
+- Two completed public case studies
+- A 24-question Operational Modernization Readiness Assessment
+- A deterministic, dependency-aware recommendation engine
+- Automated unit tests for assessment logic and edge cases
+- GitHub Actions validation for dependency auditing, linting, tests, and builds
+- Protected pull-request delivery into `main`
+- Automatic production rollout through Firebase App Hosting
+- Generated Open Graph and Twitter/X images
+- Dynamic `robots.txt` and sitemap routes
+- A custom production domain served over HTTPS
+- Contextual engagement paths for visitors with different levels of readiness
 
-* Next.js application
-* TypeScript
-* Tailwind CSS
-* GitHub source control
-* Firebase App Hosting
-* Automatic deployment from the `main` branch
-* Temporary Firebase `hosted.app` environment
-* Local development environment
-* Production build validation
+The repository does **not** currently contain a general-purpose backend platform, Firestore data model, user-authentication system, or Terraform-managed application infrastructure. Those are potential future capabilities and are not represented as implemented features.
 
-The existing public website remains active while the replacement is developed and tested.
+## Product purpose
 
-## Architecture
+The site serves two audiences:
+
+1. **Prospective clients**, who need to understand the operating problems McQueen Cloud Advisory helps solve.
+2. **Technical evaluators and hiring managers**, who need evidence of architecture, development discipline, testing, deployment, and engineering judgment.
+
+The site therefore uses a dual-speed content model:
+
+- Business-facing pages lead with operating problems, outcomes, constraints, and decision value.
+- Technical readers can inspect architecture decisions, implementation notes, tests, repository history, and technical articles without forcing non-technical visitors through unnecessary detail.
+
+## Current architecture
 
 ```mermaid
-flowchart TD
-    VISITOR[Website Visitor] --> EDGE[Firebase App Hosting]
-    EDGE --> APP[Next.js Application]
+flowchart LR
+    VISITOR[Website visitor] --> EDGE[Firebase App Hosting]
+    EDGE --> APP[Next.js application]
 
-    DEV[Developer] --> LOCAL[Local Development]
-    LOCAL --> GITHUB[GitHub Repository]
-    GITHUB -->|Push to main| PIPELINE[Firebase Build and Deployment Pipeline]
-    PIPELINE --> EDGE
+    APP --> CONTENT[Business content and case studies]
+    APP --> ASSESSMENT[Client-side readiness assessment]
+    APP --> METADATA[Metadata, social images, robots, sitemap]
+    APP --> OUTBOUND[Calendar, LinkedIn, and YouTube]
 
-    APP --> CONTENT[Marketing and Service Content]
-    APP --> CASES[Case Studies]
-    APP --> TOOLS[Interactive Demonstrations]
-    APP --> CONTACT[Contact and Consultation Intake]
-
-    CONTACT --> SERVER[Server-Side Application Logic]
-    TOOLS --> SERVER
-
-    SERVER --> FIRESTORE[(Cloud Firestore)]
-    SERVER --> SECRETS[Google Secret Manager]
-    SERVER --> WORKFLOW[Consultation Automation Workflow]
-
-    APP --> ANALYTICS[Google Analytics]
-    APP --> LOGGING[Cloud Logging and Monitoring]
+    DEVELOPER[Developer] --> BRANCH[Feature branch]
+    BRANCH --> PR[Pull request]
+    PR --> CI[GitHub Actions validation]
+    CI -->|Required check passes| MAIN[Protected main branch]
+    MAIN --> FIREBASE[Firebase App Hosting build and rollout]
+    FIREBASE --> EDGE
 ```
 
-A more detailed architecture explanation is available in:
+The current assessment runs entirely in the browser:
 
 ```text
-ARCHITECTURE.md
+24 responses
+→ domain scoring
+→ gap evaluation
+→ opportunity readiness
+→ primary constraint
+→ best opportunity
+→ modernization stage
+→ 90-day roadmap
+→ deferrals
+→ support model
 ```
 
-## Technology Stack
+No assessment answers are persisted, and no personal information is required.
 
-| Component                | Technology                           |
-| ------------------------ | ------------------------------------ |
-| Web framework            | Next.js                              |
-| Language                 | TypeScript                           |
-| Styling                  | Tailwind CSS                         |
-| Hosting                  | Firebase App Hosting                 |
-| Source control           | GitHub                               |
-| Deployment               | Automatic rollout from `main`        |
-| Planned data storage     | Cloud Firestore                      |
-| Planned backend services | Next.js server actions and Cloud Run |
-| Secret management        | Google Secret Manager                |
-| Analytics                | Google Analytics                     |
-| Monitoring               | Google Cloud Logging and Monitoring  |
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for current-state boundaries, target-state options, 12-factor alignment, testing expectations, and infrastructure-as-code strategy.
 
-## Why Next.js
+## Technology stack
 
-Next.js supports both static website content and dynamic application functionality within the same codebase.
+| Area | Current technology |
+| --- | --- |
+| Web framework | Next.js |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Hosting and runtime | Firebase App Hosting |
+| Underlying managed runtime | Google Cloud managed build and Cloud Run infrastructure |
+| Source control | GitHub |
+| Continuous integration | GitHub Actions |
+| Continuous deployment | Firebase App Hosting from `main` |
+| Unit testing | Vitest |
+| Static analysis | ESLint and CodeQL |
+| Package management | npm |
+| Public domain | `www.mcqueencloud.com` |
 
-This allows the site to begin as a fast professional website while retaining the ability to add:
+## Repository structure
 
-* Server-rendered pages
-* Interactive assessments
-* Secure form processing
-* API endpoints
-* Dynamic case studies
-* Workflow integrations
-* Authentication, if later justified
-
-This avoids rebuilding the platform when more advanced capabilities are introduced.
-
-## Why Firebase App Hosting
-
-Firebase App Hosting was selected because it provides a managed deployment platform for modern web applications while remaining closely integrated with Google Cloud.
-
-Key benefits include:
-
-* GitHub-based deployment
-* Automatic HTTPS
-* Managed build infrastructure
-* Automatic production rollouts
-* Google-managed hosting
-* Integration with Firebase and Google Cloud services
-* Support for modern application frameworks
-* Reduced infrastructure management
-
-The website currently deploys automatically whenever a successful commit is pushed to the `main` branch.
-
-## Deployment Workflow
-
-```mermaid
-sequenceDiagram
-    participant Developer
-    participant Local as Local Environment
-    participant GitHub
-    participant Firebase
-    participant Production
-
-    Developer->>Local: Edit and test website
-    Developer->>Local: Run production build
-    Developer->>GitHub: Commit and push to main
-    GitHub->>Firebase: Trigger deployment
-    Firebase->>Firebase: Install, build, and validate
-    Firebase->>Production: Deploy successful build
+```text
+mcqueen-cloud-website/
+├── app/
+├── components/
+│   ├── assessment/
+│   ├── engagement/
+│   └── layout/
+├── data/
+├── lib/
+│   └── assessment/
+├── tests/
+│   └── assessment/
+├── docs/
+│   ├── assessment-spec.md
+│   └── DEVELOPMENT_NOTES.md
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── ARCHITECTURE.md
+├── README.md
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vitest.config.ts
+└── eslint.config.mjs
 ```
 
-The standard deployment process is:
-
-1. Make changes locally.
-2. Test the application locally.
-3. Run a production build.
-4. Commit the changes.
-5. Push to GitHub.
-6. Firebase detects the new commit.
-7. Firebase builds and deploys the application.
-8. Verify the rollout in Firebase App Hosting.
-
-## Local Development
+## Local development
 
 ### Prerequisites
 
-Install:
+- Node.js 22
+- npm
+- Git
 
-* Node.js
-* npm
-* Git
-* Visual Studio Code or another code editor
-
-### Clone the repository
+### Clone
 
 ```bash
-git clone https://github.com/scottmcqueen2023/mcqueen-cloud-website.git
+git clone https://github.com/McQueen-Cloud-Advisory/mcqueen-cloud-website.git
 cd mcqueen-cloud-website
 ```
 
 ### Install dependencies
 
 ```bash
-npm install
+npm ci
 ```
 
-### Start the development server
+### Run locally
 
 ```bash
 npm run dev
@@ -178,218 +157,230 @@ Open:
 http://localhost:3000
 ```
 
-### Validate a production build
-
-Before pushing major changes, run:
+### Run the complete local validation sequence
 
 ```bash
+npm run lint
+npm test
 npm run build
+git diff --check
 ```
 
-The build should complete successfully before the code is deployed.
+All four checks should pass before a pull request is opened.
 
-## Git Workflow
+## Development workflow
 
-Check the current repository status:
+The protected delivery path is:
+
+```text
+Feature branch
+→ Pull request
+→ dependency audit
+→ lint
+→ unit tests
+→ production build
+→ CodeQL
+→ review resolution
+→ merge to main
+→ Firebase App Hosting rollout
+```
+
+Create a branch:
 
 ```bash
-git status
+git switch main
+git pull origin main
+git switch -c feature/descriptive-name
 ```
 
-Stage changes:
+Commit and push:
 
 ```bash
 git add .
-```
-
-Commit changes:
-
-```bash
 git commit -m "Describe the change"
+git push -u origin feature/descriptive-name
 ```
 
-Push to the production branch:
+Open a pull request into `main`. Direct production changes are intentionally avoided.
+
+After merge:
 
 ```bash
-git push origin main
+git switch main
+git pull origin main
+git branch -d feature/descriptive-name
 ```
 
-A push to `main` triggers an automatic Firebase App Hosting rollout.
+## Test-driven development standard
 
-## Planned Site Structure
+New behavior should be developed test-first whenever the behavior can be expressed as a deterministic contract.
 
-The planned public website will include:
+The expected sequence is:
+
+1. Write or update a test that describes the desired behavior.
+2. Confirm the test fails for the expected reason.
+3. Implement the smallest change that makes the test pass.
+4. Refactor while keeping the test suite green.
+5. Run lint, tests, build, and whitespace validation.
+6. Document material architectural or behavioral decisions.
+
+TDD is especially important for:
+
+- Assessment scoring
+- Dependency and readiness rules
+- Roadmap assembly
+- Input validation
+- Server-side actions
+- Authorization rules
+- Integration adapters
+- Cost and usage safeguards
+
+Purely presentational changes may use visual validation first, but reusable component behavior should still receive automated coverage where practical.
+
+## Twelve-factor design commitment
+
+The project adopts the Twelve-Factor App methodology where it applies to a managed Next.js application.
+
+Key commitments include:
+
+- **Codebase:** one version-controlled codebase with multiple deploys
+- **Dependencies:** explicit dependencies through `package.json` and `package-lock.json`
+- **Config:** deploy-specific configuration supplied through environment configuration, not hard-coded secrets
+- **Backing services:** databases, queues, APIs, and storage treated as attached resources
+- **Build, release, run:** CI validation remains separate from Firebase release and runtime stages
+- **Processes:** future server-side workloads remain stateless; durable state belongs in backing services
+- **Port binding:** Cloud Run services expose their own HTTP interfaces
+- **Concurrency:** scaling occurs horizontally through managed process instances
+- **Disposability:** services should start quickly and handle termination safely
+- **Dev/prod parity:** local, CI, and production dependency versions remain aligned through the lockfile
+- **Logs:** application processes write structured events to standard output and error streams
+- **Admin processes:** migrations or maintenance tasks run as explicit one-off jobs rather than hidden application startup behavior
+
+Not every factor creates a visible artifact in the current mostly client-side application. The rules become more important as real backend capabilities are introduced.
+
+## Infrastructure as code strategy
+
+Infrastructure as code will be added only around resources the project actually owns and must reproduce.
+
+### Good initial IaC candidates
+
+A future Terraform layer could manage:
+
+- Required Google Cloud APIs
+- Dedicated service accounts
+- Least-privilege IAM bindings
+- A real Cloud Run backend service
+- Secret Manager secret containers, without committing secret values
+- Cloud Logging metrics and alert policies
+- Budget alerts and cost safeguards
+- Optional Firestore databases and indexes when persistence is justified
+- Cloud Scheduler, Pub/Sub, or Cloud Tasks when an asynchronous workflow needs them
+
+### What should remain managed
+
+Firebase App Hosting currently manages the website build and serving path. The repository should not create a parallel deployment mechanism merely to display more infrastructure files.
+
+Terraform should begin when the application introduces a real independently managed boundary, most likely:
 
 ```text
-/
-├── Home
-├── Services
-│   ├── Analytics and BI Modernization
-│   ├── Workflow Automation
-│   ├── Google Cloud Architecture
-│   └── AI-Enabled Knowledge Workflows
-├── Case Studies
-├── Technical Insights
-├── About
-├── Contact
-└── Interactive Tools
+Next.js site
+→ validated server-side request
+→ Cloud Run application service
+→ attached backing services
 ```
 
-## Planned Features
+The first IaC-backed backend should solve a real user or operating need, not exist as a portfolio-only demonstration.
 
-### Phase 1: Professional Foundation
+## Security and privacy boundaries
 
-* Responsive navigation
-* Footer
-* Brand typography and colors
-* Service pages
-* About page
-* Contact page
-* Case study templates
-* Search metadata
-* Social sharing metadata
-* Accessibility improvements
-* Custom domain migration
+Current controls and design rules include:
 
-### Phase 2: Demonstrated Capability
+- No credentials committed to GitHub
+- No secrets exposed through client-side code
+- No assessment answer persistence
+- No required personal-information collection for assessment use
+- Protected delivery into `main`
+- Immutable SHA pins for third-party GitHub Actions
+- Production dependency auditing
+- CodeQL scanning
+- Human review retained for advisory and controlled-process outputs
+- Confidential enterprise project details anonymized
 
-* Operational maturity assessment
-* Architecture recommendation explorer
-* Technical project walkthroughs
-* Embedded demonstration videos
-* Architecture diagrams
-* Selected GitHub repository links
-* Measurable case study outcomes
+Future backend work must add:
 
-### Phase 3: Workflow Integration
+- Server-side input validation
+- Explicit authentication and authorization where required
+- Least-privilege service identities
+- Secret Manager for runtime secrets
+- Structured logs without sensitive payloads
+- Retention and deletion rules for stored data
+- Abuse, rate, size, and cost controls
 
-* Structured consultation intake
-* Server-side form validation
-* Firestore lead records
-* Automated confirmation messages
-* Integration with the existing consultation preparation workflow
-* Optional internal lead-management interface
+## Case-study content standard
 
-## Content Strategy
+Case studies should lead with the operating problem and measurable outcome before presenting the technology stack.
 
-The website will prioritize evidence over marketing claims.
-
-Case studies should follow this structure:
+Preferred structure:
 
 ```text
-Problem
-Constraints
-Architecture
-Implementation
-Tradeoffs
 Outcome
-Lessons Learned
+Operating problem
+Constraints
+Design objectives
+Architecture
+Implementation decisions
+Controls and reliability
+Tradeoffs
+Result and operational effect
+Technical implementation details
 ```
 
-Where permitted, case studies should include:
+Technology is the mechanism behind the result, not the first value proposition.
 
-* Architecture diagrams
-* Screenshots
-* Technology choices
-* Design rationale
-* Security considerations
-* Deployment approach
-* Measurable results
-* Known limitations
+## Documentation authority
 
-Confidential enterprise work must be anonymized and stripped of proprietary details.
+The project documents have different roles:
 
-## Security Principles
+- `docs/DEVELOPMENT_NOTES.md` — chronological source of truth for implemented work and resolved issues
+- `ARCHITECTURE.md` — current architecture, boundaries, design rules, and approved target-state direction
+- `README.md` — repository entry point, setup, workflows, current capabilities, and contributor expectations
+- `docs/assessment-spec.md` — functional specification for the assessment engine
 
-The project will follow these baseline security practices:
+When documents disagree, the most recent development notes take precedence until the other documents are reconciled.
 
-* Do not commit credentials or secrets to GitHub.
-* Do not expose private credentials in browser code.
-* Validate all form submissions on the server.
-* Use least-privilege access for Google Cloud services.
-* Store sensitive configuration in Secret Manager.
-* Use restrictive Firestore security rules.
-* Avoid unnecessary collection of personal information.
-* Keep dependencies current.
-* Review deployment logs for failures and anomalies.
-* Separate public content from privileged backend operations.
+## Current roadmap
 
-## Architectural Boundaries
+Near-term priorities:
 
-The initial release will deliberately avoid unnecessary complexity.
+1. Reorder case-study heroes so outcomes precede technology.
+2. Add explicit current-state and target-state labels throughout public documentation.
+3. Surface the cloud-engineering knowledge base through About, Insights, and the footer without crowding primary navigation.
+4. Add automated accessibility checks and end-to-end browser tests.
+5. Investigate recurrent 4xx request paths and App Hosting scaling configuration.
+6. Select the next real backend capability and design it with TDD, 12-factor principles, and Terraform from the beginning.
 
-The project will not initially include:
+Potential backend candidates include:
 
-* Kubernetes
-* A custom content management system
-* A large microservice architecture
-* User accounts
-* A client portal
-* An AI chatbot
-* A database for static marketing content
-* Multiple backend services without a clear need
+- Secure consultation intake
+- Optional assessment result sharing
+- Consultation workflow handoff
+- Downloadable assessment report generation
+- Controlled asynchronous document generation
 
-These features may be considered later only if they solve a real business problem.
+## Deliberate non-goals
 
-## Project Principles
+The project does not add the following without a demonstrated need:
 
-The project is guided by the following principles:
-
-1. **Demonstrate capability instead of merely claiming it.**
-2. **Prefer simple managed services over unnecessary infrastructure.**
-3. **Keep content version controlled whenever practical.**
-4. **Automate repeatable deployment processes.**
-5. **Document architectural choices and tradeoffs.**
-6. **Add complexity only when justified by user or business needs.**
-7. **Treat the website as a production application, not a digital brochure.**
-
-## Repository Structure
-
-The exact structure may evolve, but the project will generally follow:
-
-```text
-mcqueen-cloud-website/
-├── public/
-├── src/
-│   └── app/
-│       ├── layout.tsx
-│       ├── page.tsx
-│       └── globals.css
-├── ARCHITECTURE.md
-├── README.md
-├── next.config.ts
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-└── eslint.config.mjs
-```
-
-## Documentation
-
-Project documentation includes:
-
-* `README.md` — project overview, setup, workflow, and roadmap
-* `ARCHITECTURE.md` — architecture diagram, technology choices, security principles, and planned cloud integrations
-
-Additional architecture decision records may be added later under:
-
-```text
-docs/decisions/
-```
-
-## Production Environment
-
-The current production test environment is hosted through Firebase App Hosting.
-
-The custom domain will not be moved until:
-
-* Core pages are complete
-* Mobile layouts are validated
-* Contact workflows are tested
-* Search metadata is configured
-* Analytics is working
-* The production build is stable
-* Redirect and domain settings are prepared
+- Kubernetes
+- A custom content management system
+- A large microservice architecture
+- User accounts
+- A client portal
+- An AI chatbot
+- A database for static marketing content
+- A redundant GitHub deployment workflow
+- A purposeless Secret Manager integration
+- Infrastructure created only to make the repository appear more complex
 
 ## License
 
