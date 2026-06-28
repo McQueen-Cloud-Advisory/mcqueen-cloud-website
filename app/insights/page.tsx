@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { insights } from "@/data/insights";
+import { EngineeringKnowledgeBaseLink } from "@/components/engagement/EngineeringKnowledgeBaseLink";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -205,4 +206,39 @@ export default function InsightsPage() {
       </section>
     </>
   );
+
+      <section className="px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/40 p-8 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+                Extended technical resource
+              </p>
+
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Go deeper into cloud engineering concepts and implementation
+                patterns.
+              </h2>
+
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+                The cloud engineering knowledge base provides structured
+                explanations of cloud platforms, architecture patterns,
+                security, networking, containers, serverless services, and
+                hands-on implementation work.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
+              <p className="leading-7 text-slate-400">
+                Use it as a deeper technical companion to the shorter
+                architecture decisions and implementation lessons published
+                here.
+              </p>
+
+              <EngineeringKnowledgeBaseLink className="mt-7" />
+            </div>
+          </div>
+        </div>
+      </section>
+
 }

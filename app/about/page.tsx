@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
+import { EngineeringKnowledgeBaseLink } from "@/components/engagement/EngineeringKnowledgeBaseLink";
 
 export const metadata: Metadata = {
   title: "About",
@@ -221,6 +222,51 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+
+      <section className="border-y border-slate-800 bg-slate-900/40 px-6 py-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+              Continuous technical development
+            </p>
+
+            <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Cloud architecture knowledge made visible.
+            </h2>
+
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              The cloud engineering knowledge base documents platform concepts,
+              architecture decisions, implementation patterns, hands-on labs,
+              and lessons from building with modern cloud services.
+            </p>
+
+            <p className="mt-5 max-w-3xl leading-7 text-slate-400">
+              It gives technical evaluators a deeper view into how Scott
+              approaches cloud architecture and continuous learning without
+              forcing business visitors through implementation-level detail.
+            </p>
+          </div>
+
+          <aside className="rounded-2xl border border-slate-800 bg-slate-950 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Cloud engineering knowledge base
+            </p>
+
+            <h3 className="mt-4 text-2xl font-semibold text-white">
+              Explore the technical foundation behind the advisory work.
+            </h3>
+
+            <p className="mt-5 leading-7 text-slate-400">
+              Review structured guidance covering cloud platforms, networking,
+              identity, containers, serverless architecture, data services, and
+              delivery practices.
+            </p>
+
+            <EngineeringKnowledgeBaseLink className="mt-8" />
+          </aside>
         </div>
       </section>
 
