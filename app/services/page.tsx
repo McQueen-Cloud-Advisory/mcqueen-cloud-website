@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -264,27 +265,14 @@ export default function ServicesPage() {
       </section>
 
       <section className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-5xl rounded-3xl border border-blue-400/20 bg-blue-400/10 px-8 py-14 text-center sm:px-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-            Start with the operating problem
-          </p>
-
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Determine what should be fixed before deciding what should be
-            built.
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            A focused initial discussion can clarify the problem, likely scope,
-            and whether a technical engagement is justified.
-          </p>
-
-          <Link
-            href="/contact"
-            className="mt-9 inline-flex rounded-md bg-blue-500 px-6 py-3 font-semibold text-white transition hover:bg-blue-400"
-          >
-            Discuss your project
-          </Link>
+        <div className="mx-auto max-w-5xl">
+          <AssessmentPathCta
+            eyebrow="Find the right starting point"
+            title="Clarify what should improve before deciding what should be built."
+            description="Use the readiness assessment when the problem is real but the correct initiative is not yet clear. If the scope and desired outcome are already defined, start a direct project conversation instead."
+            assessmentLabel="Find your starting point"
+            contactLabel="Discuss a defined project"
+          />
         </div>
       </section>
     </>

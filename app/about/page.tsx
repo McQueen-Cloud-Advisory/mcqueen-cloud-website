@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 
 export const metadata: Metadata = {
   title: "About",
@@ -77,22 +78,25 @@ export default function AboutPage() {
 
             <div className="mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-300">
               <p>
-                McQueen Cloud Advisory was created to help organizations solve
-                operational problems that sit between business processes,
-                analytics, automation, and cloud technology.
+                McQueen Cloud Advisory was founded on a simple belief: a tool is
+                never a substitute for a strategy. Technology should clarify an
+                operating problem, not distract from it.
               </p>
 
               <p>
-                Those problems are often difficult not because the technology
-                is unavailable, but because requirements are unclear, data is
-                fragmented, ownership is divided, and the existing process has
-                grown through years of workarounds.
+                The firm helps organizations solve problems that sit between
+                business processes, analytics, automation, governance, and
+                cloud technology. Those problems are often difficult not
+                because technology is unavailable, but because requirements are
+                unclear, data is fragmented, ownership is divided, and the
+                existing process has grown through years of workarounds.
               </p>
 
               <p>
-                The firm&apos;s role is to translate those conditions into a
-                practical design: one that improves the work, can be explained
-                to stakeholders, and can be supported after implementation.
+                The work is therefore designed around practical judgment:
+                understand the process, identify the real constraint, select the
+                smallest credible solution, and preserve the controls and human
+                decisions that still matter.
               </p>
             </div>
           </div>
@@ -111,23 +115,29 @@ export default function AboutPage() {
             </p>
 
             <p className="mt-6 leading-7 text-slate-300">
-              Scott is an enterprise data and analytics professional with
-              experience spanning operational analytics, financial reporting,
-              data engineering, cloud platforms, process improvement, and
-              technical delivery.
+              Scott is an enterprise data and analytics professional whose work
+              spans operational analytics, financial reporting, data
+              engineering, cloud platforms, process improvement, and technical
+              delivery.
             </p>
 
             <p className="mt-5 leading-7 text-slate-300">
-              His work focuses on translating business needs into systems that
-              are measurable, maintainable, and useful in real operating
-              environments.
+              He approaches consulting as an advisor first: define the operating
+              problem, make the tradeoffs visible, and avoid adding complexity
+              that the organization cannot support.
+            </p>
+
+            <p className="mt-5 leading-7 text-slate-300">
+              His goal is not to recommend the most impressive platform. It is
+              to design systems that are measurable, maintainable, explainable,
+              and useful in real operating environments.
             </p>
 
             <Link
-              href="/contact"
+              href="/work"
               className="mt-8 inline-flex rounded-md bg-blue-500 px-5 py-3 font-semibold text-white transition hover:bg-blue-400"
             >
-              Discuss a project
+              See the approach in practice
             </Link>
           </aside>
         </div>
@@ -183,8 +193,10 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-6 text-lg leading-8 text-slate-300">
-                These principles guide how problems are evaluated and how
-                solutions are designed.
+                These are not abstract brand statements. They reflect how Scott
+                evaluates opportunities, challenges assumptions, and helps
+                clients avoid expensive technology decisions that do not fit
+                the operating need.
               </p>
             </div>
 
@@ -287,36 +299,14 @@ export default function AboutPage() {
       </section>
 
       <section className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-5xl rounded-3xl border border-blue-400/20 bg-blue-400/10 px-8 py-14 text-center sm:px-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-            Have a difficult process or reporting problem?
-          </p>
-
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Start by clarifying the problem before committing to a solution.
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            An initial discussion can identify the affected process,
-            constraints, likely options, and whether a technical engagement
-            makes sense.
-          </p>
-
-          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="rounded-md bg-blue-500 px-6 py-3 font-semibold text-white transition hover:bg-blue-400"
-            >
-              Discuss your project
-            </Link>
-
-            <Link
-              href="/work"
-              className="rounded-md border border-slate-600 px-6 py-3 font-semibold text-white transition hover:border-slate-400"
-            >
-              View selected work
-            </Link>
-          </div>
+        <div className="mx-auto max-w-5xl">
+          <AssessmentPathCta
+            eyebrow="Start with the operating problem"
+            title="Clarify the constraint before committing to a solution."
+            description="Use the readiness assessment when you need help identifying the most important modernization priority. If the problem, scope, and desired outcome are already defined, start a direct project conversation."
+            assessmentLabel="Identify your starting point"
+            contactLabel="Discuss a defined project"
+          />
         </div>
       </section>
     </>
