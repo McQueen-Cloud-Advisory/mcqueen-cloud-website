@@ -76,7 +76,7 @@ The current assessment runs entirely in the browser:
 
 No assessment answers are persisted, and no personal information is required.
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for current-state boundaries, target-state options, 12-factor alignment, testing expectations, and infrastructure-as-code strategy.
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for current-state boundaries, target-state options, 12-factor alignment, testing expectations, and infrastructure-as-code strategy.
 
 ## Technology stack
 
@@ -111,11 +111,11 @@ mcqueen-cloud-website/
 │   └── assessment/
 ├── docs/
 │   ├── assessment-spec.md
-│   └── DEVELOPMENT_NOTES.md
+│   ├── DEVELOPMENT_NOTES.md
+│   └── ARCHITECTURE.md
 ├── .github/
 │   └── workflows/
 │       └── ci.yml
-├── ARCHITECTURE.md
 ├── README.md
 ├── package.json
 ├── package-lock.json
@@ -342,7 +342,7 @@ Technology is the mechanism behind the result, not the first value proposition.
 The project documents have different roles:
 
 - `docs/DEVELOPMENT_NOTES.md` — chronological source of truth for implemented work and resolved issues
-- `ARCHITECTURE.md` — current architecture, boundaries, design rules, and approved target-state direction
+- `docs/ARCHITECTURE.md` — current architecture, boundaries, design rules, and approved target-state direction
 - `README.md` — repository entry point, setup, workflows, current capabilities, and contributor expectations
 - `docs/assessment-spec.md` — functional specification for the assessment engine
 

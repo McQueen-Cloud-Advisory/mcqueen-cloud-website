@@ -14,7 +14,7 @@ The website was designed to do more than describe the company. It was intended t
 - Secure, maintainable implementation choices
 - Business-focused communication
 
-These notes document the project chronologically. They complement `README.md`, which explains how to use and run the repository, and `ARCHITECTURE.md`, which explains the technical design and major platform choices.
+These notes document the project chronologically. They complement `README.md`, which explains how to use and run the repository, and `docs/ARCHITECTURE.md`, which explains the technical design and major platform choices.
 
 ---
 
@@ -175,7 +175,7 @@ The README documents:
 - Repository structure
 - Architectural boundaries
 
-### `ARCHITECTURE.md`
+### `docs/ARCHITECTURE.md`
 
 The architecture document includes:
 
@@ -2138,4 +2138,139 @@ npm run build
 npx playwright test --workers=1
 git diff --check
 ```
+
+## 41. Established the Terraform infrastructure foundation
+
+The repository added its first implemented infrastructure-as-code layer.
+
+Created:
+
+```text
+infra/
+??? bootstrap/
+??? environments/
+?   ??? dev/
+?   ??? prod/
+??? modules/
+?   ??? cost-controls/
+?   ??? identity/
+?   ??? observability/
+?   ??? project-services/
+?   ??? secrets/
+??? README.md
+??? versions.tf
+```
+
+### Infrastructure boundaries
+
+The Terraform documentation separates resources into three categories:
+
+- Terraform-managed Google Cloud resources
+- Firebase-managed hosting and rollout infrastructure
+- Manually configured controls such as DNS, repository rules, billing association, and initial bootstrap authentication
+
+This prevents the repository from representing Firebase-managed infrastructure as though it were directly provisioned by Terraform.
+
+### Bootstrap configuration
+
+The bootstrap root defines a future Google Cloud Storage state bucket with:
+
+- Uniform bucket-level access
+- Public access prevention
+- Object versioning
+- Protected deletion behavior
+- Shared ownership and purpose labels
+- Regional placement in `us-east4`
+
+The state bucket has not yet been applied.
+
+### Environment separation
+
+Separate Terraform roots were created for:
+
+```text
+infra/environments/dev
+infra/environments/prod
+```
+
+Each environment defines:
+
+- Project ID input
+- Default region
+- Environment validation
+- Shared resource labels
+- Google provider configuration
+- Remote GCS backend placeholders
+- Example backend and variable files
+
+Development and production state will use separate backend prefixes.
+
+### Provider validation
+
+Terraform selected:
+
+```text
+hashicorp/google v7.38.0
+```
+
+Local provider installation required a filesystem mirror because the Windows network path could not reliably download the provider directly from HashiCorp.
+
+The bootstrap, development, and production configurations all initialized and returned:
+
+```text
+Success! The configuration is valid.
+```
+
+No Terraform plan or apply was performed.
+
+### CI integration
+
+The GitHub Actions workflow now includes a Terraform matrix covering:
+
+- Bootstrap
+- Development
+- Production
+
+The Terraform job performs:
+
+1. Terraform setup
+2. Recursive formatting validation
+3. Backend-disabled initialization
+4. Configuration validation
+
+The CI job does not authenticate to Google Cloud and does not create or modify infrastructure.
+
+### Documentation organization
+
+The architecture document was moved to:
+
+```text
+docs/ARCHITECTURE.md
+```
+
+The duplicate root-level development-notes file was removed.
+
+The canonical documentation locations are now:
+
+```text
+docs/ARCHITECTURE.md
+docs/DEVELOPMENT_NOTES.md
+docs/SITE_ENGINEERING_PLAN.md
+```
+
+### Current milestone
+
+The repository now demonstrates:
+
+- Terraform repository organization
+- Bootstrap separation
+- Development and production roots
+- Remote-state design
+- Provider constraints
+- Environment validation
+- Cost-sensitive module boundaries
+- CI-based Terraform validation
+- Explicit separation between implemented and planned infrastructure
+
+Actual Google Cloud provisioning remains a later, intentional step.
 
