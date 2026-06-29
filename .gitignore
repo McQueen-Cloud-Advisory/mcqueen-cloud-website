@@ -39,3 +39,37 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+
+$gitignorePath = ".\.gitignore"
+$gitignore = [System.IO.File]::ReadAllText($gitignorePath)
+
+$terraformIgnore = @'
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfplan
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Playwright
+/playwright-report/
+/test-results/
+'@
+
+if ($gitignore -notmatch '(?m)^# Terraform$') {
+  [System.IO.File]::WriteAllText(
+    $gitignorePath,
+    $gitignore.TrimEnd() + $terraformIgnore + "`n",
+    $utf8NoBom
+  )
+}

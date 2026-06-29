@@ -206,7 +206,7 @@ Before implementation:
 ### Authority order
 
 1. `docs/DEVELOPMENT_NOTES.md`
-2. `ARCHITECTURE.md`
+2. `docs/ARCHITECTURE.md`
 3. `README.md`
 4. Feature specifications and ADRs
 

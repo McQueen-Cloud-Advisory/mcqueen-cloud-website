@@ -377,12 +377,68 @@ Do not create:
 - Multiple Cloud Run services where one bounded service is sufficient
 - Kubernetes infrastructure for a low-volume website backend
 
+## Implemented infrastructure-as-code foundation
+
+Terraform is now present as an implemented repository capability rather than only a target-state recommendation.
+
+The current foundation includes:
+
+```text
+infra/
+??? bootstrap/
+??? environments/
+?   ??? dev/
+?   ??? prod/
+??? modules/
+?   ??? cost-controls/
+?   ??? identity/
+?   ??? observability/
+?   ??? project-services/
+?   ??? secrets/
+??? README.md
+??? versions.tf
+```
+
+### Implemented boundaries
+
+The current Terraform configuration provides:
+
+- A bootstrap root for a protected Google Cloud Storage state bucket
+- Separate development and production root configurations
+- Google provider and Terraform compatibility constraints
+- Shared environment and region conventions
+- A default Google Cloud region of `us-east4`
+- Remote-state backend placeholders
+- Module boundaries for project services, identity, secrets, cost controls, and observability
+- Repository ignore rules for state, plans, provider working directories, and variable files
+- CI formatting, initialization, and validation for bootstrap, development, and production roots
+
+### Current provisioning status
+
+No Google Cloud resources have been applied from this repository yet.
+
+The current milestone establishes a validated and reviewable infrastructure foundation without claiming that planned IAM, Secret Manager, budget, monitoring, or workload resources already exist.
+
+### Delivery rule
+
+Terraform changes follow the same protected delivery model as application changes:
+
+```text
+Feature branch
+? formatting and validation
+? pull request review
+? protected main branch
+? intentional infrastructure apply
+```
+
+Production apply automation will not be introduced until remote state, deployment identity, permissions, recovery procedures, and approval controls are proven.
+
 ## Current-state versus target-state matrix
 
 | Capability | Current state | Approved direction |
 | --- | --- | --- |
 | Public web hosting | Firebase App Hosting | Retain unless operating requirements change |
-| CI | GitHub Actions | Expand with accessibility and end-to-end checks |
+| CI | GitHub Actions validates application and Terraform configurations | Add plan and policy checks when deployment credentials are introduced |
 | CD | Firebase App Hosting from `main` | Retain; do not duplicate |
 | Assessment execution | Client-side deterministic engine | Retain deterministic source of truth |
 | Assessment storage | None | Add only for explicit sharing or lead-capture use cases |
@@ -390,7 +446,7 @@ Do not create:
 | Backend API | None owned directly by this repository | Use Cloud Run for a real bounded capability |
 | Secrets | No runtime secret requirement in the public app | Use Secret Manager when a backend integration requires it |
 | Database | None | Firestore only when persistence is justified |
-| IaC | Not yet implemented | Terraform around the first owned backend boundary |
+| IaC | Terraform foundation implemented with bootstrap, dev, and prod roots | Provision supporting resources incrementally around real workload requirements |
 | Logging | Managed platform logs | Add structured application events and actionable alerts |
 | Analytics | Not yet established as a required system | Add only with explicit privacy and conversion goals |
 | TDD | Implemented for assessment engine | Default development method for future behavior |
