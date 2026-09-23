@@ -30,6 +30,10 @@ export const metadata: Metadata = {
 
   description: siteDescription,
 
+  other: {
+    "google-adsense-account": "ca-pub-4166370175402297",
+  },
+
   applicationName: "McQueen Cloud Advisory",
 
   creator: "McQueen Cloud Advisory",
