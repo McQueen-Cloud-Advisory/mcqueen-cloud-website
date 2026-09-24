@@ -30,13 +30,27 @@ are unchanged. No package dependencies or infrastructure were added.
 
 A reusable independent-project feature on the homepage and Work page links to
 [Everything is Random](https://everythingisrandom.mcqueencloud.com/). It introduces
-the free tools for games, decisions, creative ideas, and random data, with a
-small original illustration of those categories. The link opens in a new tab
+the game-night experience first, followed by decision, team, and random-data
+tools, with a small original illustration. The link opens in a new tab
 with an accessible notice.
 
-The description is grounded in that project's README and tool registry. The
-canonical non-www address was verified to return HTTP 200; the extra www prefix
-did not resolve. The advisory site does not embed or run the random generators.
+The description was refined after browsing the live product, including its
+homepage, [About page](https://everythingisrandom.mcqueencloud.com/why/),
+[charades](https://everythingisrandom.mcqueencloud.com/tools/charades/),
+[drawing game](https://everythingisrandom.mcqueencloud.com/tools/drawing-game/),
+[decision wheel](https://everythingisrandom.mcqueencloud.com/tools/decision-wheel/),
+[random teams](https://everythingisrandom.mcqueencloud.com/tools/random-teams/),
+and [UUID generator](https://everythingisrandom.mcqueencloud.com/tools/uuid-generator/).
+Live interaction confirmed hidden prompt reveals, timer starts, correct-answer
+scoring, and completed rounds in both games, plus a decision-wheel result,
+an even split of four sample participants into two teams, and UUID generation.
+Drawing uses paper or a whiteboard; the site supplies prompts, timing, and scores.
+The feature avoids a hard-coded tool count or blanket privacy claims. The live
+[privacy page](https://everythingisrandom.mcqueencloud.com/privacy/) distinguishes
+tool data held in tab memory from stored preferences and site analytics.
+
+The canonical non-www address returns HTTP 200; the extra www prefix did not
+resolve. The advisory site does not embed or run the random generators.
 
 ## Motion
 
