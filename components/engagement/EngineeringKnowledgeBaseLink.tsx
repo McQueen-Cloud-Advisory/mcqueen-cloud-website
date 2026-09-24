@@ -13,8 +13,8 @@ export function EngineeringKnowledgeBaseLink({
 }: EngineeringKnowledgeBaseLinkProps) {
   const baseClasses =
     variant === "button"
-      ? "inline-flex rounded-md border border-blue-400/40 bg-blue-400/10 px-5 py-3 font-semibold text-blue-200 transition hover:border-blue-300 hover:bg-blue-400/20 hover:text-white"
-      : "font-semibold text-blue-400 transition hover:text-blue-300";
+      ? "button button-secondary"
+      : "text-link";
 
   return (
     <a

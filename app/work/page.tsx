@@ -1,87 +1,62 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
+import { IndependentProjectFeature } from "@/components/engagement/IndependentProjectFeature";
+import { ProjectDiagram } from "@/components/visuals/ProjectDiagram";
 import { projects } from "@/data/projects";
+import "./work.css";
+
+export const metadata: Metadata = {
+  title: "Selected Work",
+  description: "Explore financial reconciliation, consultation automation, and Everything is Random: real outcomes, explainable architecture, and independent product development.",
+};
+
+const orderedProjects = [...projects].sort((first, second) =>
+  Number(second.slug === "enterprise-financial-reconciliation") -
+  Number(first.slug === "enterprise-financial-reconciliation"),
+);
 
 export default function WorkPage() {
   return (
     <>
-      <section className="px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-            Selected work
-          </p>
-
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Systems designed around real operational problems.
-          </h1>
-
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            These projects show how business requirements are translated into
-            practical architecture, automated workflows, governed data, and
-            reliable cloud deployments.
-          </p>
+      <section className="page-intro">
+        <div className="site-shell">
+          <p className="eyebrow">Selected work / Systems & products</p>
+          <h1 className="display-title mt-6 max-w-4xl">Real problems.<br /><span className="text-muted">Considered systems.</span></h1>
+          <p className="lede mt-7 max-w-2xl">A closer look at the decisions, architecture, and outcomes behind the work. Built around the way organizations actually operate.</p>
         </div>
       </section>
 
-      <section className="border-t border-slate-800 px-6 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8">
-          {projects.map((project) => (
-            <article
-              key={project.slug}
-              className="rounded-2xl border border-slate-800 bg-slate-900/40 p-8"
-            >
-              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-                <div className="max-w-3xl">
-                  <div className="flex flex-wrap gap-3">
-                    <span className="rounded-full border border-blue-400/30 bg-blue-400/10 px-3 py-1 text-xs font-semibold text-blue-300">
-                      {project.category}
-                    </span>
+      <section className="site-shell work-index" aria-label="Project case studies">
+        {orderedProjects.map((project, index) => {
+          const kind = project.slug === "enterprise-financial-reconciliation" ? "financial" : "consultation";
 
-                    <span className="rounded-full border border-slate-700 px-3 py-1 text-xs font-medium text-slate-400">
-                      {project.status}
-                    </span>
-                  </div>
-
-                  <h2 className="mt-6 text-2xl font-semibold text-white">
-                    {project.title}
-                  </h2>
-
-                  <p className="mt-4 leading-7 text-slate-300">
-                    {project.summary}
-                  </p>
-
-                  <ul className="mt-6 flex flex-wrap gap-2">
-                    {project.technologies.map((technology) => (
-                      <li
-                        key={technology}
-                        className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
-                      >
-                        {technology}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <Link
-                  href={`/work/${project.slug}`}
-                  className="inline-flex shrink-0 items-center justify-center rounded-md bg-blue-500 px-5 py-3 font-semibold text-white transition hover:bg-blue-400"
-                >
-                  Read case study
-                </Link>
+          return (
+            <article className="work-project" key={project.slug}>
+              <div className="work-project-copy">
+                <p className="work-project-number">0{index + 1} / {project.category}</p>
+                <h2 className="work-project-title">{project.title}</h2>
+                <p className="mt-5 text-base leading-7 text-muted">{project.summary}</p>
+                <p className="work-project-outcome">{project.outcome}</p>
+                <p className="work-project-status">{project.status}</p>
+                <Link href={"/work/" + project.slug} className="text-link mt-7">Explore the case study <span aria-hidden="true">↗</span></Link>
               </div>
+              <ProjectDiagram kind={kind} compact />
             </article>
-          ))}
-        </div>
+          );
+        })}
+        <IndependentProjectFeature />
       </section>
-      <section>
-        <AssessmentPathCta
-          eyebrow="Apply the same thinking to your organization"
-          title="Not sure whether automation is the right next investment?"
-          description="The readiness assessment evaluates whether your data, governance, cloud architecture, and technical support model are strong enough to sustain workflow automation—or whether another constraint should be addressed first."
-          assessmentLabel="Assess your readiness"
-          contactLabel="Discuss an automation opportunity"
-        />
-      </section>
+
+      <div className="site-shell pb-20">
+      <AssessmentPathCta
+        eyebrow="Explore the approach"
+        title="Where would you start?"
+        description="The readiness assessment applies the same thinking to your operating foundation: data, governance, architecture, automation, and the ability to support it."
+        assessmentLabel="Assess your readiness"
+        contactLabel="Discuss an automation opportunity"
+      />
+      </div>
     </>
   );
 }

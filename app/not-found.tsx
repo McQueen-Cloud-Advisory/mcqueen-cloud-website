@@ -1,43 +1,15 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[70vh] items-center px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
-          Error 404
-        </p>
-
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          This page could not be found.
-        </h1>
-
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-          The address may be incorrect, the page may have moved, or the content
-          may no longer be available.
-        </p>
-
-        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-          <Link
-            href="/"
-            className="rounded-md bg-blue-500 px-6 py-3 text-center font-semibold text-white transition hover:bg-blue-400"
-          >
-            Return home
-          </Link>
-
-          <Link
-            href="/work"
-            className="rounded-md border border-slate-600 px-6 py-3 text-center font-semibold text-white transition hover:border-slate-400 hover:bg-slate-900"
-          >
-            View selected work
-          </Link>
-
-          <Link
-            href="/contact"
-            className="rounded-md border border-slate-600 px-6 py-3 text-center font-semibold text-white transition hover:border-slate-400 hover:bg-slate-900"
-          >
-            Contact us
-          </Link>
+    <section className="site-shell flex min-h-[70vh] items-center py-24">
+      <div className="w-full border-t border-line pt-10">
+        <p className="eyebrow">404 / Address not found</p>
+        <h1 className="display-title mt-6 max-w-4xl">A missing connection.</h1>
+        <p className="lede mt-8 max-w-xl">This page may have moved, or the address may be incorrect. There is still plenty to explore.</p>
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <Link href="/" className="button button-primary">Return home <span aria-hidden="true">↗</span></Link>
+          <Link href="/work" className="button button-secondary">View selected work</Link>
         </div>
       </div>
     </section>

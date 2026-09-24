@@ -1,52 +1,29 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { EngineeringKnowledgeBaseLink } from "@/components/engagement/EngineeringKnowledgeBaseLink";
+import { BrandMark } from "@/components/visuals/BrandMark";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-2 lg:px-8">
-        <div>
-          <p className="text-lg font-semibold text-white">
-            McQueen Cloud Advisory
-          </p>
-
-          <p className="mt-3 max-w-md text-sm leading-6 text-slate-400">
-            Practical analytics, workflow automation, and Google Cloud
-            solutions designed around real operational needs.
-          </p>
-        </div>
-
-        <div className="md:text-right">
-          <p className="text-sm text-slate-400">
-            Turning data into action. Turning action into impact.
-          </p>
-
-          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3 md:justify-end">
-            <Link
-              href="/about"
-              className="text-sm text-slate-400 hover:text-white"
-            >
-              About
+    <footer className="border-t border-line bg-white">
+      <div className="site-shell">
+        <div className="footer-top">
+          <div>
+            <Link href="/" className="brand" aria-label="McQueen Cloud Advisory home">
+              <BrandMark size={30} />
+              <span className="text-lg font-semibold tracking-tight">McQueen Cloud Advisory</span>
             </Link>
-
-            <Link
-              href="/contact"
-              className="text-sm text-slate-400 hover:text-white"
-            >
-              Contact
-            </Link>
-
-            <EngineeringKnowledgeBaseLink
-              variant="text"
-              label="Cloud engineering knowledge base"
-              className="text-sm"
-            />
+            <p className="mt-5 max-w-sm text-sm leading-7 text-muted">Thoughtful architecture. Dependable systems.<br />A clear path from complexity to useful work.</p>
           </div>
-
-          <p className="mt-6 text-xs text-slate-500">
-            © {new Date().getFullYear()} McQueen Cloud Advisory. All rights
-            reserved.
-          </p>
+          <nav aria-label="Footer navigation" className="footer-links">
+            <Link href="/work" className="text-link">Work</Link>
+            <Link href="/about" className="text-link">About</Link>
+            <Link href="/contact" className="text-link">Contact</Link>
+            <EngineeringKnowledgeBaseLink variant="text" label="Cloud engineering knowledge base" />
+          </nav>
+        </div>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} McQueen Cloud Advisory</p>
+          <p className="font-mono text-[10px] uppercase tracking-widest">Analytics / Automation / Architecture</p>
         </div>
       </div>
     </footer>
