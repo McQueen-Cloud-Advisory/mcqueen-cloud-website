@@ -8,7 +8,8 @@ export function IndependentProjectFeature() {
       <div className={styles.copy}>
         <p className="eyebrow">Independent project / Live on the web</p>
         <h2 id="independent-project-title">Everything is Random.</h2>
-        <p>A playful side of the same engineering practice. Free browser tools for games, decisions, creative ideas, and random data—from a quick dice roll to your next game of charades.</p>
+        <p>A playful side of the same engineering practice. Charades and drawing games bring hidden prompts, round timers, and team scores to your next game night.</p>
+        <p>Spin a decision wheel, organize random teams, or generate data for a project. The games and tools are free to use in your browser, with no account required.</p>
         <a href={everythingIsRandomUrl} target="_blank" rel="noopener noreferrer" className="text-link">
           Explore Everything is Random <span aria-hidden="true">↗</span>
           <span className="sr-only"> (opens in a new tab)</span>
@@ -25,7 +26,7 @@ export function IndependentProjectFeature() {
         </div>
         <div className={styles.tile}>
           <svg viewBox="0 0 48 48" fill="none"><path d="m10 34 2-9L32 5l9 9-20 20-11 2Zm3-10 10 10M28 9l9 9M9 42h30" /></svg>
-          <span>Ideas</span>
+          <span>Drawing</span>
         </div>
         <div className={styles.tile}>
           <svg viewBox="0 0 48 48" fill="none"><path d="m15 10-9 14 9 14m18-28 9 14-9 14M27 8l-6 32" /></svg>
