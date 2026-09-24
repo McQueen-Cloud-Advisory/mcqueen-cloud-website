@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 
@@ -82,47 +82,51 @@ const reconsiderationTriggers = [
 export default function FirebaseAppHostingInsightPage() {
   return (
     <>
-      <article>
+      <article className="pb-4">
         <header className="px-6 py-20 lg:px-8">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-3xl">
             <Link
               href="/insights"
-              className="text-sm font-semibold text-blue-400 transition hover:text-blue-300"
+              className="text-link text-sm"
             >
               ← Back to insights
             </Link>
 
-            <p className="mt-10 text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+            <p className="mt-10 font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">
               Architecture decision
             </p>
 
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <h1 className="mt-4 text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-ink sm:text-6xl">
               Why This Website Uses Firebase App Hosting
             </h1>
 
-            <p className="mt-8 text-xl leading-9 text-slate-300">
+            <p className="mt-8 text-xl leading-9 text-muted">
               The platform was selected not simply because it is a Google
               product, but because it provides a proportionate path from a
               professional content site to a working cloud application.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4 text-sm text-slate-500">
-              <span>June 2026</span>
-              <span aria-hidden="true">•</span>
-              <span>7 minute read</span>
-              <span aria-hidden="true">•</span>
-              <span>McQueen Cloud Advisory</span>
+            <div className="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
+              <span className="inline-flex items-center gap-4">
+                <span>June 2026</span>
+                <span aria-hidden="true">•</span>
+                <span>7 minute read</span>
+              </span>
+              <span className="w-full sm:w-auto">
+                <span aria-hidden="true" className="mr-4 hidden sm:inline">•</span>
+                McQueen Cloud Advisory
+              </span>
             </div>
           </div>
         </header>
 
-        <section className="border-y border-slate-800 bg-slate-900/40 px-6 py-16 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+        <section className="border-y border-line bg-white px-6 py-16 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">
               Decision summary
             </p>
 
-            <p className="mt-5 text-2xl font-semibold leading-10 text-white">
+            <p className="mt-5 text-2xl font-semibold leading-10 text-ink">
               Use Next.js with Firebase App Hosting to provide managed,
               GitHub-driven deployment today while preserving a practical path
               toward dynamic features and Google Cloud integrations later.
@@ -131,13 +135,13 @@ export default function FirebaseAppHostingInsightPage() {
         </section>
 
         <div className="px-6 py-20 lg:px-8">
-          <div className="mx-auto max-w-4xl space-y-20">
+          <div className="mx-auto max-w-3xl space-y-20">
             <section>
-              <h2 className="text-3xl font-semibold text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-ink">
                 The website requirement
               </h2>
 
-              <div className="mt-6 space-y-5 text-lg leading-8 text-slate-300">
+              <div className="mt-6 space-y-5 text-lg leading-8 text-muted">
                 <p>
                   The objective was not merely to replace one marketing page
                   with another. The website needed to become evidence that
@@ -157,11 +161,11 @@ export default function FirebaseAppHostingInsightPage() {
                 {requirements.map((requirement) => (
                   <li
                     key={requirement}
-                    className="flex gap-3 rounded-xl border border-slate-800 bg-slate-900/40 p-5 leading-7 text-slate-300"
+                    className="flex gap-3 border-t border-line pt-5 leading-7 text-muted"
                   >
                     <span
                       aria-hidden="true"
-                      className="mt-1 font-semibold text-blue-400"
+                      className="mt-1 font-semibold text-accent"
                     >
                       ✓
                     </span>
@@ -173,43 +177,43 @@ export default function FirebaseAppHostingInsightPage() {
             </section>
 
             <section>
-              <h2 className="text-3xl font-semibold text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-ink">
                 Options considered
               </h2>
 
-              <p className="mt-6 text-lg leading-8 text-slate-300">
+              <p className="mt-6 text-lg leading-8 text-muted">
                 Each option could host some version of the site. The question
                 was which one best fit both the current need and the intended
                 direction without adding unjustified complexity.
               </p>
 
-              <div className="mt-8 space-y-6">
+              <div className="mt-8 border-t border-line">
                 {options.map((option) => (
                   <article
                     key={option.name}
-                    className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7"
+                    className="border-b border-line py-8"
                   >
-                    <h3 className="text-2xl font-semibold text-white">
+                    <h3 className="text-2xl font-semibold text-ink">
                       {option.name}
                     </h3>
 
                     <div className="mt-6 grid gap-6 sm:grid-cols-2">
                       <div>
-                        <p className="text-sm font-semibold uppercase tracking-wide text-blue-400">
+                        <p className="text-sm font-semibold uppercase tracking-wide text-accent">
                           Strength
                         </p>
 
-                        <p className="mt-3 leading-7 text-slate-300">
+                        <p className="mt-3 leading-7 text-muted">
                           {option.strengths}
                         </p>
                       </div>
 
                       <div>
-                        <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                        <p className="text-sm font-semibold uppercase tracking-wide text-muted">
                           Limitation for this project
                         </p>
 
-                        <p className="mt-3 leading-7 text-slate-400">
+                        <p className="mt-3 leading-7 text-muted">
                           {option.limitation}
                         </p>
                       </div>
@@ -220,17 +224,17 @@ export default function FirebaseAppHostingInsightPage() {
             </section>
 
             <section>
-              <h2 className="text-3xl font-semibold text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-ink">
                 Deployment architecture
               </h2>
 
-              <p className="mt-6 text-lg leading-8 text-slate-300">
+              <p className="mt-6 text-lg leading-8 text-muted">
                 The source repository remains the system of record. A push to
                 the production branch triggers a managed build and rollout
                 rather than a manual upload.
               </p>
 
-              <div className="mt-10 grid gap-4 md:grid-cols-5 md:items-center">
+              <ol className="mt-10 grid gap-3 md:grid-cols-5">
                 {[
                   "Local development",
                   "GitHub main branch",
@@ -238,25 +242,15 @@ export default function FirebaseAppHostingInsightPage() {
                   "Cloud Run revision",
                   "App Hosting URL",
                 ].map((step, index) => (
-                  <div key={step} className="contents">
-                    <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-5 text-center text-sm font-medium text-slate-300">
-                      {step}
-                    </div>
-
-                    {index < 4 && (
-                      <div
-                        aria-hidden="true"
-                        className="text-center text-blue-400 md:hidden"
-                      >
-                        ↓
-                      </div>
-                    )}
-                  </div>
+                  <li key={step} className="flex items-center gap-5 border-t-2 border-accent bg-white p-4 md:flex-col md:items-start md:gap-5">
+                    <span aria-hidden="true" className="font-mono text-xs text-accent">0{index + 1}</span>
+                    <span className="text-sm font-medium leading-6">{step}</span>
+                  </li>
                 ))}
-              </div>
+              </ol>
 
-              <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-950 p-7">
-                <p className="leading-8 text-slate-300">
+              <div className="mt-8 rounded-none border border-line bg-white p-7">
+                <p className="leading-8 text-muted">
                   Firebase App Hosting uses Google-managed build and runtime
                   services beneath the Firebase interface. This preserves a
                   relatively simple developer workflow while still producing a
@@ -266,11 +260,11 @@ export default function FirebaseAppHostingInsightPage() {
             </section>
 
             <section>
-              <h2 className="text-3xl font-semibold text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-ink">
                 Why App Hosting was selected
               </h2>
 
-              <div className="mt-6 space-y-5 text-lg leading-8 text-slate-300">
+              <div className="mt-6 space-y-5 text-lg leading-8 text-muted">
                 <p>
                   App Hosting was the smallest managed platform that satisfied
                   the intended direction of the website without requiring a
@@ -294,7 +288,7 @@ export default function FirebaseAppHostingInsightPage() {
             </section>
 
             <section>
-              <h2 className="text-3xl font-semibold text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-ink">
                 Tradeoffs and limitations
               </h2>
 
@@ -302,13 +296,13 @@ export default function FirebaseAppHostingInsightPage() {
                 {tradeoffs.map((tradeoff) => (
                   <article
                     key={tradeoff.title}
-                    className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7"
+                    className="border-t border-line pt-6"
                   >
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-xl font-semibold text-ink">
                       {tradeoff.title}
                     </h3>
 
-                    <p className="mt-4 leading-7 text-slate-400">
+                    <p className="mt-4 leading-7 text-muted">
                       {tradeoff.description}
                     </p>
                   </article>
@@ -317,11 +311,11 @@ export default function FirebaseAppHostingInsightPage() {
             </section>
 
             <section>
-              <h2 className="text-3xl font-semibold text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-ink">
                 When the decision should be revisited
               </h2>
 
-              <p className="mt-6 text-lg leading-8 text-slate-300">
+              <p className="mt-6 text-lg leading-8 text-muted">
                 Architecture decisions are not permanent truths. The platform
                 should be reconsidered when the assumptions behind the choice
                 materially change.
@@ -331,11 +325,11 @@ export default function FirebaseAppHostingInsightPage() {
                 {reconsiderationTriggers.map((trigger) => (
                   <li
                     key={trigger}
-                    className="flex gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-5 leading-7 text-slate-300"
+                    className="flex gap-4 border-b border-line pb-4 leading-7 text-muted"
                   >
                     <span
                       aria-hidden="true"
-                      className="font-semibold text-blue-400"
+                      className="font-semibold text-accent"
                     >
                       —
                     </span>
@@ -347,11 +341,11 @@ export default function FirebaseAppHostingInsightPage() {
             </section>
 
             <section>
-              <h2 className="text-3xl font-semibold text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-ink">
                 Official references
               </h2>
 
-              <p className="mt-6 leading-8 text-slate-300">
+              <p className="mt-6 leading-8 text-muted">
                 The implementation and platform descriptions in this article
                 are based on the official Firebase documentation.
               </p>
@@ -361,7 +355,7 @@ export default function FirebaseAppHostingInsightPage() {
                   href="https://firebase.google.com/docs/app-hosting"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl border border-slate-800 p-5 font-semibold text-blue-400 transition hover:border-slate-600 hover:text-blue-300"
+                  className="border-b border-line py-4 font-medium text-accent transition hover:border-accent hover:text-ink"
                 >
                   Firebase App Hosting overview ↗
                 </a>
@@ -370,7 +364,7 @@ export default function FirebaseAppHostingInsightPage() {
                   href="https://firebase.google.com/docs/app-hosting/about-app-hosting"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl border border-slate-800 p-5 font-semibold text-blue-400 transition hover:border-slate-600 hover:text-blue-300"
+                  className="border-b border-line py-4 font-medium text-accent transition hover:border-accent hover:text-ink"
                 >
                   How Firebase App Hosting works ↗
                 </a>
@@ -379,24 +373,24 @@ export default function FirebaseAppHostingInsightPage() {
                   href="https://firebase.google.com/docs/app-hosting/product-comparison"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl border border-slate-800 p-5 font-semibold text-blue-400 transition hover:border-slate-600 hover:text-blue-300"
+                  className="border-b border-line py-4 font-medium text-accent transition hover:border-accent hover:text-ink"
                 >
                   App Hosting product comparison ↗
                 </a>
               </div>
             </section>
 
-            <section className="rounded-3xl border border-blue-400/20 bg-blue-400/10 p-8 sm:p-12">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+            <section className="rounded-none border border-line bg-white p-8 sm:p-12">
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">
                 Core lesson
               </p>
 
-              <h2 className="mt-5 text-3xl font-bold tracking-tight text-white">
+              <h2 className="mt-5 text-3xl font-bold tracking-tight text-ink">
                 Choose the platform that fits the operating requirement—not the
                 one with the longest feature list.
               </h2>
 
-              <p className="mt-6 text-lg leading-8 text-slate-300">
+              <p className="mt-6 text-lg leading-8 text-muted">
                 The right architecture is the smallest design that credibly
                 meets the current need while preserving a reasonable path
                 toward known future requirements.

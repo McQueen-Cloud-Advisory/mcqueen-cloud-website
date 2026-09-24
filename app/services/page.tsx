@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 import { services } from "@/data/services";
@@ -9,272 +9,81 @@ export const metadata: Metadata = {
     "Analytics modernization, workflow automation, Google Cloud architecture, and AI-enabled knowledge workflows designed around real operational needs.",
 };
 
-const engagementSteps = [
-  {
-    number: "01",
-    title: "Understand",
-    description:
-      "Clarify the operating problem, affected users, constraints, risks, and decisions the solution must support.",
-  },
-  {
-    number: "02",
-    title: "Design",
-    description:
-      "Define the smallest credible architecture and document why each major component is needed.",
-  },
-  {
-    number: "03",
-    title: "Demonstrate",
-    description:
-      "Build a prototype, pilot, or working implementation that proves the design against real requirements.",
-  },
-  {
-    number: "04",
-    title: "Operationalize",
-    description:
-      "Add documentation, deployment practices, controls, and ownership needed to sustain the solution.",
-  },
-];
+const relatedWork: Record<string, { href: string; label: string }> = {
+  "analytics-bi-modernization": { href: "/work/enterprise-financial-reconciliation", label: "Financial reconciliation case study" },
+  "workflow-automation": { href: "/work/consultation-automation", label: "Consultation workflow demonstration" },
+  "google-cloud-architecture": { href: "/insights/why-this-site-uses-firebase-app-hosting", label: "An architecture decision in practice" },
+  "ai-knowledge-workflows": { href: "/work/consultation-automation", label: "Research and document-generation workflow" },
+};
 
-const boundaries = [
-  "Technology selected before the business problem is understood",
-  "Large custom platforms when a managed service can meet the need",
-  "AI output presented as reliable without source grounding or review",
-  "Dashboards built without agreed metric definitions",
-  "Automation that removes visibility into controls or exceptions",
+const engagementSteps = [
+  { title: "Understand", description: "Define the operating problem, users, constraints, and decisions the system must support." },
+  { title: "Design", description: "Choose a proportionate architecture. Make the purpose and tradeoffs of each component clear." },
+  { title: "Demonstrate", description: "Test a prototype or implementation against actual requirements and outputs." },
+  { title: "Operationalize", description: "Document controls, deployment, ownership, and the path to ongoing support." },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-            Services
-          </p>
-
-          <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Practical technology services built around operational outcomes.
-          </h1>
-
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Engagements begin with the process, decision, or reporting problem.
-            Technology is selected only after the actual requirements and
-            constraints are understood.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/work"
-              className="rounded-md bg-blue-500 px-6 py-3 text-center font-semibold text-white transition hover:bg-blue-400"
-            >
-              View selected work
-            </Link>
-
-            <Link
-              href="/contact"
-              className="rounded-md border border-slate-600 px-6 py-3 text-center font-semibold text-white transition hover:border-slate-400"
-            >
-              Discuss a project
-            </Link>
+      <section className="page-intro">
+        <div className="site-shell">
+          <p className="eyebrow">Services / Areas of practice</p>
+          <h1 className="display-title mt-6 max-w-4xl">Built around<br /> the real problem.</h1>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+            <p className="lede max-w-2xl">Analytics, automation, and cloud architecture for the points where process, data, and technology need to work together.</p>
+            <div className="flex flex-wrap gap-4 lg:justify-end"><Link href="/work" className="button button-primary">View selected work <span aria-hidden="true">↗</span></Link><Link href="/contact" className="button button-secondary">Discuss a project</Link></div>
           </div>
         </div>
       </section>
 
-      <nav
-        aria-label="Service navigation"
-        className="border-y border-slate-800 bg-slate-900/40 px-6 py-6 lg:px-8"
-      >
-        <div className="mx-auto flex max-w-7xl flex-wrap gap-3">
-          {services.map((service) => (
-            <a
-              key={service.slug}
-              href={`#${service.slug}`}
-              className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300 transition hover:border-blue-400 hover:text-white"
-            >
-              {service.title}
-            </a>
-          ))}
+      <nav aria-label="Service navigation" className="border-y border-line">
+        <div className="site-shell flex flex-wrap gap-x-8 gap-y-3 py-5">
+          {services.map((service, index) => <a key={service.slug} href={`#${service.slug}`} className="inline-flex items-center gap-3 py-2 text-sm font-medium text-muted transition hover:text-accent"><span className="font-mono text-xs text-accent">0{index + 1}</span>{service.title}</a>)}
         </div>
       </nav>
 
-      <section className="px-6 py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl space-y-10">
+      <section className="section-space">
+        <div className="site-shell">
           {services.map((service, index) => (
-            <article
-              key={service.slug}
-              id={service.slug}
-              className="scroll-mt-28 rounded-3xl border border-slate-800 bg-slate-900/40 p-8 sm:p-10"
-            >
-              <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-                <div>
-                  <p className="text-sm font-semibold text-blue-400">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-
-                  <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-                    {service.title}
-                  </h2>
-
-                  <p className="mt-5 text-lg leading-8 text-slate-300">
-                    {service.summary}
-                  </p>
-
-                  <div className="mt-8">
-                    <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-                      Intended result
-                    </p>
-
-                    <p className="mt-3 leading-7 text-slate-200">
-                      {service.result}
-                    </p>
-                  </div>
-
-                  <ul className="mt-8 flex flex-wrap gap-2">
-                    {service.technologies.map((technology) => (
-                      <li
-                        key={technology}
-                        className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
-                      >
-                        {technology}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="grid gap-8 sm:grid-cols-2">
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">
-                      Problems this addresses
-                    </h3>
-
-                    <ul className="mt-5 space-y-4">
-                      {service.problems.map((problem) => (
-                        <li
-                          key={problem}
-                          className="flex gap-3 leading-7 text-slate-400"
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400"
-                          />
-                          <span>{problem}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">
-                      Possible deliverables
-                    </h3>
-
-                    <ul className="mt-5 space-y-4">
-                      {service.deliverables.map((deliverable) => (
-                        <li
-                          key={deliverable}
-                          className="flex gap-3 leading-7 text-slate-400"
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400"
-                          />
-                          <span>{deliverable}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+            <article key={service.slug} id={service.slug} className="grid scroll-mt-28 gap-8 border-b border-line py-12 first:pt-0 lg:grid-cols-[0.15fr_0.9fr_0.95fr] lg:gap-12">
+              <p className="font-mono text-sm text-accent">0{index + 1} /</p>
+              <div>
+                <h2 className="max-w-md text-3xl font-medium leading-tight tracking-tight sm:text-4xl">{service.title}</h2>
+                <p className="mt-5 max-w-lg text-lg leading-8 text-muted">{service.summary}</p>
+                <Link href={relatedWork[service.slug].href} className="text-link mt-7 inline-flex items-start gap-3 text-sm">{relatedWork[service.slug].label}<span aria-hidden="true">↗</span></Link>
+              </div>
+              <div>
+                <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">What the work can include</p>
+                <ul className="mt-5 grid gap-3">
+                  {service.deliverables.map((deliverable) => <li key={deliverable} className="flex gap-3 text-sm leading-6"><span aria-hidden="true" className="text-accent">—</span><span>{deliverable}</span></li>)}
+                </ul>
+                <p className="mt-7 border-l-2 border-accent pl-4 leading-7 text-muted">{service.result}</p>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="border-y border-slate-800 bg-slate-900/40 px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-              Engagement approach
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Move from uncertainty to a working, supportable solution.
-            </h2>
-
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              The exact scope depends on the problem. Not every engagement
-              requires a full implementation.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {engagementSteps.map((step) => (
-              <article key={step.number}>
-                <p className="text-sm font-semibold text-blue-400">
-                  {step.number}
-                </p>
-
-                <h3 className="mt-4 text-xl font-semibold text-white">
-                  {step.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-slate-400">
-                  {step.description}
-                </p>
+      <section className="section-space border-y border-line bg-white">
+        <div className="site-shell">
+          <p className="eyebrow">How an engagement takes shape</p>
+          <h2 className="section-title mt-5 max-w-2xl">Clarity before complexity.</h2>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {engagementSteps.map((step, index) => (
+              <article key={step.title} className="border-t border-line pt-6">
+                <p className="font-mono text-xs text-accent">0{index + 1}</p>
+                <h3 className="mt-6 text-xl font-medium">{step.title}</h3>
+                <p className="mt-3 leading-7 text-muted">{step.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-              Deliberate boundaries
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
-              What the work should avoid.
-            </h2>
-
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-              Credible consulting includes knowing when complexity, automation,
-              or a particular technology is not justified.
-            </p>
-          </div>
-
-          <ul className="space-y-4">
-            {boundaries.map((boundary) => (
-              <li
-                key={boundary}
-                className="flex gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-5 leading-7 text-slate-300"
-              >
-                <span
-                  aria-hidden="true"
-                  className="font-semibold text-blue-400"
-                >
-                  —
-                </span>
-                <span>{boundary}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <AssessmentPathCta
-            eyebrow="Find the right starting point"
-            title="Clarify what should improve before deciding what should be built."
-            description="Use the readiness assessment when the problem is real but the correct initiative is not yet clear. If the scope and desired outcome are already defined, start a direct project conversation instead."
-            assessmentLabel="Find your starting point"
-            contactLabel="Discuss a defined project"
-          />
-        </div>
-      </section>
+      <div className="site-shell section-space">
+        <AssessmentPathCta eyebrow="Find the right starting point" title="Clarify what should improve first." description="The readiness assessment helps identify your most important modernization priority. If the scope and desired outcome are already clear, start a direct conversation." assessmentLabel="Explore the assessment" contactLabel="Discuss a defined project" />
+      </div>
     </>
   );
 }

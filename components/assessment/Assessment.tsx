@@ -1,9 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   assessmentDomainById,
+  assessmentDomains,
   assessmentMetadata,
   assessmentQuestions,
   type MaturityScore,
@@ -21,49 +22,30 @@ export default function Assessment() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [responses, setResponses] = useState<AssessmentResponses>({});
   const questionRegionRef = useRef<HTMLDivElement>(null);
+  const overviewHeadingRef = useRef<HTMLHeadingElement>(null);
+  const hasStartedRef = useRef(false);
 
   const currentQuestion = assessmentQuestions[currentQuestionIndex];
-  const selectedScore =
-    currentQuestion === undefined
-      ? undefined
-      : responses[currentQuestion.id];
-
-  const currentDomainName =
-    currentQuestion === undefined
-      ? ""
-      : assessmentDomainById[currentQuestion.domainId].name;
-
-  const analysis = useMemo(
-    () => analyzeAssessment(responses),
-    [responses],
-  );
-
+  const selectedScore = currentQuestion === undefined ? undefined : responses[currentQuestion.id];
+  const currentDomainName = currentQuestion === undefined ? "" : assessmentDomainById[currentQuestion.domainId].name;
+  const analysis = useMemo(() => analyzeAssessment(responses), [responses]);
   const isFirstQuestion = currentQuestionIndex === 0;
-  const isLastQuestion =
-    currentQuestionIndex === assessmentQuestions.length - 1;
+  const isLastQuestion = currentQuestionIndex === assessmentQuestions.length - 1;
 
   useEffect(() => {
-    if (view !== "questions") {
-      return;
-    }
-
-    questionRegionRef.current?.focus();
+    if (view === "questions") questionRegionRef.current?.focus();
+    if (view === "intro" && hasStartedRef.current) overviewHeadingRef.current?.focus();
   }, [currentQuestionIndex, view]);
 
   const startAssessment = () => {
+    hasStartedRef.current = true;
     setView("questions");
     setCurrentQuestionIndex(0);
   };
 
   const selectAnswer = (score: MaturityScore) => {
-    if (currentQuestion === undefined) {
-      return;
-    }
-
-    setResponses((currentResponses) => ({
-      ...currentResponses,
-      [currentQuestion.id]: score,
-    }));
+    if (currentQuestion === undefined) return;
+    setResponses((currentResponses) => ({ ...currentResponses, [currentQuestion.id]: score }));
   };
 
   const goBack = () => {
@@ -71,23 +53,16 @@ export default function Assessment() {
       setView("intro");
       return;
     }
-
     setCurrentQuestionIndex((index) => Math.max(0, index - 1));
   };
 
   const goNext = () => {
-    if (currentQuestion === undefined || selectedScore === undefined) {
-      return;
-    }
-
+    if (currentQuestion === undefined || selectedScore === undefined) return;
     if (isLastQuestion) {
       setView("complete");
       return;
     }
-
-    setCurrentQuestionIndex((index) =>
-      Math.min(assessmentQuestions.length - 1, index + 1),
-    );
+    setCurrentQuestionIndex((index) => Math.min(assessmentQuestions.length - 1, index + 1));
   };
 
   const restartAssessment = () => {
@@ -98,115 +73,89 @@ export default function Assessment() {
 
   if (view === "intro") {
     return (
-      <section className="rounded-3xl border border-slate-800 bg-slate-900/40 p-8 sm:p-10">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-          About the assessment
+      <>
+        <section className="assessment-intro">
+          <div className="assessment-intro-copy">
+            <p className="eyebrow">Operational modernization / Readiness assessment</p>
+            <h1 ref={overviewHeadingRef} tabIndex={-1} className="assessment-title">A clearer view of what comes next.</h1>
+            <p className="assessment-intro-lede">
+              Identify what your organization should improve next. Explore six connected capabilities and receive an explainable profile of your strengths, constraints, and best next opportunity.
+            </p>
+            <dl className="assessment-facts">
+              <div><dt>Questions</dt><dd>{assessmentMetadata.questionCount}</dd></div>
+              <div><dt>Capability domains</dt><dd>{assessmentMetadata.domainCount}</dd></div>
+              <div><dt>Minutes, approximately</dt><dd>{assessmentMetadata.estimatedMinutes}</dd></div>
+            </dl>
+            <button type="button" onClick={startAssessment} className="button button-primary assessment-start">
+              Start the assessment <span aria-hidden="true">↗</span>
+            </button>
+            <p className="assessment-privacy">
+              Evaluated in your browser. No account, personal information, or stored responses.
+            </p>
+          </div>
+
+          <aside className="assessment-domain-register" aria-labelledby="assessment-domains-title">
+            <div className="assessment-register-heading">
+              <span className="assessment-mono">The assessment framework</span>
+              <span aria-hidden="true" className="assessment-register-mark">＋</span>
+            </div>
+            <h2 id="assessment-domains-title">Six capabilities.<br />One connected picture.</h2>
+            <ol>
+              {assessmentDomains.map((domain, index) => (
+                <li key={domain.id}>
+                  <span className="assessment-mono">{String(index + 1).padStart(2, "0")}</span>
+                  <span>{domain.name}</span>
+                  <span aria-hidden="true" className="assessment-domain-tick" />
+                </li>
+              ))}
+            </ol>
+            <p>Strong capabilities matter. So do the dependencies between them.</p>
+          </aside>
+        </section>
+
+        <section className="assessment-deliverables" aria-labelledby="assessment-report-heading">
+          <div className="assessment-deliverables-heading">
+            <p className="eyebrow">The output</p>
+            <h2 id="assessment-report-heading">A direction.<br />And the reasoning behind it.</h2>
+          </div>
+          <div className="assessment-deliverable-list">
+            <article><span className="assessment-mono">01</span><div><h3>Your modernization profile</h3><p>Your strongest capabilities and the primary constraint limiting progress.</p></div></article>
+            <article><span className="assessment-mono">02</span><div><h3>Your best next opportunity</h3><p>A recommendation based on prerequisite readiness, with investments to defer.</p></div></article>
+            <article><span className="assessment-mono">03</span><div><h3>A practical 90-day roadmap</h3><p>A prioritized sequence and a recommended internal and external support model.</p></div></article>
+          </div>
+        </section>
+        <p className="assessment-context">
+          Directional guidance, not a formal audit. Results are based on self-reported answers and support prioritization and discussion. They do not replace a security assessment, architecture review, compliance audit, or detailed implementation plan.
         </p>
-
-        <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
-          Identify what your organization should improve next.
-        </h2>
-
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-          This assessment evaluates six operational and technical capability
-          areas. Your results will identify strengths, critical gaps,
-          modernization readiness, a recommended support model, and a
-          prioritized 90-day roadmap.
-        </p>
-
-        <dl className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-            <dt className="text-sm text-slate-400">Questions</dt>
-            <dd className="mt-2 text-2xl font-semibold text-white">
-              {assessmentMetadata.questionCount}
-            </dd>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-            <dt className="text-sm text-slate-400">Capability domains</dt>
-            <dd className="mt-2 text-2xl font-semibold text-white">
-              {assessmentMetadata.domainCount}
-            </dd>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-            <dt className="text-sm text-slate-400">Estimated time</dt>
-            <dd className="mt-2 text-2xl font-semibold text-white">
-              {assessmentMetadata.estimatedMinutes} minutes
-            </dd>
-          </div>
-        </dl>
-
-        <div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-400/10 p-5">
-          <p className="leading-7 text-slate-300">
-            Your answers are evaluated in your browser. This version does not
-            require an account, collect personal information, or store your
-            responses.
-          </p>
-        </div>
-
-        <button
-          type="button"
-          onClick={startAssessment}
-          className="mt-8 inline-flex items-center justify-center rounded-md bg-blue-500 px-6 py-3 font-semibold text-white transition hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950"
-        >
-          Start the assessment
-        </button>
-      </section>
+      </>
     );
   }
 
-  if (view === "complete") {
-    return (
-      <AssessmentResults
-        analysis={analysis}
-        onRestart={restartAssessment}
-      />
-    );
-  }
-
-  if (currentQuestion === undefined) {
-    return null;
-  }
+  if (view === "complete") return <AssessmentResults analysis={analysis} onRestart={restartAssessment} />;
+  if (currentQuestion === undefined) return null;
 
   return (
-    <section className="rounded-3xl border border-slate-800 bg-slate-900/40 p-6 sm:p-10">
-      <AssessmentProgress
-        currentQuestionNumber={currentQuestionIndex + 1}
-        totalQuestions={assessmentQuestions.length}
-        domainName={currentDomainName}
-      />
-
-      <div
-        ref={questionRegionRef}
-        tabIndex={-1}
-        className="mt-10 outline-none"
-      >
-        <AssessmentQuestion
-          question={currentQuestion}
-          selectedScore={selectedScore}
-          onSelect={selectAnswer}
-        />
+    <section className="assessment-workspace">
+      <div className="assessment-workspace-heading">
+        <p className="eyebrow">Operational modernization</p>
+        <h1>Readiness assessment</h1>
+        <p>Choose the description that best reflects your organization today.</p>
       </div>
-
-      <div className="mt-10 flex flex-col-reverse gap-4 border-t border-slate-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <button
-          type="button"
-          onClick={goBack}
-          className="inline-flex items-center justify-center rounded-md border border-slate-600 px-6 py-3 font-semibold text-white transition hover:border-slate-400 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950"
-        >
-          {isFirstQuestion ? "Back to overview" : "Back"}
-        </button>
-
-        <button
-          type="button"
-          onClick={goNext}
-          disabled={selectedScore === undefined}
-          className="inline-flex items-center justify-center rounded-md bg-blue-500 px-6 py-3 font-semibold text-white transition hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
-        >
-          {isLastQuestion ? "View results" : "Next question"}
-        </button>
+      <div className="assessment-question-sheet">
+        <AssessmentProgress currentQuestionNumber={currentQuestionIndex + 1} totalQuestions={assessmentQuestions.length} domainName={currentDomainName} />
+        <div key={currentQuestion.id} ref={questionRegionRef} tabIndex={-1} className="assessment-question-region">
+          <AssessmentQuestion question={currentQuestion} selectedScore={selectedScore} onSelect={selectAnswer} />
+        </div>
+        <div className="assessment-question-actions">
+          <button type="button" onClick={goBack} className="button button-secondary">
+            <span aria-hidden="true">←</span> {isFirstQuestion ? "Back to overview" : "Back"}
+          </button>
+          <button type="button" onClick={goNext} disabled={selectedScore === undefined} className="button button-primary">
+            {isLastQuestion ? "View results" : "Next question"} <span aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
+      <p className="assessment-workspace-note">Your answers stay on this page. You can go back to revise them; reloading clears them.</p>
     </section>
   );
 }

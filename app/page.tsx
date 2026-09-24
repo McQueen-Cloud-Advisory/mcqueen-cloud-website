@@ -1,315 +1,149 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import { HeroDiagram } from "@/components/visuals/HeroDiagram";
+import { ProjectDiagram } from "@/components/visuals/ProjectDiagram";
+import { EngineeringKnowledgeBaseLink } from "@/components/engagement/EngineeringKnowledgeBaseLink";
+import { IndependentProjectFeature } from "@/components/engagement/IndependentProjectFeature";
 import { projects } from "@/data/projects";
+import { insights } from "@/data/insights";
+import { assessmentQuestions, type AssessmentDomainId, type MaturityScore } from "@/data/assessment";
+import { analyzeAssessment } from "@/lib/assessment/analyze-assessment";
 
 export const metadata: Metadata = {
-  title: "Cloud Analytics and Workflow Automation",
-  description:
-    "McQueen Cloud Advisory designs analytics, workflow automation, and Google Cloud solutions for organizations outgrowing spreadsheets, disconnected tools, and manual processes.",
+  title: "Analytics, Automation & Cloud Architecture",
+  description: "Explore the systems, decisions, and working tools behind McQueen Cloud Advisory. Analytics, automation, and cloud architecture by Scott McQueen.",
 };
 
-const capabilities = [
-  {
-    title: "Analytics and BI modernization",
-    description:
-      "Replace fragile reporting processes with governed data, repeatable metrics, and decision-ready reporting.",
-  },
-  {
-    title: "Workflow automation",
-    description:
-      "Connect forms, documents, systems, approvals, and research into reliable operational workflows.",
-  },
-  {
-    title: "Google Cloud architecture",
-    description:
-      "Design practical solutions using managed cloud services without adding infrastructure that the business does not need.",
-  },
-];
+// Synthetic example only: every question in each domain receives this score.
+// The live engine generates the preview; it is never presented as a visitor result.
+const exampleScores: Record<AssessmentDomainId, MaturityScore> = {
+  "data-reporting": 3,
+  "workflow-automation": 2,
+  "cloud-architecture": 3,
+  "governance-reliability": 3,
+  "ai-knowledge-workflows": 2,
+  "technical-capability-support": 3,
+};
+const example = analyzeAssessment(Object.fromEntries(
+  assessmentQuestions.map((question) => [question.id, exampleScores[question.domainId]]),
+));
 
-const approach = [
-  {
-    number: "01",
-    title: "Understand the operating problem",
-    description:
-      "Start with the decisions, delays, controls, and manual work affecting the business—not with a predetermined technology.",
-  },
-  {
-    number: "02",
-    title: "Design the smallest credible solution",
-    description:
-      "Select architecture that meets the real requirement while remaining secure, maintainable, and proportionate.",
-  },
-  {
-    number: "03",
-    title: "Build for adoption and accountability",
-    description:
-      "Deliver documentation, automation, and measurable outcomes so the solution can be trusted after implementation.",
-  },
+const principles = [
+  { number: "01", title: "Let the problem lead.", description: "Start with the decisions, delays, and constraints. Architecture follows the operating requirement.", example: "See the reconciliation case", href: "/work/enterprise-financial-reconciliation" },
+  { number: "02", title: "Make the system legible.", description: "Clear inputs. Explainable decisions. Traceable outputs. A system should make sense to the people who own it.", example: "Explore the assessment", href: "/assessment" },
+  { number: "03", title: "Build for what comes next.", description: "Choose managed services, document the operating path, and preserve human judgment where it matters.", example: "Read the architecture decision", href: "/insights/why-this-site-uses-firebase-app-hosting" },
 ];
 
 export default function Home() {
-  const featuredProject = projects.find((project) => project.featured);
-
+  const orderedProjects = [projects[1], projects[0]];
+  const article = insights[0];
   return (
     <>
-      <section className="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-96 bg-gradient-to-b from-blue-500/10 to-transparent"
-        />
-
-        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
-              McQueen Cloud Advisory
-            </p>
-
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Turn fragmented data and manual work into systems your business
-              can trust.
-            </h1>
-
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300">
-              We design analytics, workflow automation, and Google Cloud
-              solutions for organizations that have outgrown spreadsheets,
-              disconnected tools, and undocumented processes.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/work"
-                className="rounded-md bg-blue-500 px-6 py-3 text-center font-semibold text-white transition hover:bg-blue-400"
-              >
-                View selected work
-              </Link>
-
-              <Link
-                href="/contact"
-                className="rounded-md border border-slate-600 px-6 py-3 text-center font-semibold text-white transition hover:border-slate-400 hover:bg-slate-900"
-              >
-                Discuss a project
-              </Link>
-            </div>
-          </div>
-
-          <aside className="rounded-2xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl shadow-blue-950/20">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-              What the work should deliver
-            </p>
-
-            <div className="mt-8 space-y-8">
-              <div>
-                <h2 className="font-semibold text-white">
-                  Clear architecture
-                </h2>
-                <p className="mt-2 leading-7 text-slate-400">
-                  Technology choices tied directly to operational requirements,
-                  constraints, and business value.
-                </p>
-              </div>
-
-              <div className="border-t border-slate-800 pt-8">
-                <h2 className="font-semibold text-white">
-                  Reliable automation
-                </h2>
-                <p className="mt-2 leading-7 text-slate-400">
-                  Repeatable processes that reduce manual effort without hiding
-                  critical decisions or controls.
-                </p>
-              </div>
-
-              <div className="border-t border-slate-800 pt-8">
-                <h2 className="font-semibold text-white">
-                  Maintainable delivery
-                </h2>
-                <p className="mt-2 leading-7 text-slate-400">
-                  Version-controlled, documented solutions designed to remain
-                  understandable after implementation.
-                </p>
+      <section className="hero dark-surface">
+        <div className="site-shell">
+          <div className="hero-layout">
+            <div className="hero-copy">
+              <p className="eyebrow">Analytics / Automation / Architecture</p>
+              <h1>Complex<br />operations.<span>Clear systems.</span></h1>
+              <p className="hero-description">Thoughtful architecture for the work that matters. I turn fragmented data and manual processes into systems people can understand and trust.</p>
+              <div className="hero-actions">
+                <Link href="/work" className="button button-primary">View selected work <span aria-hidden="true">↗</span></Link>
+                <Link href="/assessment" className="text-link">Explore the assessment <span aria-hidden="true">→</span></Link>
               </div>
             </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className="border-y border-slate-800 bg-slate-900/40 px-6 py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-              Capabilities
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Technology applied to operational problems.
-            </h2>
-
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              The objective is not to add more tools. It is to make information
-              more dependable, work more repeatable, and decisions easier to
-              support.
-            </p>
+            <HeroDiagram />
           </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {capabilities.map((capability) => (
-              <article
-                key={capability.title}
-                className="rounded-2xl border border-slate-800 bg-slate-950 p-7"
-              >
-                <h3 className="text-xl font-semibold text-white">
-                  {capability.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-slate-400">
-                  {capability.description}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <Link
-              href="/services"
-              className="font-semibold text-blue-400 transition hover:text-blue-300"
-            >
-              Explore services →
-            </Link>
+          <div className="hero-bottom">
+            <span>Independent thinking. Practical engineering.</span>
+            <Link href="/about">By Scott McQueen <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>
 
-      {featuredProject && (
-        <section className="px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60 lg:grid-cols-2">
-              <div className="p-8 sm:p-12">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-                  Featured case study
-                </p>
-
-                <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  {featuredProject.title}
-                </h2>
-
-                <p className="mt-6 text-lg leading-8 text-slate-300">
-                  {featuredProject.summary}
-                </p>
-
-                <div className="mt-8">
-                  <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-                    Business outcome
-                  </p>
-
-                  <p className="mt-3 leading-7 text-slate-200">
-                    {featuredProject.outcome}
-                  </p>
+      <section className="section-space" aria-labelledby="selected-work-title">
+        <div className="site-shell">
+          <div className="section-head reveal">
+            <div><p className="eyebrow">01 / Selected work</p><h2 id="selected-work-title" className="section-title">The thinking.<br />The system. The result.</h2></div>
+            <Link href="/work" className="text-link">Explore all work <span aria-hidden="true">↗</span></Link>
+          </div>
+          {orderedProjects.map((project, index) => (
+            <article key={project.slug} className="project-spread reveal">
+              <div className="project-copy">
+                <p className="eyebrow">{index === 0 ? "Financial data automation" : "Cloud workflow automation"}</p>
+                <h3><Link href={`/work/${project.slug}`}>{index === 0 ? "A clearer path through financial reconciliation." : "From client intake to a prepared conversation."}</Link></h3>
+                <div className="project-outcome">
+                  <strong>{index === 0 ? "~30" : "Minutes"}</strong>
+                  <span>{index === 0 ? "manual hours saved each month" : "from completed intake to consultation brief"}</span>
                 </div>
-
-                <Link
-                  href={`/work/${featuredProject.slug}`}
-                  className="mt-10 inline-flex rounded-md bg-blue-500 px-5 py-3 font-semibold text-white transition hover:bg-blue-400"
-                >
-                  Read the case study
-                </Link>
+                <p>{project.summary}</p>
+                <p className="mt-5 font-mono text-[10px]! uppercase tracking-wide">{project.status}</p>
+                <Link href={`/work/${project.slug}`} className="text-link mt-5">Inside the project <span aria-hidden="true">↗</span></Link>
               </div>
+              <ProjectDiagram kind={index === 0 ? "financial" : "consultation"} compact />
+            </article>
+          ))}
+          <IndependentProjectFeature />
+        </div>
+      </section>
 
-              <div className="border-t border-slate-800 bg-slate-950 p-8 sm:p-12 lg:border-l lg:border-t-0">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                  Architecture
-                </p>
-
-                <div className="mt-8 space-y-4">
-                  {[
-                    "Structured client intake",
-                    "Event-driven orchestration",
-                    "Managed Cloud Run processing",
-                    "Vertex AI-assisted research",
-                    "Google Workspace document generation",
-                    "GitHub Actions deployment",
-                  ].map((item, index) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-4 rounded-xl border border-slate-800 p-4"
-                    >
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-400/10 text-sm font-semibold text-blue-300">
-                        {index + 1}
-                      </span>
-
-                      <span className="text-slate-300">{item}</span>
-                    </div>
-                  ))}
+      <section className="dark-surface section-space" aria-labelledby="assessment-feature-title">
+        <div className="site-shell assessment-feature">
+          <div className="reveal">
+            <p className="eyebrow">02 / A working tool</p>
+            <h2 id="assessment-feature-title" className="section-title mt-5">Find the next<br />right move.</h2>
+            <p className="lede mt-6">Good modernization starts with knowing what is ready—and what needs attention first.</p>
+            <p className="mt-5 max-w-lg text-sm leading-7 text-[#bbc6d2]">Explore six connected capabilities and receive an explainable, prioritized roadmap. The assessment is built around real dependencies, with every recommendation tied to your answers.</p>
+            <Link href="/assessment" className="button button-primary mt-8">Try the readiness assessment <span aria-hidden="true">↗</span></Link>
+            <p className="mt-5 font-mono text-[10px] tracking-wide text-[#bbc6d2]">24 QUESTIONS · ABOUT 10 MINUTES · NO SIGN-UP</p>
+          </div>
+          <figure className="assessment-preview reveal" aria-label="Example assessment profile based on synthetic responses">
+            <figcaption className="preview-top"><span>Modernization profile</span><span className="text-ice">Example result</span></figcaption>
+            <p className="preview-title">{example.modernizationStage}</p>
+            <p className="mt-2 text-sm text-[#bbc6d2]">Six capabilities. A connected view.</p>
+            <div className="mt-7">
+              {example.domainScores.map((domain) => (
+                <div className="preview-score" key={domain.id}>
+                  <span>{domain.shortName}</span>
+                  <div className="preview-bar" aria-hidden="true"><span style={{ width: `${((domain.average ?? 0) / 4) * 100}%` }} /></div>
+                  <span className="font-mono text-right" aria-label={`${domain.name}: ${domain.average} out of 4`}>{domain.average?.toFixed(1)}</span>
                 </div>
-
-                <ul className="mt-8 flex flex-wrap gap-2">
-                  {featuredProject.technologies.map((technology) => (
-                    <li
-                      key={technology}
-                      className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
-                    >
-                      {technology}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              ))}
             </div>
-          </div>
-        </section>
-      )}
+            <p className="preview-note">Illustrative responses, evaluated by the same rules as the live assessment. Your own answers determine your profile and 90-day roadmap.</p>
+          </figure>
+        </div>
+      </section>
 
-      <section className="border-y border-slate-800 bg-slate-900/40 px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-              Approach
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Start with the business. Add technology deliberately.
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-10 md:grid-cols-3">
-            {approach.map((step) => (
-              <article key={step.number}>
-                <p className="text-sm font-semibold text-blue-400">
-                  {step.number}
-                </p>
-
-                <h3 className="mt-4 text-xl font-semibold text-white">
-                  {step.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-slate-400">
-                  {step.description}
-                </p>
-              </article>
-            ))}
+      <section className="section-space" aria-labelledby="approach-title">
+        <div className="site-shell">
+          <div className="section-head reveal"><div><p className="eyebrow">03 / The approach</p><h2 id="approach-title" className="section-title">Clarity is a design decision.</h2></div></div>
+          <div className="principle-grid">
+            {principles.map((principle) => <article className="principle reveal" key={principle.number}>
+              <span className="eyebrow">{principle.number}</span><h3>{principle.title}</h3><p>{principle.description}</p>
+              <Link href={principle.href} className="text-link mt-5 text-xs!">{principle.example} <span aria-hidden="true">↗</span></Link>
+            </article>)}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-5xl rounded-3xl border border-blue-400/20 bg-blue-400/10 px-8 py-14 text-center sm:px-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-            Have a process that no longer scales?
-          </p>
-
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Let&apos;s identify what should be simplified, automated, or
-            rebuilt.
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Start with the operational problem. The right architecture follows
-            from the requirements—not the other way around.
-          </p>
-
-          <Link
-            href="/contact"
-            className="mt-9 inline-flex rounded-md bg-blue-500 px-6 py-3 font-semibold text-white transition hover:bg-blue-400"
-          >
-            Discuss your project
-          </Link>
+      <section className="border-t border-line section-space" aria-labelledby="notes-title">
+        <div className="site-shell">
+          <div className="section-head"><div><p className="eyebrow">04 / Notes from the work</p><h2 id="notes-title" className="section-title">The decisions behind the delivery.</h2></div></div>
+          <div className="notes-grid">
+            <article className="note-feature reveal">
+              <p className="eyebrow">Architecture decision / {article.readTime}</p>
+              <h3><Link href={`/insights/${article.slug}`}>Why this site uses<br />Firebase App Hosting.</Link></h3>
+              <p>A closer look at the requirements, tradeoffs, and managed delivery model behind the site you are using.</p>
+              <Link href={`/insights/${article.slug}`} className="text-link">Read the decision <span aria-hidden="true">↗</span></Link>
+            </article>
+            <div className="founder-note reveal">
+              <p className="eyebrow">The person behind the systems</p>
+              <h3>Scott McQueen.</h3>
+              <p>I work across enterprise analytics, financial reporting, automation, and technical delivery. My focus is connecting the business question to a system that holds up in practice.</p>
+              <Link href="/about" className="text-link mt-5">More about my work <span aria-hidden="true">↗</span></Link>
+              <div className="mt-7 border-t border-line pt-5"><EngineeringKnowledgeBaseLink variant="text" label="Explore the cloud engineering knowledge base ↗" /></div>
+            </div>
+          </div>
         </div>
       </section>
     </>
