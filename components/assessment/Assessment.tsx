@@ -79,7 +79,7 @@ export default function Assessment() {
             <p className="eyebrow">Operational modernization / Readiness assessment</p>
             <h1 ref={overviewHeadingRef} tabIndex={-1} className="assessment-title">A clearer view of what comes next.</h1>
             <p className="assessment-intro-lede">
-              Identify what your organization should improve next. Explore six connected capabilities and receive an explainable profile of your strengths, constraints, and best next opportunity.
+              Find a useful next step for your reporting, workflows, and systems. Explore six connected capabilities and see your strengths, constraints, and the reasoning behind the recommended priority.
             </p>
             <dl className="assessment-facts">
               <div><dt>Questions</dt><dd>{assessmentMetadata.questionCount}</dd></div>

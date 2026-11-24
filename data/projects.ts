@@ -48,4 +48,16 @@ export const projects: Project[] = [
   outcome:
     "Reduced recurring manual effort by approximately 30 hours per month while improving traceability, consistency, and support for financial review.",
 },
+  {
+    slug: "everything-is-random",
+    title: "Everything is Random",
+    summary:
+      "A public collection of games, a game-night planner, and random tools, built around clear interactions, browser-local computation, and a maintainable static architecture.",
+    category: "Independent Product Development",
+    technologies: ["React", "TypeScript", "React Router", "Vite", "Web Crypto", "Web Workers", "Firebase Hosting"],
+    status: "Live independent project",
+    featured: true,
+    outcome:
+      "Playable group games and useful random tools with no account required, backed by explicit game rules and responsive browser workflows.",
+  },
 ];

@@ -177,7 +177,7 @@ export default function AssessmentResults({ analysis, onRestart }: AssessmentRes
         <div>
           <p className="eyebrow">Validate the roadmap</p>
           <h2 id="assessment-closing-heading">Turn the assessment into a realistic first initiative.</h2>
-          <p>Review the priorities, dependencies, and support model with McQueen Cloud Advisory before committing to a platform, vendor, or large transformation program.</p>
+          <p>Review the priorities, dependencies, and ownership with McQueen Cloud Advisory, then agree on a bounded first project. Any implementation or ongoing support is scoped separately.</p>
         </div>
         <div className="assessment-closing-actions">
           <Link href="/contact" className="button button-primary">Review your roadmap <span aria-hidden="true">↗</span></Link>

@@ -43,6 +43,7 @@ test.describe("responsive presentation", () => {
     "/work",
     "/work/enterprise-financial-reconciliation",
     "/work/consultation-automation",
+    "/work/everything-is-random",
     "/assessment",
     "/insights/why-this-site-uses-firebase-app-hosting",
   ];
@@ -75,7 +76,7 @@ test("reduced motion disables hero animation while retaining the content", async
   await expect(page.locator(".hero-copy")).toHaveCSS("opacity", "1");
   await expect(page.locator("#selected-work-title")).toBeVisible();
 
-  const animatedElements = page.locator(".hero-copy, .hero-flow, .hero-layer");
+  const animatedElements = page.locator(".hero-copy, .hero-pattern");
   expect(await animatedElements.count()).toBeGreaterThan(1);
   const animations = await animatedElements.evaluateAll((elements) =>
     elements.map((element) => getComputedStyle(element).animationName),

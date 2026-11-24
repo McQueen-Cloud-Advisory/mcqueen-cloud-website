@@ -213,8 +213,8 @@ export default function EnterpriseFinancialReconciliationPage() {
         eyebrow="Explore the approach"
         title="A useful next step starts with the right constraint."
         description="The readiness assessment helps identify whether data quality, governance, architecture, workflow design, or internal support capability should be addressed first."
-        assessmentLabel="Assess your readiness"
-        contactLabel="Discuss a financial automation opportunity"
+        assessmentLabel="Explore the assessment"
+        contactLabel="Discuss a project"
       />
       </div>
     </>

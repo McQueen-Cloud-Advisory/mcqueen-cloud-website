@@ -1,132 +1,73 @@
 export type Service = {
   slug: string;
+  legacySlugs?: string[];
   title: string;
   summary: string;
-  problems: string[];
+  scope: string;
   deliverables: string[];
-  result: string;
-  technologies: string[];
+  evidence: string;
+  boundary: string;
 };
 
 export const services: Service[] = [
   {
-    slug: "analytics-bi-modernization",
-    title: "Analytics and BI Modernization",
+    slug: "analytics-and-reporting",
+    legacySlugs: ["analytics-bi-modernization"],
+    title: "Analytics and Reporting",
     summary:
-      "Replace fragile reporting processes with governed data, consistent metrics, and reporting that leaders can trust.",
-    problems: [
-      "Reporting depends on manual spreadsheet consolidation.",
-      "Different teams calculate the same metric differently.",
-      "Critical reports depend on undocumented knowledge.",
-      "Existing dashboards show activity without supporting decisions.",
-    ],
+      "Turn scattered data into clear reporting your team can use with confidence.",
+    scope:
+      "Agree on measures, organize sources, build a focused report or dashboard, reconcile results, and document refresh and ownership.",
     deliverables: [
-      "Current-state reporting and data-flow assessment",
-      "Target-state analytics architecture",
-      "KPI and metric definitions",
-      "Semantic model or governed reporting layer",
-      "Dashboard or reporting prototype",
-      "Migration and implementation roadmap",
+      "Metric definitions",
+      "Source-to-report map",
+      "Focused report or dashboard",
+      "Validation evidence",
+      "Refresh and ownership instructions",
     ],
-    result:
-      "A clearer reporting model with less manual work, stronger metric consistency, and better traceability from source data to business decisions.",
-    technologies: [
-      "BigQuery",
-      "dbt",
-      "Looker Studio",
-      "Power BI",
-      "SQL",
-      "Python",
-    ],
+    evidence:
+      "Source reconciliation, stable definitions, preparation time and actual use.",
+    boundary:
+      "Advanced forecasting, custom machine learning and unrestricted platform migrations require separate scope.",
   },
   {
     slug: "workflow-automation",
+    legacySlugs: ["ai-knowledge-workflows"],
     title: "Workflow Automation",
     summary:
-      "Turn repetitive, disconnected work into structured processes that are easier to operate, monitor, and improve.",
-    problems: [
-      "Employees repeatedly copy information between systems.",
-      "Requests arrive through inconsistent channels.",
-      "Documents, approvals, and status updates are manually coordinated.",
-      "Important work depends on reminders and individual follow-up.",
-    ],
+      "Reduce repetitive administration and make everyday handoffs easier.",
+    scope:
+      "Map one recurring process, simplify steps, automate appropriate handoffs, define exceptions, and train the process owner.",
     deliverables: [
-      "Workflow and process assessment",
-      "Trigger, action, and exception design",
-      "Automated intake and notification workflows",
-      "Document or report generation",
-      "Operational logging and error handling",
-      "Process documentation and support guidance",
+      "Current and future workflow",
+      "Agreed automation",
+      "Exception handling",
+      "Owner instructions",
+      "Handoff",
     ],
-    result:
-      "A repeatable workflow that reduces manual coordination while preserving visibility, accountability, and human review where it matters.",
-    technologies: [
-      "Google Forms",
-      "Apps Script",
-      "Cloud Run",
-      "Google Workspace",
-      "Pub/Sub",
-      "Python",
-    ],
+    evidence:
+      "Time spent, missed steps, rework and turnaround before and after.",
+    boundary:
+      "Support is provided only under an agreed arrangement. Scope does not include emergency monitoring or a promise that every task can be automated.",
   },
   {
-    slug: "google-cloud-architecture",
-    title: "Google Cloud Architecture",
+    slug: "workspace-and-systems-design",
+    legacySlugs: ["google-cloud-architecture"],
+    title: "Workspace and Systems Design",
     summary:
-      "Design practical cloud solutions around business requirements without introducing infrastructure the organization does not need.",
-    problems: [
-      "A cloud project has tools but no coherent architecture.",
-      "Teams are unsure which managed services fit the requirement.",
-      "Security, deployment, and operations are considered too late.",
-      "A prototype needs a credible path toward production.",
-    ],
+      "Organize the tools and information your team relies on.",
+    scope:
+      "Improve shared files, forms, permissions and information flow; design proportionate integrations where needed.",
     deliverables: [
-      "Requirements and constraint analysis",
-      "Service selection and architecture design",
-      "Architecture diagrams and decision rationale",
-      "Security and access-control recommendations",
-      "Deployment and environment strategy",
-      "Implementation roadmap or working prototype",
+      "Information structure",
+      "Access and ownership plan",
+      "Configuration or prototype",
+      "Implementation roadmap",
+      "Operating instructions",
     ],
-    result:
-      "A documented cloud architecture that is proportionate to the problem, maintainable by the organization, and defensible to technical and business stakeholders.",
-    technologies: [
-      "Firebase",
-      "Cloud Run",
-      "BigQuery",
-      "Cloud Storage",
-      "Pub/Sub",
-      "GitHub Actions",
-    ],
-  },
-  {
-    slug: "ai-knowledge-workflows",
-    title: "AI-Enabled Knowledge Workflows",
-    summary:
-      "Apply generative AI to research, documentation, and knowledge-intensive work where the sources and review process can be clearly controlled.",
-    problems: [
-      "Employees spend significant time assembling background information.",
-      "Useful knowledge is scattered across documents and systems.",
-      "Documentation is difficult to create, maintain, or consume.",
-      "AI experimentation is occurring without a defined operating process.",
-    ],
-    deliverables: [
-      "Use-case and source-data assessment",
-      "Prompt and workflow design",
-      "Research or document-generation prototype",
-      "Source-grounding and human-review controls",
-      "Output quality and failure-mode evaluation",
-      "Implementation and governance recommendations",
-    ],
-    result:
-      "A controlled AI-assisted workflow that accelerates knowledge work without treating generated output as automatically accurate or complete.",
-    technologies: [
-      "Vertex AI",
-      "Gemini",
-      "NotebookLM",
-      "Cloud Run",
-      "Google Workspace",
-      "Python",
-    ],
+    evidence:
+      "Findability, consistent access, clear ownership and simpler recurring work.",
+    boundary:
+      "Engagements cover an agreed system or workflow. General helpdesk support, AV/production services and a full outsourced IT department are outside this offer.",
   },
 ];

@@ -6,6 +6,7 @@ const publicRoutes = [
   "/work",
   "/work/consultation-automation",
   "/work/enterprise-financial-reconciliation",
+  "/work/everything-is-random",
   "/assessment",
   "/insights",
   "/insights/why-this-site-uses-firebase-app-hosting",

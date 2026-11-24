@@ -154,3 +154,62 @@ live homepage, Work page, project link, and assessment after the managed rollout
 
 Existing staged edits to `.gitignore`, `docs/ARCHITECTURE.md`, and
 `docs/DEVELOPMENT_NOTES.md` were left intact.
+
+## Brand v2 alignment — November 23, 2026
+
+The approved v2 specification now drives the color tokens, identity assets,
+service language, and sharing metadata. A light header uses the exact horizontal
+logo with a compact symbol on mobile. The graphite hero uses the approved quiet
+background; sustained reading surfaces and the homepage assessment feature are
+light. Typography follows the v2 hierarchy, including 16px mobile body copy and
+14px captions. Metric captions remain top aligned.
+
+The three offers are Analytics and Reporting, Workflow Automation, and Workspace
+and Systems Design. Each describes a bounded scope, deliverables, evidence,
+ownership, and limits. Existing service hash anchors remain available.
+
+The assessment is retained in the main navigation, hero discovery link,
+homepage report demonstration, and footer. Its 24 questions, six domains,
+scoring, recommendation data, focus behavior, and native radio controls are
+unchanged. Introductory and closing language now describes practical, scoped
+work; presentation uses the approved tokens and larger reading sizes.
+
+Everything is Random now has its own public case study at
+`/work/everything-is-random`, linked from both project-feature placements and the
+sitemap. It explains product design, browser computation, reusable game rules,
+testing, and tradeoffs. Advertising, monetization, operational identifiers, and
+unshipped integrations are excluded. Existing enterprise anonymity and the
+qualified approximate monthly capacity result are retained.
+
+The supplied Geist masters differ from the former Next-bundled font subsets.
+Their WOFF2 conversions are loaded locally with original licenses and recorded
+provenance. Both share-image routes serve the exact approved 1200×630 PNG under
+fresh `brand-v2` URLs; old image URLs redirect. The favicon uses the approved
+micro artwork.
+
+Validation completed before release:
+
+- Full ESLint and all 20 Vitest tests passed.
+- Next production build and TypeScript passed; all public routes prerendered.
+- All 34 Playwright tests passed against the production build, including the
+  complete assessment and restart, keyboard answers/back navigation, mobile
+  menu, reduced motion, route checks, canonical social metadata, exact PNG
+  bytes/dimensions, favicon, and Axe checks.
+- Supporting pages, EIR case, and quiz intro/question/result screenshots were
+  inspected at 360, 768, and 1440px. Homepage/header also checked at 1024/1280px.
+- Additional 320px reflow checks passed for home, Services, EIR, and assessment,
+  including an all-high-answer Optimize report.
+- No assessment engine/question/recommendation source changes. No package or
+  infrastructure changes. Existing staged documentation and ignore edits remain
+  separate from the release.
+
+Local browser verification used installed Chrome. Safari/WebKit, physical
+mobile devices, and real social-platform cache refreshes were not tested.
+Evidence is under the ignored `node_modules/.cache/brand-v2/` directory. See
+`brand/README.md` for the production asset/source mapping and update procedure.
+
+Final review added an explicit canonical URL for the independent case study and
+suppressed unrelated inherited account-verification metadata on that page only.
+The production build was regenerated, and all four metadata tests passed,
+including the new disclosure check (35 distinct browser checks across the full
+suite and focused final rerun).

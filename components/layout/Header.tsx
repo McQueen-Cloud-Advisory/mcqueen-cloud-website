@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
-import { BrandMark } from "@/components/visuals/BrandMark";
+import Image from "next/image";
 
 const navigation = [
   { name: "Work", href: "/work" },
@@ -18,7 +18,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
-  const links = [...navigation, { name: "Contact", href: "/contact" }];
+  const links = [...navigation, { name: "Discuss a project", href: "/contact" }];
 
   return (
     <header className="site-header" onKeyDown={(event) => {
@@ -29,10 +29,10 @@ export function Header() {
     }}>
       <div className="site-shell header-inner">
         <Link href="/" className="brand" aria-label="McQueen Cloud Advisory home" onClick={() => setMenuOpen(false)}>
-          <BrandMark />
-          <span className="brand-wordmark"><strong>McQueen</strong><span>Cloud Advisory</span></span>
+          <Image src="/brand/v2/mca-lockup-horizontal-light.svg" width={1400} height={360} alt="" className="brand-lockup" priority />
+          <Image src="/brand/v2/mca-symbol-light.svg" width={400} height={400} alt="" className="brand-symbol" priority />
         </Link>
-        <nav aria-label="Primary navigation" className="hidden lg:block">
+        <nav aria-label="Primary navigation" className="desktop-navigation">
           <ul className="desktop-nav">
             {links.map((item) => <li key={item.href}>
               <Link href={item.href} className={`nav-link ${item.href === "/contact" ? "nav-contact" : ""}`} aria-current={isActive(item.href) ? "page" : undefined}>

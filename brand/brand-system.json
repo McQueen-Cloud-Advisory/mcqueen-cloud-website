@@ -1,0 +1,1547 @@
+{
+  "meta": {
+    "name": "McQueen Cloud Advisory",
+    "version": "2.0",
+    "date": "2026-11-23",
+    "owner": "Scott McQueen",
+    "website": "https://www.mcqueencloud.com",
+    "status": "Approved working standard",
+    "authority": "Canonical brand data v2.0 drives the playbook, workbook, tokens and asset manifest. Current website palette is retained. New logo masters replace generated legacy variants.",
+    "authoring": "Google Workspace first; editable Office files remain compatible imports. No Adobe subscription required."
+  },
+  "strategy": {
+    "positioning": "McQueen Cloud Advisory helps small and midsize organizations simplify back-office work and turn scattered data into reporting they can trust.",
+    "supporting": "Practical analytics, automation, and systems design informed by enterprise experience and sized for smaller teams.",
+    "human_benefit": "Less time copying data, chasing updates, and assembling reports. More time serving customers, supporting people, and making decisions.",
+    "headline": "Complex operations. Clear systems.",
+    "tagline": "Thoughtful architecture. Dependable systems.",
+    "descriptor": "Analytics, automation, and systems design",
+    "audience": "Small and midsize organizations with recurring operational work, inconsistent reporting, or disconnected tools. Churches and nonprofits are relevant examples, not the umbrella brand.",
+    "buyers": [
+      "Business owners",
+      "Operations leaders",
+      "Finance leaders",
+      "Executive directors",
+      "Administrators with budget authority or an executive sponsor"
+    ],
+    "qualifiers": [
+      "A recurring problem with observable consequences",
+      "An accountable process owner and a decision-maker",
+      "Access to the relevant data and systems",
+      "Staff time to validate, adopt and maintain the result"
+    ],
+    "brand_traits": [
+      [
+        "Practical",
+        "Explain what changes in daily work and how it will be maintained."
+      ],
+      [
+        "Experienced",
+        "Use evidence and sound tradeoffs to demonstrate enterprise experience."
+      ],
+      [
+        "Clear",
+        "Translate platform terms into decisions, inputs, ownership and outcomes."
+      ],
+      [
+        "Human",
+        "Explain the staff capacity and service benefit without promising headcount savings."
+      ]
+    ],
+    "principles": [
+      "Start with the operating problem and the people doing the work.",
+      "Use existing tools where they meet the requirement.",
+      "Apply appropriate controls without imposing enterprise-scale complexity.",
+      "Leave a system and instructions the client can own."
+    ],
+    "offers": [
+      {
+        "name": "Analytics and Reporting",
+        "promise": "Turn scattered data into clear reporting your team can use with confidence.",
+        "scope": "Agree on measures, organize sources, build a focused report or dashboard, reconcile results, and document refresh and ownership.",
+        "deliverables": "Metric definitions; source-to-report map; focused report or dashboard; validation evidence; refresh and ownership instructions.",
+        "proof": "Source reconciliation, stable definitions, preparation time and actual use.",
+        "boundary": "Advanced forecasting, custom machine learning and unrestricted platform migrations require separate scope."
+      },
+      {
+        "name": "Workflow Automation",
+        "promise": "Reduce repetitive administration and make everyday handoffs easier.",
+        "scope": "Map one recurring process, simplify steps, automate appropriate handoffs, define exceptions, and train the process owner.",
+        "deliverables": "Current and future workflow; agreed automation; exception handling; owner instructions; handoff.",
+        "proof": "Time spent, missed steps, rework and turnaround before and after.",
+        "boundary": "No unbounded support, emergency monitoring or promise that every task can be automated."
+      },
+      {
+        "name": "Workspace and Systems Design",
+        "promise": "Organize the tools and information your team relies on.",
+        "scope": "Improve shared files, forms, permissions and information flow; design proportionate integrations where needed.",
+        "deliverables": "Information structure; access and ownership plan; configuration or prototype; implementation roadmap; operating instructions.",
+        "proof": "Findability, consistent access, clear ownership and simpler recurring work.",
+        "boundary": "Not a general helpdesk, AV/production service or full outsourced IT department."
+      }
+    ],
+    "engagement_path": "Understand the problem; agree a bounded scope and acceptance criteria; implement and validate; hand over; support only under an agreed arrangement.",
+    "platform_rule": "Google Workspace and Google Cloud are core capabilities and the internal production preference. Use Microsoft 365 when it fits the client. A new platform is recommended only when requirements justify it.",
+    "proof_rules": [
+      "Label employment projects as professional experience, not consulting clients.",
+      "Label pro bono client work as pro bono. Separate completed work, proposals and demonstrations.",
+      "Quantified results need a supportable baseline, period, scope, attribution and permission to publish.",
+      "Do not imply employer endorsement, a larger team, unverified partner status or certifications.",
+      "Describe accuracy, security and compliance controls specifically; avoid guarantees.",
+      "An efficiency estimate represents recovered capacity unless an actual expense reduction is demonstrated."
+    ]
+  },
+  "colors": [
+    {
+      "token": "ink",
+      "hex": "#111820",
+      "role": "Primary text and dark background",
+      "light_use": "Headings, body text and logo bars",
+      "dark_use": "Canvas background",
+      "rgb": "17, 24, 32"
+    },
+    {
+      "token": "canvas",
+      "hex": "#F5F7FA",
+      "role": "Light page canvas",
+      "light_use": "Website background and soft sections",
+      "dark_use": "Primary light text",
+      "rgb": "245, 247, 250"
+    },
+    {
+      "token": "surface",
+      "hex": "#FFFFFF",
+      "role": "Light content surface",
+      "light_use": "Documents, cards and report backgrounds",
+      "dark_use": "Reversed symbol and wordmark",
+      "rgb": "255, 255, 255"
+    },
+    {
+      "token": "muted",
+      "hex": "#526171",
+      "role": "Secondary light-theme text",
+      "light_use": "Captions and explanatory text",
+      "dark_use": "Do not use as normal text on dark canvas",
+      "rgb": "82, 97, 113"
+    },
+    {
+      "token": "line",
+      "hex": "#D8DFE7",
+      "role": "Decorative light divider",
+      "light_use": "Nonessential separators only",
+      "dark_use": "Not used",
+      "rgb": "216, 223, 231"
+    },
+    {
+      "token": "accent",
+      "hex": "#245BDB",
+      "role": "Primary brand blue",
+      "light_use": "Links, buttons, selected chart series and symbol",
+      "dark_use": "Avoid small text; use ice instead",
+      "rgb": "36, 91, 219"
+    },
+    {
+      "token": "ice",
+      "hex": "#8CB8FF",
+      "role": "Dark-theme accent",
+      "light_use": "Decorative tint only; not body text on white",
+      "dark_use": "Links, selected data and small accent labels",
+      "rgb": "140, 184, 255"
+    },
+    {
+      "token": "dark_surface",
+      "hex": "#1B2633",
+      "role": "Raised dark surface",
+      "light_use": "Not used",
+      "dark_use": "Occasional dark cover or card",
+      "rgb": "27, 38, 51"
+    },
+    {
+      "token": "dark_muted",
+      "hex": "#CAD5E2",
+      "role": "Secondary dark text",
+      "light_use": "Not body text on white",
+      "dark_use": "Descriptors and captions",
+      "rgb": "202, 213, 226"
+    },
+    {
+      "token": "control_border",
+      "hex": "#767F8B",
+      "role": "Essential light UI boundary",
+      "light_use": "Input boundaries and controls where required",
+      "dark_use": "Not used",
+      "rgb": "118, 127, 139"
+    },
+    {
+      "token": "dark_control",
+      "hex": "#718399",
+      "role": "Essential dark UI boundary",
+      "light_use": "Not used",
+      "dark_use": "Inputs and essential boundaries",
+      "rgb": "113, 131, 153"
+    },
+    {
+      "token": "success",
+      "hex": "#137C45",
+      "role": "Semantic success",
+      "light_use": "Status with text label or icon",
+      "dark_use": "Use a light label and redundant status cue",
+      "rgb": "19, 124, 69"
+    },
+    {
+      "token": "warning",
+      "hex": "#8A5700",
+      "role": "Semantic caution",
+      "light_use": "Status with text label or icon",
+      "dark_use": "Use a light label and redundant status cue",
+      "rgb": "138, 87, 0"
+    },
+    {
+      "token": "error",
+      "hex": "#B42318",
+      "role": "Semantic error",
+      "light_use": "Errors with explanatory text",
+      "dark_use": "Use a light label and redundant status cue",
+      "rgb": "180, 35, 24"
+    },
+    {
+      "token": "teal",
+      "hex": "#137C78",
+      "role": "Secondary categorical chart series",
+      "light_use": "Charts with labels",
+      "dark_use": "Do not rely on this hue alone",
+      "rgb": "19, 124, 120"
+    }
+  ],
+  "contrast": [
+    {
+      "pair": "Ink text on white",
+      "foreground": "#111820",
+      "background": "#FFFFFF",
+      "ratio": 17.87,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "Ink text on canvas",
+      "foreground": "#111820",
+      "background": "#F5F7FA",
+      "ratio": 16.65,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "Muted text on white",
+      "foreground": "#526171",
+      "background": "#FFFFFF",
+      "ratio": 6.35,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "Blue link on white",
+      "foreground": "#245BDB",
+      "background": "#FFFFFF",
+      "ratio": 5.84,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "White text on blue",
+      "foreground": "#FFFFFF",
+      "background": "#245BDB",
+      "ratio": 5.84,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "Canvas text on dark",
+      "foreground": "#F5F7FA",
+      "background": "#111820",
+      "ratio": 16.65,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "Dark muted text on dark",
+      "foreground": "#CAD5E2",
+      "background": "#111820",
+      "ratio": 12.02,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "Ice link on dark",
+      "foreground": "#8CB8FF",
+      "background": "#111820",
+      "ratio": 8.86,
+      "normal_text_aa": true,
+      "large_or_ui_aa": true,
+      "approved_use": "Normal text"
+    },
+    {
+      "pair": "Light essential boundary",
+      "foreground": "#767F8B",
+      "background": "#FFFFFF",
+      "ratio": 4.05,
+      "normal_text_aa": false,
+      "large_or_ui_aa": true,
+      "approved_use": "Essential UI"
+    },
+    {
+      "pair": "Dark essential boundary",
+      "foreground": "#718399",
+      "background": "#1B2633",
+      "ratio": 3.94,
+      "normal_text_aa": false,
+      "large_or_ui_aa": true,
+      "approved_use": "Essential UI"
+    },
+    {
+      "pair": "Decorative light divider",
+      "foreground": "#D8DFE7",
+      "background": "#FFFFFF",
+      "ratio": 1.34,
+      "normal_text_aa": false,
+      "large_or_ui_aa": false,
+      "approved_use": "Decorative only"
+    },
+    {
+      "pair": "Ice on white",
+      "foreground": "#8CB8FF",
+      "background": "#FFFFFF",
+      "ratio": 2.02,
+      "normal_text_aa": false,
+      "large_or_ui_aa": false,
+      "approved_use": "Not permitted as normal text"
+    },
+    {
+      "pair": "Blue on dark",
+      "foreground": "#245BDB",
+      "background": "#111820",
+      "ratio": 3.06,
+      "normal_text_aa": false,
+      "large_or_ui_aa": true,
+      "approved_use": "Not permitted as normal text"
+    }
+  ],
+  "theme_rules": [
+    [
+      "Light default",
+      "Web content, proposals, SOWs, invoices, executive reports, printed documents and most slide interiors."
+    ],
+    [
+      "Dark selective",
+      "Presentation covers and dividers, selected social covers, short video opening/closing frames, digital campaigns and optional dark web sections."
+    ],
+    [
+      "Dark restraint",
+      "One dark treatment per composition; preserve whitespace. Keep report and legal document interiors light. Use a designated reversed symbol, not automatic inversion."
+    ],
+    [
+      "Accessibility",
+      "4.5:1 for normal text; 3:1 for large text (18 pt regular or 14 pt bold) and essential non-text controls. Check actual adjacent colors. Color alone never communicates status."
+    ],
+    [
+      "Decorative graphics",
+      "Use very sparingly, behind or beside content. They do not replace the primary logo and must contain no baked legacy wordmark."
+    ]
+  ],
+  "typography": [
+    {
+      "channel": "Web",
+      "role": "Hero desktop",
+      "family": "Geist Sans",
+      "size": 84,
+      "unit": "px max",
+      "weight": 500,
+      "line_height": "1.025",
+      "tracking": "-0.065em",
+      "rule": "clamp(48px, 6.05vw, 84px); homepage headline only"
+    },
+    {
+      "channel": "Web",
+      "role": "Hero mobile",
+      "family": "Geist Sans",
+      "size": 54,
+      "unit": "px max",
+      "weight": 500,
+      "line_height": "1.025",
+      "tracking": "-0.065em",
+      "rule": "clamp(43px, 11.3vw, 54px); avoid orphan words"
+    },
+    {
+      "channel": "Web",
+      "role": "Page title",
+      "family": "Geist Sans",
+      "size": 48,
+      "unit": "px",
+      "weight": 500,
+      "line_height": "1.12",
+      "tracking": "-0.04em",
+      "rule": "32px on small screens"
+    },
+    {
+      "channel": "Web",
+      "role": "Section heading",
+      "family": "Geist Sans",
+      "size": 32,
+      "unit": "px",
+      "weight": 500,
+      "line_height": "1.2",
+      "tracking": "-0.035em",
+      "rule": "28px on small screens"
+    },
+    {
+      "channel": "Web",
+      "role": "Body",
+      "family": "Geist Sans",
+      "size": 18,
+      "unit": "px",
+      "weight": 400,
+      "line_height": "1.6",
+      "tracking": "0",
+      "rule": "16px minimum on mobile; text measure 60-75 characters"
+    },
+    {
+      "channel": "Web",
+      "role": "Caption",
+      "family": "Geist Sans",
+      "size": 14,
+      "unit": "px",
+      "weight": 400,
+      "line_height": "1.5",
+      "tracking": "0",
+      "rule": "Use muted on light, dark_muted on dark"
+    },
+    {
+      "channel": "Web",
+      "role": "Metadata and code",
+      "family": "Geist Mono",
+      "size": 12,
+      "unit": "px",
+      "weight": 400,
+      "line_height": "1.5",
+      "tracking": "0.04em",
+      "rule": "Short identifiers and figure labels only; 14px for code blocks"
+    },
+    {
+      "channel": "Logo",
+      "role": "McQueen wordmark",
+      "family": "Geist Sans",
+      "size": 92,
+      "unit": "relative master units",
+      "weight": 600,
+      "line_height": "1",
+      "tracking": "-0.04em",
+      "rule": "Outlined Geist lettering in final SVG; regenerate from the approved font and spelling. Never guess the legacy raster font."
+    },
+    {
+      "channel": "Logo",
+      "role": "Cloud Advisory descriptor",
+      "family": "Geist Sans",
+      "size": 64,
+      "unit": "relative master units",
+      "weight": 400,
+      "line_height": "1",
+      "tracking": "-0.025em",
+      "rule": "Inline baseline; descriptor is 64/92 of name size"
+    },
+    {
+      "channel": "Google Docs",
+      "role": "Title",
+      "family": "Arial",
+      "size": 26,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "1.15",
+      "tracking": "0",
+      "rule": "Black; 12pt space after"
+    },
+    {
+      "channel": "Google Docs",
+      "role": "Heading 1",
+      "family": "Arial",
+      "size": 18,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "1.15",
+      "tracking": "0",
+      "rule": "Black; 12pt before, 6pt after"
+    },
+    {
+      "channel": "Google Docs",
+      "role": "Heading 2",
+      "family": "Arial",
+      "size": 14,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "1.15",
+      "tracking": "0",
+      "rule": "Black; 10pt before, 4pt after"
+    },
+    {
+      "channel": "Google Docs",
+      "role": "Heading 3",
+      "family": "Arial",
+      "size": 12,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "1.15",
+      "tracking": "0",
+      "rule": "Black; 8pt before, 4pt after"
+    },
+    {
+      "channel": "Google Docs",
+      "role": "Body",
+      "family": "Arial",
+      "size": 11,
+      "unit": "pt",
+      "weight": 400,
+      "line_height": "1.25",
+      "tracking": "0",
+      "rule": "6pt after paragraphs; left align"
+    },
+    {
+      "channel": "Google Docs",
+      "role": "Caption",
+      "family": "Arial",
+      "size": 9,
+      "unit": "pt",
+      "weight": 400,
+      "line_height": "1.2",
+      "tracking": "0",
+      "rule": "Secondary notes only; no essential instructions below 11pt"
+    },
+    {
+      "channel": "Google Sheets",
+      "role": "Title",
+      "family": "Arial",
+      "size": 18,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "Auto",
+      "tracking": "0",
+      "rule": "One clear title above a table"
+    },
+    {
+      "channel": "Google Sheets",
+      "role": "Table header",
+      "family": "Arial",
+      "size": 10,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "Auto",
+      "tracking": "0",
+      "rule": "Wrap; row at least 32px"
+    },
+    {
+      "channel": "Google Sheets",
+      "role": "Body",
+      "family": "Arial",
+      "size": 10,
+      "unit": "pt",
+      "weight": 400,
+      "line_height": "Auto",
+      "tracking": "0",
+      "rule": "Wrap long entries; row at least 28px and expand as needed"
+    },
+    {
+      "channel": "Google Sheets",
+      "role": "Helper note",
+      "family": "Arial",
+      "size": 9,
+      "unit": "pt",
+      "weight": 400,
+      "line_height": "Auto",
+      "tracking": "0",
+      "rule": "Short notes only; never hide required instructions"
+    },
+    {
+      "channel": "Google Slides",
+      "role": "Cover title",
+      "family": "Arial",
+      "size": 36,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "1.1",
+      "tracking": "0",
+      "rule": "Maximum two lines"
+    },
+    {
+      "channel": "Google Slides",
+      "role": "Slide heading",
+      "family": "Arial",
+      "size": 28,
+      "unit": "pt",
+      "weight": 700,
+      "line_height": "1.15",
+      "tracking": "0",
+      "rule": "One main point per slide"
+    },
+    {
+      "channel": "Google Slides",
+      "role": "Body",
+      "family": "Arial",
+      "size": 20,
+      "unit": "pt",
+      "weight": 400,
+      "line_height": "1.2",
+      "tracking": "0",
+      "rule": "18pt floor; shorten content instead of shrinking"
+    },
+    {
+      "channel": "Google Slides",
+      "role": "Caption",
+      "family": "Arial",
+      "size": 14,
+      "unit": "pt",
+      "weight": 400,
+      "line_height": "1.2",
+      "tracking": "0",
+      "rule": "Sources, units and nonessential notes"
+    },
+    {
+      "channel": "Social graphic",
+      "role": "Headline on 1200px canvas",
+      "family": "Geist Sans",
+      "size": 64,
+      "unit": "px",
+      "weight": 600,
+      "line_height": "1.1",
+      "tracking": "-0.035em",
+      "rule": "48px floor; max 12 words and three lines"
+    },
+    {
+      "channel": "Social graphic",
+      "role": "Supporting copy on 1200px canvas",
+      "family": "Geist Sans",
+      "size": 28,
+      "unit": "px",
+      "weight": 400,
+      "line_height": "1.35",
+      "tracking": "0",
+      "rule": "24px floor; short explanatory text"
+    },
+    {
+      "channel": "Email",
+      "role": "Signature",
+      "family": "Arial",
+      "size": 12,
+      "unit": "px",
+      "weight": 400,
+      "line_height": "1.4",
+      "tracking": "0",
+      "rule": "Name 14px bold; links blue; retain live text"
+    }
+  ],
+  "font_rules": [
+    "Geist Sans and Geist Mono are the web and designed-asset families.",
+    "Arial is the approved Google Docs, Sheets, Slides, email and Office fallback. It is a deliberate cross-platform choice, not a new brand family.",
+    "Do not assume a font is available in Google Docs because it appears in Google Fonts. Use Arial when Geist is unavailable.",
+    "For logos keep the supplied final image intact in Google tools; use editable text beside the symbol only in a template that specifies it.",
+    "Use actual installed weights; do not synthesize decorative outlines, stretched letters or faux small caps.",
+    "Fonts bundled with this kit retain their SIL Open Font License notices."
+  ],
+  "logo_rules": {
+    "concept": "A restrained evolution of the existing cloud, bar forms and supporting base. The new flat symbol and Geist wordmark replace the textured generated masters.",
+    "clear_space": "At least H/4 on all sides, where H is the visible symbol height. Measure from visible artwork, not file canvas. In very small favicon tiles use the dedicated micro asset instead.",
+    "symbol_min_px": 48,
+    "symbol_min_mm": 12,
+    "horizontal_min_px": 320,
+    "horizontal_min_mm": 80,
+    "stacked_min_px": 200,
+    "stacked_min_mm": 50,
+    "descriptor_min_px": 12,
+    "descriptor_min_pt": 9,
+    "micro_rule": "Use the dedicated simple M micro mark at 16-32px. Use the full symbol at 48px or above. A micro mark is an application asset, not an alternative corporate logo.",
+    "light_rule": "Blue cloud with ink/slate bar forms on white or the light canvas.",
+    "dark_rule": "A separately approved reversed master on ink or dark_surface; canvas-white bar forms and ice/white cloud. Never invert automatically.",
+    "wordmark_rule": "McQueen and Cloud Advisory use the exact approved spelling and capitalization. Horizontal is primary; stacked is for square or narrow spaces. No tagline inside a small lockup.",
+    "dont": [
+      "Do not stretch, skew, crop or rotate logo artwork.",
+      "Do not add shadows, gradients, glows, outlines or a new enclosing box.",
+      "Do not put the light symbol on a dark background if its ink shapes disappear.",
+      "Do not use a supplied legacy banner as a header logo.",
+      "Do not recreate the wordmark by guessing the old generated font.",
+      "Do not imply Google endorsement or add partner badges without current authorization."
+    ],
+    "paths": {
+      "light": "assets/mca-symbol-light.png",
+      "dark": "assets/mca-symbol-dark.png",
+      "horizontal_light": "assets/mca-lockup-horizontal-light.png",
+      "horizontal_dark": "assets/mca-lockup-horizontal-dark.png",
+      "stacked_light": "assets/mca-lockup-stacked-light.png",
+      "stacked_dark": "assets/mca-lockup-stacked-dark.png",
+      "micro": "assets/mca-micro.svg"
+    },
+    "master_format": "Native SVG paths for both symbol and outlined wordmark. Transparent PNGs support Google Docs and Slides. These are newly authored geometric masters, not automatic traces of the old textured PNG."
+  },
+  "asset_registry": [
+    {
+      "filename": "banner-style-dark-graphical.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "status": "Legacy source only",
+      "use": "Reference/archive only",
+      "notes": "Old reversed wordmark is baked in; replace with the new dark cover.",
+      "path": "legacy/banner-style-dark-graphical.png"
+    },
+    {
+      "filename": "tall-graphical-background.png",
+      "width": 1122,
+      "height": 1402,
+      "format": "PNG",
+      "status": "Legacy source only",
+      "use": "Reference/archive only",
+      "notes": "Old stacked identity is baked into the portrait artwork.",
+      "path": "legacy/tall-graphical-background.png"
+    },
+    {
+      "filename": "banner-style-white-background.png",
+      "width": 2048,
+      "height": 682,
+      "format": "PNG",
+      "status": "Retire",
+      "use": "Reference/archive only",
+      "notes": "Opaque raster lockup; replace with transparent v2 lockup.",
+      "path": "legacy/banner-style-white-background.png"
+    },
+    {
+      "filename": "large-banner-graphical-background.png",
+      "width": 2048,
+      "height": 682,
+      "format": "PNG",
+      "status": "Legacy source only",
+      "use": "Reference/archive only",
+      "notes": "Use only as an illustration reference; embedded identity is not current.",
+      "path": "legacy/large-banner-graphical-background.png"
+    },
+    {
+      "filename": "large-square-graphical-background.png",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "status": "Legacy source only",
+      "use": "Reference/archive only",
+      "notes": "Old oversized wordmark is embedded.",
+      "path": "legacy/large-square-graphical-background.png"
+    },
+    {
+      "filename": "large-graphical-emphasis-subheader.png",
+      "width": 1448,
+      "height": 1086,
+      "format": "PNG",
+      "status": "Retire",
+      "use": "Reference/archive only",
+      "notes": "Old service line and typography conflict with v2 positioning.",
+      "path": "legacy/large-graphical-emphasis-subheader.png"
+    },
+    {
+      "filename": "small-logo-only-no-background.png",
+      "width": 460,
+      "height": 359,
+      "format": "PNG",
+      "status": "Retire",
+      "use": "Reference/archive only",
+      "notes": "Small textured raster; only original with true transparency.",
+      "path": "legacy/small-logo-only-no-background.png"
+    },
+    {
+      "filename": "small-logo-only-white-background.png",
+      "width": 460,
+      "height": 359,
+      "format": "PNG",
+      "status": "Retire",
+      "use": "Reference/archive only",
+      "notes": "Opaque duplicate with baked white background.",
+      "path": "legacy/small-logo-only-white-background.png"
+    },
+    {
+      "filename": "large-logo-only.png",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "status": "Retire",
+      "use": "Reference/archive only",
+      "notes": "Opaque background and faint rounded frame.",
+      "path": "legacy/large-logo-only.png"
+    },
+    {
+      "filename": "logo_with_business_name.png",
+      "width": 1448,
+      "height": 1086,
+      "format": "PNG",
+      "status": "Retire",
+      "use": "Reference/archive only",
+      "notes": "Baked lettering and excessive canvas padding.",
+      "path": "legacy/logo_with_business_name.png"
+    },
+    {
+      "filename": "mca-symbol-light.png",
+      "width": 1600,
+      "height": 1600,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Symbol on white or light canvas",
+      "notes": "Light; respect visible-artwork clearspace. Matching SVG masters use native vector paths and outlined Geist lettering. PNGs are transparent unless identified as a profile tile or cover.",
+      "path": "assets/mca-symbol-light.png"
+    },
+    {
+      "filename": "mca-symbol-dark.png",
+      "width": 1600,
+      "height": 1600,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Reversed symbol on dark canvas",
+      "notes": "Dark; respect visible-artwork clearspace. Matching SVG masters use native vector paths and outlined Geist lettering. PNGs are transparent unless identified as a profile tile or cover.",
+      "path": "assets/mca-symbol-dark.png"
+    },
+    {
+      "filename": "mca-lockup-horizontal-light.png",
+      "width": 2800,
+      "height": 720,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Default header and document identity",
+      "notes": "Light; respect visible-artwork clearspace. Matching SVG masters use native vector paths and outlined Geist lettering. PNGs are transparent unless identified as a profile tile or cover.",
+      "path": "assets/mca-lockup-horizontal-light.png"
+    },
+    {
+      "filename": "mca-lockup-horizontal-dark.png",
+      "width": 2800,
+      "height": 720,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Dark cover and campaign identity",
+      "notes": "Dark; respect visible-artwork clearspace. Matching SVG masters use native vector paths and outlined Geist lettering. PNGs are transparent unless identified as a profile tile or cover.",
+      "path": "assets/mca-lockup-horizontal-dark.png"
+    },
+    {
+      "filename": "mca-lockup-stacked-light.png",
+      "width": 1680,
+      "height": 1840,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Square and narrow layouts",
+      "notes": "Light; respect visible-artwork clearspace. Matching SVG masters use native vector paths and outlined Geist lettering. PNGs are transparent unless identified as a profile tile or cover.",
+      "path": "assets/mca-lockup-stacked-light.png"
+    },
+    {
+      "filename": "mca-lockup-stacked-dark.png",
+      "width": 1680,
+      "height": 1840,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Dark square and narrow layouts",
+      "notes": "Dark; respect visible-artwork clearspace. Matching SVG masters use native vector paths and outlined Geist lettering. PNGs are transparent unless identified as a profile tile or cover.",
+      "path": "assets/mca-lockup-stacked-dark.png"
+    },
+    {
+      "filename": "mca-micro.svg",
+      "width": 64,
+      "height": 64,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Small application icon and favicon",
+      "notes": "Both; respect visible-artwork clearspace. Matching SVG masters use native vector paths and outlined Geist lettering. PNGs are transparent unless identified as a profile tile or cover.",
+      "path": "assets/mca-micro.svg"
+    },
+    {
+      "filename": "mca-background-dark.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Quiet digital background; place text and logo separately",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-background-dark.png"
+    },
+    {
+      "filename": "mca-background-dark.svg",
+      "width": 1920,
+      "height": 1080,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Quiet digital background; place text and logo separately",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-background-dark.svg"
+    },
+    {
+      "filename": "mca-background-light.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Quiet digital background; place text and logo separately",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-background-light.png"
+    },
+    {
+      "filename": "mca-background-light.svg",
+      "width": 1920,
+      "height": 1080,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Quiet digital background; place text and logo separately",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-background-light.svg"
+    },
+    {
+      "filename": "mca-linkedin-company-dark.png",
+      "width": 1512,
+      "height": 256,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-company-dark.png"
+    },
+    {
+      "filename": "mca-linkedin-company-dark.svg",
+      "width": 1512,
+      "height": 256,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-company-dark.svg"
+    },
+    {
+      "filename": "mca-linkedin-company-light.png",
+      "width": 1512,
+      "height": 256,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-company-light.png"
+    },
+    {
+      "filename": "mca-linkedin-company-light.svg",
+      "width": 1512,
+      "height": 256,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-company-light.svg"
+    },
+    {
+      "filename": "mca-linkedin-personal-dark.png",
+      "width": 1584,
+      "height": 396,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-personal-dark.png"
+    },
+    {
+      "filename": "mca-linkedin-personal-dark.svg",
+      "width": 1584,
+      "height": 396,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-personal-dark.svg"
+    },
+    {
+      "filename": "mca-linkedin-personal-light.png",
+      "width": 1584,
+      "height": 396,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-personal-light.png"
+    },
+    {
+      "filename": "mca-linkedin-personal-light.svg",
+      "width": 1584,
+      "height": 396,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-linkedin-personal-light.svg"
+    },
+    {
+      "filename": "mca-lockup-horizontal-dark.svg",
+      "width": 1400,
+      "height": 360,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-lockup-horizontal-dark.svg"
+    },
+    {
+      "filename": "mca-lockup-horizontal-light.svg",
+      "width": 1400,
+      "height": 360,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-lockup-horizontal-light.svg"
+    },
+    {
+      "filename": "mca-lockup-stacked-dark.svg",
+      "width": 840,
+      "height": 920,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-lockup-stacked-dark.svg"
+    },
+    {
+      "filename": "mca-lockup-stacked-light.svg",
+      "width": 840,
+      "height": 920,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-lockup-stacked-light.svg"
+    },
+    {
+      "filename": "mca-micro-dark.png",
+      "width": 128,
+      "height": 128,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-micro-dark.png"
+    },
+    {
+      "filename": "mca-micro-dark.svg",
+      "width": 64,
+      "height": 64,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-micro-dark.svg"
+    },
+    {
+      "filename": "mca-micro-light.png",
+      "width": 128,
+      "height": 128,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-micro-light.png"
+    },
+    {
+      "filename": "mca-micro-light.svg",
+      "width": 64,
+      "height": 64,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-micro-light.svg"
+    },
+    {
+      "filename": "mca-og-dark.png",
+      "width": 1200,
+      "height": 630,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-og-dark.png"
+    },
+    {
+      "filename": "mca-og-dark.svg",
+      "width": 1200,
+      "height": 630,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-og-dark.svg"
+    },
+    {
+      "filename": "mca-og-light.png",
+      "width": 1200,
+      "height": 630,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-og-light.png"
+    },
+    {
+      "filename": "mca-og-light.svg",
+      "width": 1200,
+      "height": 630,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-og-light.svg"
+    },
+    {
+      "filename": "mca-profile-dark.png",
+      "width": 400,
+      "height": 400,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-profile-dark.png"
+    },
+    {
+      "filename": "mca-profile-dark.svg",
+      "width": 400,
+      "height": 400,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-profile-dark.svg"
+    },
+    {
+      "filename": "mca-profile-light.png",
+      "width": 400,
+      "height": 400,
+      "format": "PNG",
+      "status": "Approved v2",
+      "use": "Destination-sized export",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-profile-light.png"
+    },
+    {
+      "filename": "mca-profile-light.svg",
+      "width": 400,
+      "height": 400,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-profile-light.svg"
+    },
+    {
+      "filename": "mca-symbol-dark.svg",
+      "width": 400,
+      "height": 400,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-symbol-dark.svg"
+    },
+    {
+      "filename": "mca-symbol-light.svg",
+      "width": 400,
+      "height": 400,
+      "format": "SVG",
+      "status": "Approved v2",
+      "use": "Reusable vector master",
+      "notes": "Native vector artwork; outlined Geist lettering where present. Dark variants use the exact same geometry. Cover safe zones are house layouts and require destination preview.",
+      "path": "assets/mca-symbol-light.svg"
+    }
+  ],
+  "channels": [
+    {
+      "name": "Website header",
+      "width": 0,
+      "height": 48,
+      "unit": "CSS px visible symbol height",
+      "ratio": "Responsive",
+      "safe_area": "H/4 around artwork",
+      "use": "Primary horizontal lockup on surface; compact symbol on mobile with accessible brand name",
+      "notes": "Avoid using a full illustrated banner as a nav logo."
+    },
+    {
+      "name": "Website hero supporting artwork",
+      "width": 1920,
+      "height": 1080,
+      "unit": "px export",
+      "ratio": "16:9",
+      "safe_area": "Keep text separate; no text baked into background",
+      "use": "Optional digital illustration, not required on every page",
+      "notes": "Text column remains readable at narrow widths; use a content-appropriate crop."
+    },
+    {
+      "name": "Open Graph card",
+      "width": 1200,
+      "height": 630,
+      "unit": "px export",
+      "ratio": "40:21",
+      "safe_area": "60px on every edge",
+      "use": "One headline, small lockup and quiet background",
+      "notes": "House export size. Test the resulting preview on destination platforms."
+    },
+    {
+      "name": "LinkedIn personal cover",
+      "width": 1584,
+      "height": 396,
+      "unit": "px export",
+      "ratio": "4:1",
+      "safe_area": "Keep key content in x=420..1504 and y=64..332",
+      "use": "Concise descriptor with small lockup; light or dark",
+      "notes": "Avatar and responsive crops vary. Preview on desktop and mobile. PNG/JPG below 8MB."
+    },
+    {
+      "name": "LinkedIn company cover",
+      "width": 1512,
+      "height": 256,
+      "unit": "px export",
+      "ratio": "189:32",
+      "safe_area": "Keep key content in x=360..1436 and y=48..208",
+      "use": "Brand descriptor; minimal content",
+      "notes": "Current official recommended canvas; PNG/JPG max 3MB. Preview crop."
+    },
+    {
+      "name": "LinkedIn company logo",
+      "width": 400,
+      "height": 400,
+      "unit": "px export",
+      "ratio": "1:1",
+      "safe_area": "Symbol occupies central 65% of canvas",
+      "use": "Symbol only, light surface or dark approved tile",
+      "notes": "Official recommendation; inspect at small UI size; max 3MB."
+    },
+    {
+      "name": "LinkedIn landscape post",
+      "width": 1200,
+      "height": 628,
+      "unit": "px export",
+      "ratio": "300:157",
+      "safe_area": "60px on all edges",
+      "use": "House landscape composition for proof or a short argument",
+      "notes": "Export recommendation, not a guarantee of every LinkedIn placement."
+    },
+    {
+      "name": "Social square",
+      "width": 1080,
+      "height": 1080,
+      "unit": "px export",
+      "ratio": "1:1",
+      "safe_area": "72px on all edges",
+      "use": "Quote, process insight or proof summary",
+      "notes": "Use no more than one main point."
+    },
+    {
+      "name": "Social portrait",
+      "width": 1080,
+      "height": 1350,
+      "unit": "px export",
+      "ratio": "4:5",
+      "safe_area": "72px on all edges",
+      "use": "Process walkthrough or short case summary",
+      "notes": "House feed format; preview platform crop."
+    },
+    {
+      "name": "Story or vertical video",
+      "width": 1080,
+      "height": 1920,
+      "unit": "px export",
+      "ratio": "9:16",
+      "safe_area": "120px sides, 250px top/bottom",
+      "use": "Optional short video title or closing frame",
+      "notes": "House safe zone; app overlays and controls still require testing."
+    },
+    {
+      "name": "YouTube channel cover",
+      "width": 2560,
+      "height": 1440,
+      "unit": "px export",
+      "ratio": "16:9",
+      "safe_area": "Centered 1235x338px text rectangle as a conservative house safe zone",
+      "use": "Optional channel branding; logo and descriptor within safe rectangle",
+      "notes": "2560x1440 recommended canvas; official minimum-upload safe area used conservatively here. Crop varies by device; file must be 6MB or smaller."
+    },
+    {
+      "name": "YouTube thumbnail",
+      "width": 1280,
+      "height": 720,
+      "unit": "px export",
+      "ratio": "16:9",
+      "safe_area": "64px on all edges; leave lower right clear",
+      "use": "One specific topic; short readable headline",
+      "notes": "House export size; leave space for player duration overlay."
+    },
+    {
+      "name": "Google Slides deck",
+      "width": 10,
+      "height": 5.625,
+      "unit": "in page size",
+      "ratio": "16:9",
+      "safe_area": "0.5in on every edge",
+      "use": "Dark or light cover; light interiors by default",
+      "notes": "Cover 36pt, heading 28pt, body20pt, caption14pt."
+    },
+    {
+      "name": "Google Docs and print",
+      "width": 8.5,
+      "height": 11,
+      "unit": "in page size",
+      "ratio": "Letter portrait",
+      "safe_area": "0.75in margins",
+      "use": "Proposals, SOWs, reports and invoices on white",
+      "notes": "Body11pt; essential text stays editable, not embedded in artwork."
+    },
+    {
+      "name": "Email signature symbol",
+      "width": 64,
+      "height": 64,
+      "unit": "px display",
+      "ratio": "1:1",
+      "safe_area": "Keep live text separate",
+      "use": "Optional symbol; readable name and contact text beside/below",
+      "notes": "Export 128px image for 2x density; signature remains useful with images blocked."
+    }
+  ],
+  "layout": {
+    "spacing_px": [
+      4,
+      8,
+      12,
+      16,
+      24,
+      32,
+      48,
+      64,
+      96
+    ],
+    "web_max_width_px": 1200,
+    "web_gutter_desktop_px": 48,
+    "web_gutter_mobile_px": 24,
+    "web_section_padding_desktop_px": 96,
+    "web_section_padding_mobile_px": 56,
+    "web_card_padding_px": 24,
+    "web_radius_px": 8,
+    "document_margin_in": 0.75,
+    "slide_margin_in": 0.5,
+    "social_default_inset_percent": 6,
+    "rule": "Use one primary CTA, aligned edges, consistent spacing and quiet backgrounds. Logo clear space and destination safe zones override generic inset values."
+  },
+  "applications": {
+    "docs": [
+      "Set Letter portrait, 0.75in margins and Arial defaults.",
+      "Use native Title and Heading styles. Titles and headings stay black; blue is for links and limited accents.",
+      "Use the transparent horizontal light lockup at 3.2-3.6in wide, preserving the 80mm minimum. Use a symbol plus live business name if a narrower header is necessary.",
+      "Tables use 0.5pt #D8DFE7 grid lines as decorative separators, light canvas header fill and ink text. Essential meaning must not depend on those borders.",
+      "Export a PDF and inspect every page before sending; keep the editable original."
+    ],
+    "sheets": [
+      "Use Arial10pt body, 10pt bold table headers and an 18pt title.",
+      "Use one row per record, typed dates/numbers and descriptive headers. Ratios such as 9:16 remain text.",
+      "Freeze the header row(s), enable filters for reference tables and expand row height for wrapped text.",
+      "Use white cells and restrained soft row striping; reserve blue for emphasis, links and clearly labeled inputs.",
+      "Use the spreadsheet as the operational specification register; update the canonical data and playbook in the same version."
+    ],
+    "slides": [
+      "Set a custom 10x5.625in widescreen page.",
+      "Build a light cover and a dark cover; use light content slides for charts and longer reading.",
+      "Keep the symbol and live headline separate. Use the supplied lockup image when consistency matters.",
+      "Use cover36pt, heading28pt, body20pt and caption14pt. Keep one message per slide.",
+      "Use no heavy illustrated background behind analytical charts or dense text."
+    ],
+    "reports": [
+      "Begin with the decision, reporting period and key conclusion.",
+      "Show data definitions, source/refresh timing, limitations and an accountable owner.",
+      "Use blue for the main series, slate for comparison, teal for a third category and ink for a fourth.",
+      "Label series directly when possible. Pair status colors with words, icons or patterns.",
+      "Use consistent scales and units. Do not decorate charts with 3D, glows or gradients."
+    ]
+  },
+  "voice": [
+    {
+      "use": "Replace repeated copying with a documented workflow.",
+      "avoid": "Unlock seamless operational transformation.",
+      "reason": "Names a real change in work."
+    },
+    {
+      "use": "Know where each number comes from and how it is updated.",
+      "avoid": "A single source of truth you can always trust.",
+      "reason": "States what makes reporting dependable."
+    },
+    {
+      "use": "Use the tools your team already knows where they fit the work.",
+      "avoid": "The newest platform is always the best solution.",
+      "reason": "Keeps recommendations proportionate."
+    },
+    {
+      "use": "Experience from complex enterprise environments, applied to a practical scope.",
+      "avoid": "Enterprise-grade transformation for every business.",
+      "reason": "Demonstrates experience without an unsupported quality guarantee."
+    },
+    {
+      "use": "The pilot reduced preparation time from the measured baseline.",
+      "avoid": "Guaranteed savings and fully automated decisions.",
+      "reason": "Preserves evidence and human responsibility."
+    }
+  ],
+  "approved_copy": [
+    {
+      "placement": "One sentence",
+      "copy": "McQueen Cloud Advisory helps small and midsize organizations simplify back-office work and turn scattered data into reporting they can trust."
+    },
+    {
+      "placement": "Website hero headline",
+      "copy": "Complex operations. Clear systems."
+    },
+    {
+      "placement": "Website hero supporting copy",
+      "copy": "Clear reporting, simpler workflows, and organized tools for small and midsize organizations. Spend less time on administration and more time serving customers, members, and communities."
+    },
+    {
+      "placement": "Footer line",
+      "copy": "Thoughtful architecture. Dependable systems."
+    },
+    {
+      "placement": "Short social descriptor",
+      "copy": "Analytics, automation, and systems design for smaller teams."
+    },
+    {
+      "placement": "Enterprise experience statement",
+      "copy": "Experience from complex enterprise environments, applied to useful systems your team can run and maintain."
+    },
+    {
+      "placement": "Church or nonprofit example",
+      "copy": "Simplify administrative work and give staff more time for the people and communities they serve."
+    },
+    {
+      "placement": "Primary CTA",
+      "copy": "Discuss a project"
+    },
+    {
+      "placement": "Secondary CTA",
+      "copy": "View selected work"
+    },
+    {
+      "placement": "Founder voice",
+      "copy": "I help teams connect the business question to reporting and workflows that hold up in everyday use."
+    }
+  ],
+  "qa": [
+    [
+      "Identity",
+      "Use one approved master, correct variant and current version; verify clearspace and minimum size."
+    ],
+    [
+      "Typography",
+      "Use the channel-specific family and actual weight. Check fallback behavior, wrapping and mobile size."
+    ],
+    [
+      "Color",
+      "Use canonical values. Verify actual text/background and essential-control contrast."
+    ],
+    [
+      "Content",
+      "Lead with the operating problem and business consequence. Verify claims, attribution and publication permission."
+    ],
+    [
+      "Layout",
+      "Check actual destination size, mobile/desktop crop, file size and image density."
+    ],
+    [
+      "Data",
+      "Verify labels, units, sources, periods, calculations and status cues."
+    ],
+    [
+      "Export",
+      "Review the PDF or image at normal viewing size. Keep editable text and source files."
+    ],
+    [
+      "Release",
+      "Name assets consistently and record the version. Archive superseded files outside active templates."
+    ]
+  ],
+  "implementation": [
+    [
+      "1",
+      "Adopt v2",
+      "Use the new masters and channel templates for new materials; keep originals as reference only."
+    ],
+    [
+      "2",
+      "Unify the specification",
+      "Keep this JSON, playbook, workbook and exported tokens together. Update shared values once, regenerate and review."
+    ],
+    [
+      "3",
+      "Website alignment",
+      "Retain current palette and Geist families; proposed service labels and broad SMB copy are recommendations to implement separately. No website has been changed by this deliverable."
+    ],
+    [
+      "4",
+      "Google working set",
+      "Import the editable DOCX/XLSX into Google tools. Check page breaks, font fallback, row heights and charts after conversion."
+    ],
+    [
+      "5",
+      "Review",
+      "Scott owns changes to strategy, claims, logo masters and tokens. Review at a material offering change or a new channel launch."
+    ]
+  ],
+  "sources": [
+    {
+      "name": "Current website and public CSS",
+      "url": "https://www.mcqueencloud.com/",
+      "note": "Palette and Geist families inspected 2026-11-23; service-copy alignment is proposed, not deployed."
+    },
+    {
+      "name": "WCAG contrast minimum",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "note": "4.5:1 normal text; 3:1 large text. Pair ratios computed locally using sRGB relative luminance."
+    },
+    {
+      "name": "WCAG non-text contrast",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html",
+      "note": "3:1 for essential non-text interface and graphic boundaries, subject to the criterion."
+    },
+    {
+      "name": "LinkedIn Page images",
+      "url": "https://www.linkedin.com/help/lms/answer/a567368",
+      "note": "Current recommended company cover1512x256 and company logo400x400; verify before future channel changes."
+    },
+    {
+      "name": "LinkedIn personal background",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a568217",
+      "note": "1584x396 recommended; responsive avatar/crop check remains necessary."
+    },
+    {
+      "name": "YouTube channel branding",
+      "url": "https://support.google.com/youtube/answer/10456525",
+      "note": "Use centered safe rectangle and check actual channel previews."
+    },
+    {
+      "name": "Geist font source",
+      "url": "https://github.com/google/fonts/tree/main/ofl/geist",
+      "note": "Open font distribution; retain OFL license. Docs fallback remains Arial."
+    },
+    {
+      "name": "Geist Mono font source",
+      "url": "https://github.com/google/fonts/tree/main/ofl/geistmono",
+      "note": "Open font distribution; retain OFL license."
+    },
+    {
+      "name": "Supplied legacy files",
+      "url": "User supplied assets and Gemini playbooks",
+      "note": "Audited as legacy reference. Original generated lettering is not treated as a verified font specification."
+    },
+    {
+      "name": "Google Docs font controls",
+      "url": "https://support.google.com/docs/answer/1663349?hl=en",
+      "note": "Use font picker and More fonts; do not infer that all Google Fonts are available in Docs."
+    }
+  ]
+}

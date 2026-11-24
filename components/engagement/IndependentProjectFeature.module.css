@@ -5,26 +5,26 @@
   align-items: center;
   margin-top: 56px;
   padding: 40px;
-  border: 1px solid #d8dfe7;
-  border-radius: 6px;
-  background: #fff;
+  border: 1px solid var(--mca-line);
+  border-radius: 8px;
+  background: var(--mca-surface);
 }
 .copy h2 {
   margin-top: 18px;
-  color: #111820;
-  font-size: clamp(28px, 3vw, 38px);
+  color: var(--mca-ink);
+  font-size: clamp(28px, 3vw, 32px);
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -.045em;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
 .copy > p:not(:first-child) {
   max-width: 580px;
   margin-top: 20px;
-  color: #526171;
-  font-size: 15px;
-  line-height: 1.8;
+  color: var(--mca-muted);
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.6;
 }
-.copy a { margin-top: 20px; }
+.actions { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 24px; }
 .visual { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .tile {
   display: flex;
@@ -33,22 +33,22 @@
   justify-content: center;
   gap: 12px;
   padding: 20px 12px;
-  background: #f2f5fb;
-  border: 1px solid #dce5f4;
-  border-radius: 4px;
-  color: #245bdb;
+  background: var(--mca-canvas);
+  border: 1px solid var(--mca-line);
+  border-radius: 8px;
+  color: var(--mca-accent);
 }
 .tile svg { width: 40px; height: 40px; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-.tile span { font-family: var(--font-geist-mono), monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+.tile span { font-family: var(--font-geist-mono), monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .1em;  line-height: 1.5;}
 @media (max-width: 767px) {
   .feature { grid-template-columns: 1fr; gap: 28px; padding: 28px; margin-top: 40px; }
-  .visual { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .visual { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .tile { padding: 14px 4px; gap: 10px; }
   .tile svg { width: 28px; height: 28px; }
-  .tile span { font-size: 10px; letter-spacing: 0; }
+  .tile span { font-size: 12px; letter-spacing: 0;  line-height: 1.5;}
 }
 @media (max-width: 390px) {
   .feature { padding: 24px; }
   .visual { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tile span { font-size: 10px; }
+  .tile span { font-size: 12px;  line-height: 1.5;}
 }

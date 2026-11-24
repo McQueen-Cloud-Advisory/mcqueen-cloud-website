@@ -6,6 +6,7 @@ const accessibilityRoutes = [
   "/services",
   "/work",
   "/work/consultation-automation",
+  "/work/everything-is-random",
   "/work/enterprise-financial-reconciliation",
   "/assessment",
   "/insights",

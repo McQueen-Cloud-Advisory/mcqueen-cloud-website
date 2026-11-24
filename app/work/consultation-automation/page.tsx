@@ -151,8 +151,8 @@ export default function ConsultationAutomationCaseStudy() {
         eyebrow="Explore the approach"
         title="Is automation the right next step?"
         description="The readiness assessment evaluates whether data, governance, cloud architecture, and technical support can sustain workflow automation, or whether another constraint should come first."
-        assessmentLabel="Assess your readiness"
-        contactLabel="Discuss an automation opportunity"
+        assessmentLabel="Explore the assessment"
+        contactLabel="Discuss a project"
       />
       </div>
     </>

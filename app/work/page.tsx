@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Explore financial reconciliation, consultation automation, and Everything is Random: real outcomes, explainable architecture, and independent product development.",
 };
 
-const orderedProjects = [...projects].sort((first, second) =>
+const orderedProjects = projects.filter((project) => project.slug !== "everything-is-random").sort((first, second) =>
   Number(second.slug === "enterprise-financial-reconciliation") -
   Number(first.slug === "enterprise-financial-reconciliation"),
 );
@@ -23,7 +23,7 @@ export default function WorkPage() {
         <div className="site-shell">
           <p className="eyebrow">Selected work / Systems & products</p>
           <h1 className="display-title mt-6 max-w-4xl">Real problems.<br /><span className="text-muted">Considered systems.</span></h1>
-          <p className="lede mt-7 max-w-2xl">A closer look at the decisions, architecture, and outcomes behind the work. Built around the way organizations actually operate.</p>
+          <p className="lede mt-7 max-w-2xl">A closer look at the decisions, working systems, and outcomes behind the work. Explore an anonymized enterprise implementation, a workflow demonstration, and an independent product built for everyday use.</p>
         </div>
       </section>
 
@@ -36,7 +36,7 @@ export default function WorkPage() {
               <div className="work-project-copy">
                 <p className="work-project-number">0{index + 1} / {project.category}</p>
                 <h2 className="work-project-title">{project.title}</h2>
-                <p className="mt-5 text-base leading-7 text-muted">{project.summary}</p>
+                <p className="work-project-summary mt-5 text-muted">{project.summary}</p>
                 <p className="work-project-outcome">{project.outcome}</p>
                 <p className="work-project-status">{project.status}</p>
                 <Link href={"/work/" + project.slug} className="text-link mt-7">Explore the case study <span aria-hidden="true">↗</span></Link>
@@ -53,8 +53,8 @@ export default function WorkPage() {
         eyebrow="Explore the approach"
         title="Where would you start?"
         description="The readiness assessment applies the same thinking to your operating foundation: data, governance, architecture, automation, and the ability to support it."
-        assessmentLabel="Assess your readiness"
-        contactLabel="Discuss an automation opportunity"
+        assessmentLabel="Explore the assessment"
+        contactLabel="Discuss a project"
       />
       </div>
     </>

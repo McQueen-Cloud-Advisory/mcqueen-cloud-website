@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 
@@ -92,7 +92,7 @@ export default function FirebaseAppHostingInsightPage() {
               ← Back to insights
             </Link>
 
-            <p className="mt-10 font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">
+            <p className="mt-10 font-mono text-sm font-medium uppercase tracking-[0.16em] text-accent">
               Architecture decision
             </p>
 
@@ -120,9 +120,9 @@ export default function FirebaseAppHostingInsightPage() {
           </div>
         </header>
 
-        <section className="border-y border-line bg-white px-6 py-16 lg:px-8">
+        <section className="border-y border-line bg-surface px-6 py-16 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">
+            <p className="font-mono text-sm font-medium uppercase tracking-[0.16em] text-accent">
               Decision summary
             </p>
 
@@ -242,14 +242,14 @@ export default function FirebaseAppHostingInsightPage() {
                   "Cloud Run revision",
                   "App Hosting URL",
                 ].map((step, index) => (
-                  <li key={step} className="flex items-center gap-5 border-t-2 border-accent bg-white p-4 md:flex-col md:items-start md:gap-5">
-                    <span aria-hidden="true" className="font-mono text-xs text-accent">0{index + 1}</span>
+                  <li key={step} className="flex items-center gap-5 border-t-2 border-accent bg-surface p-4 md:flex-col md:items-start md:gap-5">
+                    <span aria-hidden="true" className="font-mono text-sm text-accent">0{index + 1}</span>
                     <span className="text-sm font-medium leading-6">{step}</span>
                   </li>
                 ))}
               </ol>
 
-              <div className="mt-8 rounded-none border border-line bg-white p-7">
+              <div className="mt-8 rounded-none border border-line bg-surface p-7">
                 <p className="leading-8 text-muted">
                   Firebase App Hosting uses Google-managed build and runtime
                   services beneath the Firebase interface. This preserves a
@@ -380,8 +380,8 @@ export default function FirebaseAppHostingInsightPage() {
               </div>
             </section>
 
-            <section className="rounded-none border border-line bg-white p-8 sm:p-12">
-              <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">
+            <section className="rounded-none border border-line bg-surface p-8 sm:p-12">
+              <p className="font-mono text-sm font-medium uppercase tracking-[0.16em] text-accent">
                 Core lesson
               </p>
 
@@ -402,8 +402,8 @@ export default function FirebaseAppHostingInsightPage() {
                 eyebrow="Evaluate your architecture in context"
                 title="Not sure whether your cloud platform is the real constraint?"
                 description="The readiness assessment evaluates cloud architecture alongside data, workflow, governance, AI, and internal support capability so you can identify the area most likely to limit progress before committing to a platform change."
-                assessmentLabel="Assess your modernization readiness"
-                contactLabel="Discuss a cloud architecture decision"
+                assessmentLabel="Explore the assessment"
+                contactLabel="Discuss a project"
               />
             </section>
           </div>

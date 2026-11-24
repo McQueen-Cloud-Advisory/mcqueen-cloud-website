@@ -6,7 +6,7 @@ import "../../components/assessment/assessment.css";
 export const metadata: Metadata = {
   title: "Operational Modernization Readiness Assessment",
   description:
-    "Evaluate your organization’s readiness across data, automation, cloud architecture, governance, AI, and technical support, then receive a prioritized modernization roadmap.",
+    "Find a practical next step for your reporting, workflows, and systems. Explore six connected capabilities and receive a prioritized readiness profile and roadmap.",
 };
 
 export default function AssessmentPage() {
