@@ -1,0 +1,23 @@
+{
+  "status": "Design study for review; not applied to the production brand specification",
+  "date": "2026-11-23",
+  "purpose": "Express technical depth, human consideration, and explainable judgment through specific work and deliberate composition.",
+  "retained": ["Approved logo artwork and clear space", "Geist Sans and Geist Mono", "Existing brand palette", "Readable body text and accessible controls", "Three service offers", "All assessment questions, scoring, recommendations, and behavior"],
+  "proposed_web_changes": {
+    "major_section_heading_desktop_px": "40–56, according to content importance",
+    "case_opening_desktop_px": "64–80, with a deliberately short measure",
+    "major_section_heading_mobile_px": "32–44",
+    "section_spacing": "Choose 48, 64, 80, 96, or 112px by content and hierarchy rather than applying 96px to every desktop section.",
+    "color": "Use light reading surfaces, graphite for the opening and assessment chapter, and color from real product captures. Keep the approved logo variants intact.",
+    "imagery": "Original process illustration, truthful project artifacts, public product captures, and clearly labeled synthetic assessment results.",
+    "motion": "One short structural reveal with a clear resting state; no continuous decorative motion; respect reduced motion."
+  },
+  "personal_context_translation": [
+    {"principle":"Respect people's time and potential","expression":"Connect recovered preparation time to review and judgment; make the homepage's human purpose explicit."},
+    {"principle":"The process is essential to value","expression":"Show source preservation, repeatable transformation, exceptions, review, and ownership."},
+    {"principle":"Understanding means being able to explain","expression":"Make diagrams legible and connect report recommendations to actual engine output."},
+    {"principle":"Technical decisions are business decisions","expression":"Place constraints and operational tradeoffs beside the relevant project artifacts."},
+    {"principle":"Expand what others can accomplish","expression":"Use handoff and independent ownership as a closing idea rather than a generic consulting pitch."}
+  ],
+  "publication_boundary": "These compositions are local review artifacts outside app/ and public/. They do not alter or deploy the live site."
+}

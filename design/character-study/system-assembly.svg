@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720" fill="none" role="img" aria-labelledby="assembly-title assembly-description">
+  <title id="assembly-title">From separate records to a reviewable system</title>
+  <desc id="assembly-description">Three different source documents enter a layered processing assembly. A single routed path passes through checks and an ordered record layer. It produces a structured report with an exception called out beside a person, keeping human review visible. This is a conceptual illustration, not a production architecture or a report of business results.</desc>
+  <defs>
+    <linearGradient id="assembly-platform" x1="228" y1="387" x2="652" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B2633"/>
+      <stop offset="1" stop-color="#111820"/>
+    </linearGradient>
+    <linearGradient id="assembly-blue-plane" x1="278" y1="310" x2="558" y2="489" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#245BDB" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#245BDB" stop-opacity=".18"/>
+    </linearGradient>
+    <linearGradient id="assembly-paper" x1="651" y1="391" x2="786" y2="634" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F7FA"/>
+      <stop offset="1" stop-color="#CAD5E2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- The shadow is a solid projected plane, without glow or blur. -->
+  <path d="m165 525 276-160 304 174-276 160Z" fill="#111820" opacity=".7"/>
+  <path d="m175 542 266 153 297-171" stroke="#CAD5E2" stroke-opacity=".12"/>
+
+  <!-- The retained-record layer: an ordered footprint underneath the route. -->
+  <g class="assembly-layer assembly-layer-records">
+    <path d="m204 477 231-133 251 145v22L455 644 204 499Z" fill="#111820" stroke="#8CB8FF" stroke-opacity=".4" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="m204 477 231-133 251 145-231 133Z" fill="url(#assembly-platform)" stroke="#8CB8FF" stroke-opacity=".58" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M455 622v22m-251-167 251 145 231-133" stroke="#8CB8FF" stroke-opacity=".48" stroke-width="1.5"/>
+    <g transform="matrix(.866 .5 -.866 .5 435 370)" stroke="#8CB8FF" stroke-width="1.6">
+      <path d="M0 0h244v218H0Z" stroke-opacity=".16"/>
+      <path d="M24 26h196v36H24zm0 60h196v36H24zm0 60h196v36H24Z" fill="#1B2633" stroke-opacity=".5"/>
+      <path d="M45 44h78m22 0h51M45 104h78m22 0h51M45 164h78m22 0h51" stroke="#CAD5E2" stroke-width="4" stroke-linecap="square"/>
+      <path d="M24 26h7v36h-7zm0 60h7v36h-7zm0 60h7v36h-7Z" fill="#245BDB" stroke="none"/>
+    </g>
+    <path d="m238 511 65 37m9 5 18 11" stroke="#CAD5E2" stroke-opacity=".5" stroke-width="3"/>
+  </g>
+
+  <!-- Structural posts connect the layers rather than leaving floating tiles. -->
+  <g stroke="#8CB8FF" stroke-width="1.5">
+    <path d="M251 402v94m184-216v90m204 32v91M455 517v77" stroke-opacity=".5"/>
+    <path d="m246 493 5 3 5-3m174-120 5-3 5 3m194 117 5 3 5-3m-194 98 5 3 5-3" stroke-opacity=".8"/>
+  </g>
+
+  <!-- A substantial blue control plane sits over the ordered records. -->
+  <g class="assembly-layer assembly-layer-controls">
+    <path d="m204 365 231-133 251 145v23L455 533 204 388Z" fill="#1B2633" stroke="#8CB8FF" stroke-opacity=".75" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="m204 365 231-133 251 145-231 133Z" fill="#1B2633" stroke="#8CB8FF" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="m204 365 231-133 251 145-231 133Z" fill="url(#assembly-blue-plane)"/>
+    <path d="m231 365 204-118 224 130-204 118Z" stroke="#CAD5E2" stroke-opacity=".24" stroke-width="1.3"/>
+    <path d="M455 510v23m-251-168 251 145 231-133" stroke="#8CB8FF" stroke-width="1.5"/>
+    <path d="m303 423 49 28m14 8 49 28" stroke="#CAD5E2" stroke-opacity=".65" stroke-width="3"/>
+
+    <g transform="matrix(.866 .5 -.866 .5 435 253)">
+      <!-- One coherent route, with three readable checking stations. -->
+      <path d="M-37 148H46V64h82v84h108" stroke="#111820" stroke-opacity=".65" stroke-width="18" stroke-linejoin="round"/>
+      <path class="assembly-flow" d="M-37 148H46V64h82v84h108" stroke="#CAD5E2" stroke-width="5" stroke-linejoin="round"/>
+      <path d="m225 139 11 9-11 9" stroke="#CAD5E2" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+
+      <path d="M16 120h62v59H16Z" fill="#111820" stroke="#8CB8FF" stroke-width="2"/>
+      <path d="M16 120h62v-9H16Z" fill="#8CB8FF"/>
+      <path d="m36 147 13 7-2-28" stroke="#F5F7FA" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+
+      <path d="M98 34h62v59H98Z" fill="#F5F7FA" stroke="#F5F7FA" stroke-width="2"/>
+      <path d="M98 34h62v-9H98Z" fill="#CAD5E2"/>
+      <path d="m118 61 13 7-2-28" stroke="#245BDB" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+
+      <path d="M166 120h62v59h-62Z" fill="#111820" stroke="#8CB8FF" stroke-width="2"/>
+      <path d="M166 120h62v-9h-62Z" fill="#8CB8FF"/>
+      <path d="m186 147 13 7-2-28" stroke="#F5F7FA" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+    </g>
+  </g>
+
+  <!-- Different source formats retain their distinct shapes and marks. -->
+  <g class="assembly-layer assembly-layer-inputs">
+    <g transform="rotate(-13 168 169)">
+      <path d="M105 91h100l26 26v143H105Z" fill="#CAD5E2" stroke="#CAD5E2" stroke-width="1.5"/>
+      <path d="M205 91v26h26" fill="#8CB8FF" stroke="#111820" stroke-opacity=".2" stroke-width="1.5"/>
+      <path d="M124 123h50M124 147h82M124 159h82M124 171h50M124 203h82M124 215h64" stroke="#1B2633" stroke-width="4"/>
+      <path d="M124 240h26" stroke="#245BDB" stroke-width="6"/>
+    </g>
+    <g transform="rotate(11 278 218)">
+      <path d="M218 136h94l24 24v151H218Z" fill="#F5F7FA" stroke="#F5F7FA" stroke-width="1.5"/>
+      <path d="M312 136v24h24" fill="#CAD5E2"/>
+      <path d="M237 173h47" stroke="#245BDB" stroke-width="6"/>
+      <path d="M237 195h79M237 224h79M237 253h79M259 195v87m31-87v87" stroke="#1B2633" stroke-opacity=".45" stroke-width="1.5"/>
+      <path d="M237 211h11m22 0h12m19 0h15M237 240h11m22 0h12m19 0h15M237 269h11m22 0h12m19 0h15" stroke="#1B2633" stroke-width="3"/>
+    </g>
+    <g transform="rotate(-5 142 295)">
+      <path d="M69 204h113l27 27v171H69Z" fill="#1B2633" stroke="#8CB8FF" stroke-width="2"/>
+      <path d="M182 204v27h27" fill="#245BDB" stroke="#8CB8FF" stroke-width="2"/>
+      <path d="M89 238h55M89 260h93" stroke="#F5F7FA" stroke-width="5"/>
+      <path d="M89 284h93v27H89Zm0 44h93v27H89Z" stroke="#CAD5E2" stroke-opacity=".6" stroke-width="1.5"/>
+      <path d="M101 297h47m-47 44h65" stroke="#CAD5E2" stroke-width="3"/>
+      <path d="M89 378h41" stroke="#8CB8FF" stroke-width="5"/>
+    </g>
+    <path class="assembly-flow" d="m283 302 32 19v40l37 21" stroke="#8CB8FF" stroke-width="3" stroke-linejoin="round"/>
+    <path d="m341 383 11-1-4-10" stroke="#8CB8FF" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+
+  <!-- A single output path terminates at the report and its human review. -->
+  <path class="assembly-flow" d="m607 413 35 20v54l42 24" stroke="#8CB8FF" stroke-width="3" stroke-linejoin="round"/>
+  <g class="assembly-layer assembly-layer-output">
+    <g transform="rotate(-6 733 513)">
+      <path d="M644 387h160l25 25v243H644Z" fill="#111820" stroke="#8CB8FF" stroke-opacity=".3" stroke-width="1.5"/>
+      <path d="M633 375h160l25 25v243H633Z" fill="url(#assembly-paper)" stroke="#F5F7FA" stroke-width="1.5"/>
+      <path d="M793 375v25h25" fill="#8CB8FF"/>
+      <path d="M655 406h91" stroke="#245BDB" stroke-width="7"/>
+      <path d="M655 426h56" stroke="#1B2633" stroke-width="4"/>
+      <path d="M655 447h139" stroke="#1B2633" stroke-opacity=".3" stroke-width="1.5"/>
+      <g stroke="#1B2633" stroke-width="3">
+        <path d="M679 474h101M679 486h74M679 517h101M679 529h58M679 560h101M679 572h82"/>
+      </g>
+      <g stroke="#137C78" stroke-width="3" stroke-linejoin="miter">
+        <path d="m654 475 5 5 9-10m-14 48 5 5 9-10"/>
+      </g>
+      <path d="M650 549h21v25h-21Z" fill="#245BDB"/>
+      <path d="M660.5 554v9m0 3v3" stroke="#F5F7FA" stroke-width="2.5"/>
+      <path d="M655 606h63m13 0h41" stroke="#1B2633" stroke-opacity=".6" stroke-width="3"/>
+    </g>
+
+    <!-- Review is a person, not an automatic success badge. -->
+    <circle cx="805" cy="615" r="46" fill="#111820" stroke="#8CB8FF" stroke-width="2"/>
+    <circle cx="805" cy="599" r="12" stroke="#F5F7FA" stroke-width="2.5"/>
+    <path d="M783 638v-8c0-11 9-19 22-19s22 8 22 19v8" stroke="#F5F7FA" stroke-width="2.5"/>
+    <path d="M789 638h32" stroke="#8CB8FF" stroke-width="2.5"/>
+    <path d="M726 563h27l15 15" stroke="#245BDB" stroke-width="3"/>
+  </g>
+
+  <!-- Short labels supplement the forms; the surrounding HTML carries detail. -->
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="19" letter-spacing=".4">
+    <text x="69" y="56" fill="#8CB8FF">01</text>
+    <text x="112" y="56" fill="#CAD5E2">SOURCES</text>
+    <text x="422" y="193" fill="#8CB8FF">02</text>
+    <text x="465" y="193" fill="#CAD5E2">STRUCTURE</text>
+    <text x="655" y="333" fill="#8CB8FF">03</text>
+    <text x="698" y="333" fill="#CAD5E2">REVIEW</text>
+  </g>
+</svg>

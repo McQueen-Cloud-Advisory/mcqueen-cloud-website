@@ -1,0 +1,119 @@
+{
+  "checks": [
+    {
+      "page": "home",
+      "width": 1440,
+      "status": 200,
+      "content": 1440,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": [],
+      "axe": []
+    },
+    {
+      "page": "case",
+      "width": 1440,
+      "status": 200,
+      "content": 1440,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": [],
+      "axe": []
+    },
+    {
+      "page": "assessment",
+      "width": 1440,
+      "status": 200,
+      "content": 1440,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": [],
+      "axe": []
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "status": 200,
+      "content": 768,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": []
+    },
+    {
+      "page": "case",
+      "width": 768,
+      "status": 200,
+      "content": 768,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": []
+    },
+    {
+      "page": "assessment",
+      "width": 768,
+      "status": 200,
+      "content": 768,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": []
+    },
+    {
+      "page": "home",
+      "width": 390,
+      "status": 200,
+      "content": 390,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": [],
+      "axe": []
+    },
+    {
+      "page": "case",
+      "width": 390,
+      "status": 200,
+      "content": 390,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": [],
+      "axe": []
+    },
+    {
+      "page": "assessment",
+      "width": 390,
+      "status": 200,
+      "content": 390,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": [],
+      "axe": []
+    },
+    {
+      "page": "home",
+      "width": 320,
+      "status": 200,
+      "content": 320,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": []
+    },
+    {
+      "page": "case",
+      "width": 320,
+      "status": 200,
+      "content": 320,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": []
+    },
+    {
+      "page": "assessment",
+      "width": 320,
+      "status": 200,
+      "content": 320,
+      "fonts": "Geist, Arial, sans-serif",
+      "broken": [],
+      "brokenAnchors": []
+    }
+  ],
+  "errors": []
+}

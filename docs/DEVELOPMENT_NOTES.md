@@ -2145,21 +2145,19 @@ The repository added its first implemented infrastructure-as-code layer.
 
 Created:
 
-```text
 infra/
-??? bootstrap/
-??? environments/
-?   ??? dev/
-?   ??? prod/
-??? modules/
-?   ??? cost-controls/
-?   ??? identity/
-?   ??? observability/
-?   ??? project-services/
-?   ??? secrets/
-??? README.md
-??? versions.tf
-```
+├── bootstrap/
+├── environments/
+│   ├── dev/
+│   └── prod/
+├── modules/
+│   ├── cost-controls/
+│   ├── identity/
+│   ├── observability/
+│   ├── project-services/
+│   └── secrets/
+├── README.md
+└── versions.tf
 
 ### Infrastructure boundaries
 
@@ -2188,10 +2186,8 @@ The state bucket has not yet been applied.
 
 Separate Terraform roots were created for:
 
-```text
 infra/environments/dev
 infra/environments/prod
-```
 
 Each environment defines:
 
@@ -2209,15 +2205,13 @@ Development and production state will use separate backend prefixes.
 
 Terraform selected:
 
-```text
 hashicorp/google v7.38.0
-```
 
 Local provider installation required a filesystem mirror because the Windows network path could not reliably download the provider directly from HashiCorp.
 
 The bootstrap, development, and production configurations all initialized and returned:
 
-```text
+```
 Success! The configuration is valid.
 ```
 
@@ -2244,7 +2238,7 @@ The CI job does not authenticate to Google Cloud and does not create or modify i
 
 The architecture document was moved to:
 
-```text
+```
 docs/ARCHITECTURE.md
 ```
 
@@ -2252,7 +2246,7 @@ The duplicate root-level development-notes file was removed.
 
 The canonical documentation locations are now:
 
-```text
+```
 docs/ARCHITECTURE.md
 docs/DEVELOPMENT_NOTES.md
 docs/SITE_ENGINEERING_PLAN.md

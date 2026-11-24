@@ -1,0 +1,719 @@
+{
+  "provenance": {
+    "kind": "synthetic-design-study",
+    "label": "Illustrative example. These are synthetic responses, not a visitor or client assessment.",
+    "method": "Called the unmodified analyzeAssessment function using an in-memory TypeScript CommonJS transpile hook. Every question in a domain receives the same selected score: 3, 2, 3, 3, 2, 3 in assessmentDomains order. No output fields were overridden.",
+    "engineEntryPoint": "lib/assessment/analyze-assessment.ts#analyzeAssessment",
+    "sourceSha256": {
+      "data/assessment.ts": "bb8c5e35bbcdbff9a45a6624aaed406a8a896438b6c33606a2664f065b799adc",
+      "data/recommendations.ts": "0d4f528ab94ae820498a01414a8ecacf045f78a25fa131024c5a2e90833d29dc",
+      "lib/assessment/analyze-assessment.ts": "df1daaa823762d047e9234acd5556f1d0bda6429d37c09fe5082ace93c1aefa4",
+      "lib/assessment/build-roadmap.ts": "1143f4955e606b8c1e82412f363f22b65b97a1c2c9d2ca16cd65b0f44d30f684",
+      "lib/assessment/evaluate-gaps.ts": "ac0411a8ce015023b4442e7f2d9dbbb3786ca9e32f3c874e794d077065ef5212",
+      "lib/assessment/evaluate-readiness.ts": "32915b3e1e4cff6d3b19b649b21704d3118a1199fbc889462e0700d450869f14",
+      "lib/assessment/score-domains.ts": "855e3ab1b09a5af7e428a71fd678c7ff8ea4f9a2fe16f7137b1f407ad6edf835",
+      "lib/assessment/select-priorities.ts": "f20a69269c17c77609d971ee39ce8f338fc8933a7f9441c1b4124af534d550c4"
+    },
+    "domainInputs": [
+      {
+        "id": "data-reporting",
+        "name": "Data and Reporting",
+        "selectedScoreForEveryQuestion": 3
+      },
+      {
+        "id": "workflow-automation",
+        "name": "Workflow Automation",
+        "selectedScoreForEveryQuestion": 2
+      },
+      {
+        "id": "cloud-architecture",
+        "name": "Cloud Architecture",
+        "selectedScoreForEveryQuestion": 3
+      },
+      {
+        "id": "governance-reliability",
+        "name": "Governance and Reliability",
+        "selectedScoreForEveryQuestion": 3
+      },
+      {
+        "id": "ai-knowledge-workflows",
+        "name": "AI and Knowledge Workflows",
+        "selectedScoreForEveryQuestion": 2
+      },
+      {
+        "id": "technical-capability-support",
+        "name": "Technical Capability and Support Model",
+        "selectedScoreForEveryQuestion": 3
+      }
+    ],
+    "answers": [
+      {
+        "questionId": "q1",
+        "questionNumber": 1,
+        "domainId": "data-reporting",
+        "prompt": "How consistently are important business metrics defined across teams?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Core metrics have documented definitions, identified owners, and are used consistently across most reporting."
+        }
+      },
+      {
+        "questionId": "q2",
+        "questionNumber": 2,
+        "domainId": "data-reporting",
+        "prompt": "How are recurring reports and dashboards produced?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Most recurring reporting follows standardized processes and scheduled data refreshes, with documented handling for common exceptions."
+        }
+      },
+      {
+        "questionId": "q3",
+        "questionNumber": 3,
+        "domainId": "data-reporting",
+        "prompt": "How does the organization detect and address data-quality problems?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Important datasets have defined validation checks, accountable owners, and documented processes for resolving issues."
+        }
+      },
+      {
+        "questionId": "q4",
+        "questionNumber": 4,
+        "domainId": "data-reporting",
+        "prompt": "How directly does reporting support business decisions?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Reports and dashboards are designed around specific business questions, decision points, and accountable users."
+        }
+      },
+      {
+        "questionId": "q5",
+        "questionNumber": 5,
+        "domainId": "workflow-automation",
+        "prompt": "How are repetitive operational tasks currently performed?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Some tasks use templates, macros, or point solutions, but the overall process still depends on manual coordination."
+        }
+      },
+      {
+        "questionId": "q6",
+        "questionNumber": 6,
+        "domainId": "workflow-automation",
+        "prompt": "How are handoffs between people, teams, or systems managed?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Some handoffs use shared tools or checklists, but delays and missed steps still require frequent manual intervention."
+        }
+      },
+      {
+        "questionId": "q7",
+        "questionNumber": 7,
+        "domainId": "workflow-automation",
+        "prompt": "How are exceptions and unusual cases handled?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Common exceptions are recognized, but resolution steps are only partially documented or inconsistently followed."
+        }
+      },
+      {
+        "questionId": "q8",
+        "questionNumber": 8,
+        "domainId": "workflow-automation",
+        "prompt": "How is the success of an automated workflow evaluated?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Teams track some operational measures, but baselines and expected outcomes are not consistently defined."
+        }
+      },
+      {
+        "questionId": "q9",
+        "questionNumber": 9,
+        "domainId": "cloud-architecture",
+        "prompt": "How are cloud services selected for new solutions?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Service selection follows defined criteria that consider business requirements, integration, security, cost, scalability, and support needs."
+        }
+      },
+      {
+        "questionId": "q10",
+        "questionNumber": 10,
+        "domainId": "cloud-architecture",
+        "prompt": "How are development, testing, and production environments managed?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Development, testing, and production environments are clearly separated, with controlled configuration and repeatable deployment processes."
+        }
+      },
+      {
+        "questionId": "q11",
+        "questionNumber": 11,
+        "domainId": "cloud-architecture",
+        "prompt": "How are cloud costs understood and controlled?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Cloud costs are tracked by service, project, or owner, with budgets, alerts, and periodic optimization reviews."
+        }
+      },
+      {
+        "questionId": "q12",
+        "questionNumber": 12,
+        "domainId": "cloud-architecture",
+        "prompt": "How well can cloud solutions adapt to growth, failure, or changing requirements?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Solutions are designed with clear service boundaries, appropriate scaling, monitoring, backups, and documented recovery expectations."
+        }
+      },
+      {
+        "questionId": "q13",
+        "questionNumber": 13,
+        "domainId": "governance-reliability",
+        "prompt": "How are access permissions managed?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Access follows documented roles, least-privilege principles, approval processes, and periodic reviews."
+        }
+      },
+      {
+        "questionId": "q14",
+        "questionNumber": 14,
+        "domainId": "governance-reliability",
+        "prompt": "How are system health, failures, and service performance monitored?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Important services have defined health indicators, actionable alerts, accountable responders, and documented escalation procedures."
+        }
+      },
+      {
+        "questionId": "q15",
+        "questionNumber": 15,
+        "domainId": "governance-reliability",
+        "prompt": "How are production changes reviewed and deployed?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Production changes follow version control, peer review, automated validation, approval, and documented deployment procedures."
+        }
+      },
+      {
+        "questionId": "q16",
+        "questionNumber": 16,
+        "domainId": "governance-reliability",
+        "prompt": "How prepared is the organization to recover from failures or disruptions?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Critical systems have documented recovery objectives, tested backups, assigned owners, and defined continuity procedures."
+        }
+      },
+      {
+        "questionId": "q17",
+        "questionNumber": 17,
+        "domainId": "ai-knowledge-workflows",
+        "prompt": "How ready is the organization’s information for AI-enabled use?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Some information is centralized, but content quality, ownership, versioning, and searchability are inconsistent."
+        }
+      },
+      {
+        "questionId": "q18",
+        "questionNumber": 18,
+        "domainId": "ai-knowledge-workflows",
+        "prompt": "How are AI use cases selected?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Teams experiment with promising use cases, but prioritization, ownership, and expected value are inconsistent."
+        }
+      },
+      {
+        "questionId": "q19",
+        "questionNumber": 19,
+        "domainId": "ai-knowledge-workflows",
+        "prompt": "How are AI-generated outputs reviewed and trusted?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Human review is encouraged, but standards vary by user, team, or use case."
+        }
+      },
+      {
+        "questionId": "q20",
+        "questionNumber": 20,
+        "domainId": "ai-knowledge-workflows",
+        "prompt": "How are AI-enabled workflows monitored after implementation?",
+        "selectedOption": {
+          "score": 2,
+          "level": "Emerging",
+          "description": "Teams review issues when they arise, but monitoring and ownership are not consistently defined."
+        }
+      },
+      {
+        "questionId": "q21",
+        "questionNumber": 21,
+        "domainId": "technical-capability-support",
+        "prompt": "How well do internal technical capabilities match the systems the organization depends on?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Internal capabilities are aligned to the organization’s core systems, with clear escalation paths for specialized or infrequent needs."
+        }
+      },
+      {
+        "questionId": "q22",
+        "questionNumber": 22,
+        "domainId": "technical-capability-support",
+        "prompt": "How clearly are technical responsibilities assigned?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Critical systems have documented owners, support responsibilities, decision rights, and escalation paths."
+        }
+      },
+      {
+        "questionId": "q23",
+        "questionNumber": 23,
+        "domainId": "technical-capability-support",
+        "prompt": "How does the organization decide which technical problems to manage internally versus through external support?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "The organization has defined support boundaries based on expertise, urgency, system criticality, cost, and contractual responsibilities."
+        }
+      },
+      {
+        "questionId": "q24",
+        "questionNumber": 24,
+        "domainId": "technical-capability-support",
+        "prompt": "How resilient is the organization’s technical knowledge and staffing model?",
+        "selectedOption": {
+          "score": 3,
+          "level": "Managed",
+          "description": "Critical knowledge is documented, responsibilities have backups, and capacity or skills gaps are reviewed periodically."
+        }
+      }
+    ]
+  },
+  "responses": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "q4": 3,
+    "q5": 2,
+    "q6": 2,
+    "q7": 2,
+    "q8": 2,
+    "q9": 3,
+    "q10": 3,
+    "q11": 3,
+    "q12": 3,
+    "q13": 3,
+    "q14": 3,
+    "q15": 3,
+    "q16": 3,
+    "q17": 2,
+    "q18": 2,
+    "q19": 2,
+    "q20": 2,
+    "q21": 3,
+    "q22": 3,
+    "q23": 3,
+    "q24": 3
+  },
+  "analysis": {
+    "isComplete": true,
+    "answeredCount": 24,
+    "questionCount": 24,
+    "overallAverage": 2.67,
+    "overallMaturityLevel": "Managed",
+    "domainScores": [
+      {
+        "id": "data-reporting",
+        "name": "Data and Reporting",
+        "shortName": "Data",
+        "purpose": "Evaluate whether reporting is consistent, trustworthy, repeatable, and connected to business decisions.",
+        "average": 3,
+        "maturityLevel": "Managed",
+        "lowestScore": 3,
+        "highestScore": 3,
+        "scoreSpread": 0,
+        "scoreOneCount": 0,
+        "scoreTwoOrBelowCount": 0,
+        "answeredCount": 4,
+        "questionCount": 4,
+        "isComplete": true,
+        "criticalFlags": []
+      },
+      {
+        "id": "workflow-automation",
+        "name": "Workflow Automation",
+        "shortName": "Automation",
+        "purpose": "Evaluate whether recurring work is standardized, visible, and appropriately automated without hiding exceptions or accountability.",
+        "average": 2,
+        "maturityLevel": "Emerging",
+        "lowestScore": 2,
+        "highestScore": 2,
+        "scoreSpread": 0,
+        "scoreOneCount": 0,
+        "scoreTwoOrBelowCount": 4,
+        "answeredCount": 4,
+        "questionCount": 4,
+        "isComplete": true,
+        "criticalFlags": []
+      },
+      {
+        "id": "cloud-architecture",
+        "name": "Cloud Architecture",
+        "shortName": "Cloud",
+        "purpose": "Evaluate whether cloud services are selected and operated intentionally, with clear ownership, appropriate controls, and room to scale.",
+        "average": 3,
+        "maturityLevel": "Managed",
+        "lowestScore": 3,
+        "highestScore": 3,
+        "scoreSpread": 0,
+        "scoreOneCount": 0,
+        "scoreTwoOrBelowCount": 0,
+        "answeredCount": 4,
+        "questionCount": 4,
+        "isComplete": true,
+        "criticalFlags": []
+      },
+      {
+        "id": "governance-reliability",
+        "name": "Governance and Reliability",
+        "shortName": "Governance",
+        "purpose": "Evaluate whether systems are controlled, observable, recoverable, and supported by clear ownership.",
+        "average": 3,
+        "maturityLevel": "Managed",
+        "lowestScore": 3,
+        "highestScore": 3,
+        "scoreSpread": 0,
+        "scoreOneCount": 0,
+        "scoreTwoOrBelowCount": 0,
+        "answeredCount": 4,
+        "questionCount": 4,
+        "isComplete": true,
+        "criticalFlags": []
+      },
+      {
+        "id": "ai-knowledge-workflows",
+        "name": "AI and Knowledge Workflows",
+        "shortName": "AI",
+        "purpose": "Evaluate whether the organization has the information quality, governance, human oversight, and operational discipline needed to use AI responsibly and effectively.",
+        "average": 2,
+        "maturityLevel": "Emerging",
+        "lowestScore": 2,
+        "highestScore": 2,
+        "scoreSpread": 0,
+        "scoreOneCount": 0,
+        "scoreTwoOrBelowCount": 4,
+        "answeredCount": 4,
+        "questionCount": 4,
+        "isComplete": true,
+        "criticalFlags": []
+      },
+      {
+        "id": "technical-capability-support",
+        "name": "Technical Capability and Support Model",
+        "shortName": "Technical Capability",
+        "purpose": "Evaluate whether the organization has the internal capability, external support relationships, technical ownership, and continuity needed to operate and improve its systems effectively.",
+        "average": 3,
+        "maturityLevel": "Managed",
+        "lowestScore": 3,
+        "highestScore": 3,
+        "scoreSpread": 0,
+        "scoreOneCount": 0,
+        "scoreTwoOrBelowCount": 0,
+        "answeredCount": 4,
+        "questionCount": 4,
+        "isComplete": true,
+        "criticalFlags": []
+      }
+    ],
+    "gapEvaluation": {
+      "strengths": [],
+      "supportingCapabilities": [
+        {
+          "id": "data-reporting",
+          "name": "Data and Reporting",
+          "shortName": "Data",
+          "purpose": "Evaluate whether reporting is consistent, trustworthy, repeatable, and connected to business decisions.",
+          "average": 3,
+          "maturityLevel": "Managed",
+          "lowestScore": 3,
+          "highestScore": 3,
+          "scoreSpread": 0,
+          "scoreOneCount": 0,
+          "scoreTwoOrBelowCount": 0,
+          "answeredCount": 4,
+          "questionCount": 4,
+          "isComplete": true,
+          "criticalFlags": []
+        },
+        {
+          "id": "cloud-architecture",
+          "name": "Cloud Architecture",
+          "shortName": "Cloud",
+          "purpose": "Evaluate whether cloud services are selected and operated intentionally, with clear ownership, appropriate controls, and room to scale.",
+          "average": 3,
+          "maturityLevel": "Managed",
+          "lowestScore": 3,
+          "highestScore": 3,
+          "scoreSpread": 0,
+          "scoreOneCount": 0,
+          "scoreTwoOrBelowCount": 0,
+          "answeredCount": 4,
+          "questionCount": 4,
+          "isComplete": true,
+          "criticalFlags": []
+        },
+        {
+          "id": "governance-reliability",
+          "name": "Governance and Reliability",
+          "shortName": "Governance",
+          "purpose": "Evaluate whether systems are controlled, observable, recoverable, and supported by clear ownership.",
+          "average": 3,
+          "maturityLevel": "Managed",
+          "lowestScore": 3,
+          "highestScore": 3,
+          "scoreSpread": 0,
+          "scoreOneCount": 0,
+          "scoreTwoOrBelowCount": 0,
+          "answeredCount": 4,
+          "questionCount": 4,
+          "isComplete": true,
+          "criticalFlags": []
+        },
+        {
+          "id": "technical-capability-support",
+          "name": "Technical Capability and Support Model",
+          "shortName": "Technical Capability",
+          "purpose": "Evaluate whether the organization has the internal capability, external support relationships, technical ownership, and continuity needed to operate and improve its systems effectively.",
+          "average": 3,
+          "maturityLevel": "Managed",
+          "lowestScore": 3,
+          "highestScore": 3,
+          "scoreSpread": 0,
+          "scoreOneCount": 0,
+          "scoreTwoOrBelowCount": 0,
+          "answeredCount": 4,
+          "questionCount": 4,
+          "isComplete": true,
+          "criticalFlags": []
+        }
+      ],
+      "criticalFlags": [],
+      "imbalance": null,
+      "foundationalConstraints": []
+    },
+    "readinessEvaluations": [
+      {
+        "id": "analytics-modernization",
+        "name": "Analytics modernization",
+        "targetDomainId": "data-reporting",
+        "targetDomainScore": 3,
+        "prerequisiteDomainIds": [
+          "governance-reliability",
+          "technical-capability-support",
+          "cloud-architecture"
+        ],
+        "prerequisiteAverage": 3,
+        "blockingCapabilities": [],
+        "status": "established",
+        "rationale": "Analytics modernization is already supported by a Managed or Scalable target-domain score. Focus on optimization rather than foundational implementation."
+      },
+      {
+        "id": "workflow-automation",
+        "name": "Workflow automation",
+        "targetDomainId": "workflow-automation",
+        "targetDomainScore": 2,
+        "prerequisiteDomainIds": [
+          "governance-reliability",
+          "technical-capability-support",
+          "cloud-architecture"
+        ],
+        "prerequisiteAverage": 3,
+        "blockingCapabilities": [],
+        "status": "ready",
+        "rationale": "Workflow automation has meaningful room for improvement, while its supporting prerequisites are strong enough to begin a bounded initiative."
+      },
+      {
+        "id": "cloud-modernization",
+        "name": "Cloud modernization",
+        "targetDomainId": "cloud-architecture",
+        "targetDomainScore": 3,
+        "prerequisiteDomainIds": [
+          "governance-reliability",
+          "technical-capability-support"
+        ],
+        "prerequisiteAverage": 3,
+        "blockingCapabilities": [],
+        "status": "established",
+        "rationale": "Cloud modernization is already supported by a Managed or Scalable target-domain score. Focus on optimization rather than foundational implementation."
+      },
+      {
+        "id": "ai-enabled-workflows",
+        "name": "AI-enabled workflows",
+        "targetDomainId": "ai-knowledge-workflows",
+        "targetDomainScore": 2,
+        "prerequisiteDomainIds": [
+          "data-reporting",
+          "governance-reliability",
+          "technical-capability-support"
+        ],
+        "prerequisiteAverage": 3,
+        "blockingCapabilities": [],
+        "status": "ready",
+        "rationale": "AI-enabled workflows has meaningful room for improvement, while its supporting prerequisites are strong enough to begin a bounded initiative."
+      },
+      {
+        "id": "reliability-improvement",
+        "name": "Reliability improvement",
+        "targetDomainId": "governance-reliability",
+        "targetDomainScore": 3,
+        "prerequisiteDomainIds": [
+          "technical-capability-support",
+          "cloud-architecture"
+        ],
+        "prerequisiteAverage": 3,
+        "blockingCapabilities": [],
+        "status": "established",
+        "rationale": "Reliability improvement is already supported by a Managed or Scalable target-domain score. Focus on optimization rather than foundational implementation."
+      },
+      {
+        "id": "technical-operating-model",
+        "name": "Technical operating-model improvement",
+        "targetDomainId": "technical-capability-support",
+        "targetDomainScore": 3,
+        "prerequisiteDomainIds": [
+          "governance-reliability"
+        ],
+        "prerequisiteAverage": 3,
+        "blockingCapabilities": [],
+        "status": "established",
+        "rationale": "Technical operating-model improvement is already supported by a Managed or Scalable target-domain score. Focus on optimization rather than foundational implementation."
+      }
+    ],
+    "priorities": {
+      "primaryConstraint": {
+        "domain": {
+          "id": "workflow-automation",
+          "name": "Workflow Automation",
+          "shortName": "Automation",
+          "purpose": "Evaluate whether recurring work is standardized, visible, and appropriately automated without hiding exceptions or accountability.",
+          "average": 2,
+          "maturityLevel": "Emerging",
+          "lowestScore": 2,
+          "highestScore": 2,
+          "scoreSpread": 0,
+          "scoreOneCount": 0,
+          "scoreTwoOrBelowCount": 4,
+          "answeredCount": 4,
+          "questionCount": 4,
+          "isComplete": true,
+          "criticalFlags": []
+        },
+        "reason": "lowest-domain",
+        "criticalCapabilities": [],
+        "blockedOpportunityIds": [],
+        "explanation": "Workflow Automation is the organization’s least mature remaining capability and represents the clearest general improvement area."
+      },
+      "bestOpportunity": {
+        "opportunity": {
+          "id": "workflow-automation",
+          "name": "Workflow automation",
+          "targetDomainId": "workflow-automation",
+          "targetDomainScore": 2,
+          "prerequisiteDomainIds": [
+            "governance-reliability",
+            "technical-capability-support",
+            "cloud-architecture"
+          ],
+          "prerequisiteAverage": 3,
+          "blockingCapabilities": [],
+          "status": "ready",
+          "rationale": "Workflow automation has meaningful room for improvement, while its supporting prerequisites are strong enough to begin a bounded initiative."
+        },
+        "priorityScore": 3,
+        "explanation": "Workflow automation has substantial room for improvement and sufficiently mature supporting capabilities for a bounded initiative."
+      }
+    },
+    "roadmap": {
+      "actions": [
+        {
+          "id": "automation-select-workflow",
+          "phase": "days-1-30",
+          "title": "Select one bounded workflow",
+          "description": "Choose a high-volume, rules-based process with clear pain, identifiable owners, and measurable outcomes.",
+          "source": "primary-constraint",
+          "sourceId": "workflow-automation"
+        },
+        {
+          "id": "automation-map-current-state",
+          "phase": "days-1-30",
+          "title": "Map the process and establish a baseline",
+          "description": "Document inputs, outputs, handoffs, delays, common exceptions, cycle time, effort, failure rate, and rework.",
+          "source": "primary-constraint",
+          "sourceId": "workflow-automation"
+        },
+        {
+          "id": "opportunity-automation-select",
+          "phase": "days-1-30",
+          "title": "Select a repeatable process with clear rules",
+          "description": "Prioritize a process with meaningful volume, stable inputs, and a measurable operational outcome.",
+          "source": "best-opportunity",
+          "sourceId": "workflow-automation"
+        },
+        {
+          "id": "opportunity-automation-implement",
+          "phase": "days-31-60",
+          "title": "Automate the normal path",
+          "description": "Implement the stable portion while routing exceptions to accountable people.",
+          "source": "best-opportunity",
+          "sourceId": "workflow-automation"
+        }
+      ],
+      "deferredInvestments": [
+        "End-to-end automation of an undocumented process",
+        "Autonomous operational decision-making",
+        "Broad orchestration across many systems"
+      ],
+      "deliveryModel": {
+        "model": {
+          "id": "internal-targeted-specialists",
+          "maturityLevel": "Managed",
+          "name": "Internally led with targeted specialists",
+          "summary": "Keep architecture and delivery internally owned while using specialists for narrow capability gaps.",
+          "recommendations": [
+            "Use specialists for uncommon needs such as AI governance, cloud security, or advanced integration.",
+            "Avoid broad managed-service contracts unless operational capacity is the real constraint.",
+            "Retain internal decision rights and operating knowledge."
+          ]
+        },
+        "additionalGuidance": []
+      }
+    },
+    "modernizationStage": "Automate",
+    "stageModifier": "prioritizes Workflow automation",
+    "organizationalProfile": "Workflow Automation is the organization’s primary modernization constraint."
+  }
+}

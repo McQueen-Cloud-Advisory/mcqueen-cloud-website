@@ -29,6 +29,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+firebase-debug.log
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -39,13 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-
-$gitignorePath = ".\.gitignore"
-$gitignore = [System.IO.File]::ReadAllText($gitignorePath)
-
-$terraformIgnore = @'
 
 # Terraform
 **/.terraform/*
@@ -64,12 +58,3 @@ override.tf.json
 # Playwright
 /playwright-report/
 /test-results/
-'@
-
-if ($gitignore -notmatch '(?m)^# Terraform$') {
-  [System.IO.File]::WriteAllText(
-    $gitignorePath,
-    $gitignore.TrimEnd() + $terraformIgnore + "`n",
-    $utf8NoBom
-  )
-}

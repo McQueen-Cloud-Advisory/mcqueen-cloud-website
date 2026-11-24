@@ -325,7 +325,6 @@ The diagram is a target pattern, not a statement that these resources currently 
 
 A first `infra/` layer should manage only the resources required by the selected feature:
 
-```text
 infra/
 ├── environments/
 │   ├── dev/
@@ -337,7 +336,6 @@ infra/
 ├── providers.tf
 ├── versions.tf
 └── README.md
-```
 
 Potential managed resources:
 
@@ -383,21 +381,19 @@ Terraform is now present as an implemented repository capability rather than onl
 
 The current foundation includes:
 
-```text
 infra/
-??? bootstrap/
-??? environments/
-?   ??? dev/
-?   ??? prod/
-??? modules/
-?   ??? cost-controls/
-?   ??? identity/
-?   ??? observability/
-?   ??? project-services/
-?   ??? secrets/
-??? README.md
-??? versions.tf
-```
+├── bootstrap/
+├── environments/
+│   ├── dev/
+│   └── prod/
+├── modules/
+│   ├── cost-controls/
+│   ├── identity/
+│   ├── observability/
+│   ├── project-services/
+│   └── secrets/
+├── README.md
+└── versions.tf
 
 ### Implemented boundaries
 

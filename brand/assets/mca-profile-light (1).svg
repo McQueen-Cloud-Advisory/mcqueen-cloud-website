@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img"><title>McQueen Cloud Advisory</title><rect width="400" height="400" fill="#FFFFFF"/><g transform="translate(60 60) scale(.7)"><g transform="translate(30 20)">
+ <path d="M88 201H61C34 201 17 182 17 157C17 135 30 116 52 111C57 85 83 72 107 82C112 48 140 26 173 26C212 26 244 54 248 92C275 92 297 109 301 132M299 181C291 194 278 201 260 201H250" fill="none" stroke="#245BDB" stroke-width="15" stroke-linejoin="round"/>
+ <circle cx="302" cy="157" r="15" fill="none" stroke="#245BDB" stroke-width="13"/>
+ <path d="M100 150L124 136V228L100 214ZM140 106L180 82V146L164 156V242L140 227Z" fill="#111820"/>
+ <path d="M182 172L205 158V228L182 242ZM219 170L241 183V215L219 229Z" fill="#526171"/>
+ <path d="M65 232L163 277L267 230V245L163 292L65 247Z" fill="#526171"/>
+ <path d="M65 260L163 305L267 258V273L163 320L65 275Z" fill="#111820"/>
+ </g></g></svg>
