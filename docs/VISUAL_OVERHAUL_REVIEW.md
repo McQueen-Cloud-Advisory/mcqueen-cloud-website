@@ -191,7 +191,7 @@ Validation completed before release:
 
 - Full ESLint and all 20 Vitest tests passed.
 - Next production build and TypeScript passed; all public routes prerendered.
-- All 34 Playwright tests passed against the production build, including the
+- All 35 Playwright tests passed against the production build, including the
   complete assessment and restart, keyboard answers/back navigation, mobile
   menu, reduced motion, route checks, canonical social metadata, exact PNG
   bytes/dimensions, favicon, and Axe checks.
@@ -199,9 +199,9 @@ Validation completed before release:
   inspected at 360, 768, and 1440px. Homepage/header also checked at 1024/1280px.
 - Additional 320px reflow checks passed for home, Services, EIR, and assessment,
   including an all-high-answer Optimize report.
-- No assessment engine/question/recommendation source changes. No package or
-  infrastructure changes. Existing staged documentation and ignore edits remain
-  separate from the release.
+- No assessment engine/question/recommendation source changes or infrastructure
+  changes. Existing staged documentation and ignore edits remain separate from
+  the release.
 
 Local browser verification used installed Chrome. Safari/WebKit, physical
 mobile devices, and real social-platform cache refreshes were not tested.
@@ -213,3 +213,10 @@ suppressed unrelated inherited account-verification metadata on that page only.
 The production build was regenerated, and all four metadata tests passed,
 including the new disclosure check (35 distinct browser checks across the full
 suite and focused final rerun).
+
+The required production dependency audit identified vulnerabilities before
+publication. Next.js and its matching ESLint configuration were updated to
+16.4.6; the lockfile now resolves Sharp 0.35.5 and source-map-js 1.2.4. The
+production audit reports zero vulnerabilities. Lint, all 20 unit tests, the
+production build/TypeScript, and the full 35-test browser suite passed again
+with these patched dependencies. No new framework features were enabled.
