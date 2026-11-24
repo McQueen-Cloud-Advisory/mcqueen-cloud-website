@@ -220,3 +220,12 @@ publication. Next.js and its matching ESLint configuration were updated to
 production audit reports zero vulnerabilities. Lint, all 20 unit tests, the
 production build/TypeScript, and the full 35-test browser suite passed again
 with these patched dependencies. No new framework features were enabled.
+
+Live verification caught an App Hosting adapter 14.0.21 packaging defect: the
+social artwork's file trace created a partial `public` directory, after which
+the adapter skipped the remaining public files. The supported
+`outputFileTracingIncludes` configuration now includes `public/**/*`. All 17
+public assets were verified byte-for-byte in the standalone bundle and over
+HTTP from its server. CI checks that every public file appears in the deployment
+traces. The upstream adapter fix is
+https://github.com/firebase/apphosting-adapters/pull/683.

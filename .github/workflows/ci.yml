@@ -48,6 +48,9 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Verify public assets in deployment traces
+        run: node scripts/verify-public-asset-traces.mjs
+
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 

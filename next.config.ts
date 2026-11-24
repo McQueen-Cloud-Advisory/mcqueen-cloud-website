@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // App Hosting's adapter can skip public/ when a traced file already created
+  // that directory. Include every public asset so logos and backgrounds ship
+  // alongside the artwork read by the social-image routes.
+  outputFileTracingIncludes: {
+    "/*": ["./public/**/*"],
+  },
   async redirects() {
     return [
       {
