@@ -1,0 +1,20 @@
+/* McQueen Cloud Advisory v2.0 — 2026-11-23 */
+:root {
+  --mca-ink: #111820;
+  --mca-canvas: #F5F7FA;
+  --mca-surface: #FFFFFF;
+  --mca-muted: #526171;
+  --mca-line: #D8DFE7;
+  --mca-accent: #245BDB;
+  --mca-ice: #8CB8FF;
+  --mca-dark-surface: #1B2633;
+  --mca-dark-muted: #CAD5E2;
+  --mca-control-border: #767F8B;
+  --mca-dark-control: #718399;
+  --mca-success: #137C45;
+  --mca-warning: #8A5700;
+  --mca-error: #B42318;
+  --mca-teal: #137C78;
+  --mca-font-sans: "Geist Sans", Arial, sans-serif;
+  --mca-font-mono: "Geist Mono", monospace;
+}

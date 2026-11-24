@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AssessmentPathCta } from "@/components/engagement/AssessmentPathCta";
 import { services } from "@/data/services";
@@ -6,21 +6,32 @@ import { services } from "@/data/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Analytics modernization, workflow automation, Google Cloud architecture, and AI-enabled knowledge workflows designed around real operational needs.",
+    "Analytics and Reporting, Workflow Automation, and Workspace and Systems Design for small and midsize organizations. Practical scopes with validation, ownership, and handoff.",
 };
 
-const relatedWork: Record<string, { href: string; label: string }> = {
-  "analytics-bi-modernization": { href: "/work/enterprise-financial-reconciliation", label: "Financial reconciliation case study" },
-  "workflow-automation": { href: "/work/consultation-automation", label: "Consultation workflow demonstration" },
-  "google-cloud-architecture": { href: "/insights/why-this-site-uses-firebase-app-hosting", label: "An architecture decision in practice" },
-  "ai-knowledge-workflows": { href: "/work/consultation-automation", label: "Research and document-generation workflow" },
+const relatedWork: Record<string, { href: string; label: string; context: string }> = {
+  "analytics-and-reporting": {
+    href: "/work/enterprise-financial-reconciliation",
+    label: "Explore the reconciliation case study",
+    context: "Professional experience / anonymized enterprise project",
+  },
+  "workflow-automation": {
+    href: "/work/consultation-automation",
+    label: "Explore the consultation workflow",
+    context: "Production demonstration",
+  },
+  "workspace-and-systems-design": {
+    href: "/insights/why-this-site-uses-firebase-app-hosting",
+    label: "Read an architecture decision",
+    context: "McQueen Cloud Advisory’s own website",
+  },
 };
 
 const engagementSteps = [
-  { title: "Understand", description: "Define the operating problem, users, constraints, and decisions the system must support." },
-  { title: "Design", description: "Choose a proportionate architecture. Make the purpose and tradeoffs of each component clear." },
-  { title: "Demonstrate", description: "Test a prototype or implementation against actual requirements and outputs." },
-  { title: "Operationalize", description: "Document controls, deployment, ownership, and the path to ongoing support." },
+  { title: "Understand the work", description: "Identify the recurring problem, the people affected, and the owner responsible for the process." },
+  { title: "Agree the scope", description: "Define deliverables, constraints, and acceptance criteria before selecting or building a solution." },
+  { title: "Implement and validate", description: "Build the agreed change and check the result with the people who will use it." },
+  { title: "Hand over", description: "Leave operating instructions and clear ownership. Arrange ongoing support separately when needed." },
 ];
 
 export default function ServicesPage() {
@@ -28,53 +39,68 @@ export default function ServicesPage() {
     <>
       <section className="page-intro">
         <div className="site-shell">
-          <p className="eyebrow">Services / Areas of practice</p>
-          <h1 className="display-title mt-6 max-w-4xl">Built around<br /> the real problem.</h1>
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-            <p className="lede max-w-2xl">Analytics, automation, and cloud architecture for the points where process, data, and technology need to work together.</p>
-            <div className="flex flex-wrap gap-4 lg:justify-end"><Link href="/work" className="button button-primary">View selected work <span aria-hidden="true">↗</span></Link><Link href="/contact" className="button button-secondary">Discuss a project</Link></div>
+          <p className="eyebrow">Services / Three areas of practice</p>
+          <h1 className="display-title mt-6 max-w-3xl">Useful systems.<br /> A practical scope.</h1>
+          <p className="lede mt-8 max-w-2xl">Clear reporting, simpler workflows, and organized tools for small and midsize organizations. Each engagement starts with a defined operating problem and ends with a result your team can own.</p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/contact" className="button button-primary">Discuss a project <span aria-hidden="true">↗</span></Link>
+            <Link href="/work" className="button button-secondary">View selected work</Link>
           </div>
         </div>
       </section>
 
       <nav aria-label="Service navigation" className="border-y border-line">
         <div className="site-shell flex flex-wrap gap-x-8 gap-y-3 py-5">
-          {services.map((service, index) => <a key={service.slug} href={`#${service.slug}`} className="inline-flex items-center gap-3 py-2 text-sm font-medium text-muted transition hover:text-accent"><span className="font-mono text-xs text-accent">0{index + 1}</span>{service.title}</a>)}
+          {services.map((service, index) => (
+            <a key={service.slug} href={`#${service.slug}`} className="inline-flex min-h-11 items-center gap-3 py-2 text-base font-medium text-muted transition hover:text-accent">
+              <span className="font-mono text-sm text-accent">0{index + 1}</span>{service.title}
+            </a>
+          ))}
         </div>
       </nav>
 
-      <section className="section-space">
+      <section className="section-space" aria-label="Service scopes and deliverables">
         <div className="site-shell">
           {services.map((service, index) => (
-            <article key={service.slug} id={service.slug} className="grid scroll-mt-28 gap-8 border-b border-line py-12 first:pt-0 lg:grid-cols-[0.15fr_0.9fr_0.95fr] lg:gap-12">
+            <article key={service.slug} id={service.slug} className="relative grid scroll-mt-4 gap-8 border-b border-line py-12 first:pt-0 lg:grid-cols-[0.12fr_0.94fr_0.94fr] lg:gap-10">
+              {service.legacySlugs?.map((slug) => <span key={slug} id={slug} aria-hidden="true" className="pointer-events-none absolute left-0 top-0 scroll-mt-4" />)}
               <p className="font-mono text-sm text-accent">0{index + 1} /</p>
               <div>
-                <h2 className="max-w-md text-3xl font-medium leading-tight tracking-tight sm:text-4xl">{service.title}</h2>
-                <p className="mt-5 max-w-lg text-lg leading-8 text-muted">{service.summary}</p>
-                <Link href={relatedWork[service.slug].href} className="text-link mt-7 inline-flex items-start gap-3 text-sm">{relatedWork[service.slug].label}<span aria-hidden="true">↗</span></Link>
+                <h2 className="section-title max-w-md">{service.title}</h2>
+                <p className="mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg">{service.summary}</p>
+                <p className="mt-5 max-w-lg text-base leading-relaxed text-muted">{service.scope}</p>
+                <div className="mt-7">
+                  <p className="text-sm leading-relaxed text-muted">{relatedWork[service.slug].context}</p>
+                  <Link href={relatedWork[service.slug].href} className="text-link mt-2 inline-flex items-start gap-3">{relatedWork[service.slug].label}<span aria-hidden="true">↗</span></Link>
+                </div>
               </div>
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">What the work can include</p>
+                <h3 className="eyebrow">Agreed deliverables</h3>
                 <ul className="mt-5 grid gap-3">
-                  {service.deliverables.map((deliverable) => <li key={deliverable} className="flex gap-3 text-sm leading-6"><span aria-hidden="true" className="text-accent">—</span><span>{deliverable}</span></li>)}
+                  {service.deliverables.map((deliverable) => <li key={deliverable} className="flex gap-3 text-base leading-relaxed"><span aria-hidden="true" className="text-accent">—</span><span>{deliverable}</span></li>)}
                 </ul>
-                <p className="mt-7 border-l-2 border-accent pl-4 leading-7 text-muted">{service.result}</p>
+                <dl className="mt-7 border-t border-line pt-5 text-base leading-relaxed">
+                  <div><dt className="font-medium">How to assess the result</dt><dd className="mt-2 text-muted">{service.evidence}</dd></div>
+                  <div className="mt-5"><dt className="font-medium">Scope boundary</dt><dd className="mt-2 text-muted">{service.boundary}</dd></div>
+                </dl>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section-space border-y border-line bg-white">
+      <section className="section-space border-y border-line bg-surface">
         <div className="site-shell">
-          <p className="eyebrow">How an engagement takes shape</p>
-          <h2 className="section-title mt-5 max-w-2xl">Clarity before complexity.</h2>
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
+            <div><p className="eyebrow">How an engagement takes shape</p><h2 className="section-title mt-5 max-w-xl">The problem comes first.</h2></div>
+            <p className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg">Google Workspace and Google Cloud are core capabilities. Microsoft 365 may be the right fit for your team. Existing tools come first where they meet the requirement; a new platform needs a clear reason.</p>
+          </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {engagementSteps.map((step, index) => (
               <article key={step.title} className="border-t border-line pt-6">
-                <p className="font-mono text-xs text-accent">0{index + 1}</p>
+                <p className="font-mono text-sm text-accent">0{index + 1}</p>
                 <h3 className="mt-6 text-xl font-medium">{step.title}</h3>
-                <p className="mt-3 leading-7 text-muted">{step.description}</p>
+                <p className="mt-3 text-base leading-relaxed text-muted">{step.description}</p>
               </article>
             ))}
           </div>
@@ -82,7 +108,7 @@ export default function ServicesPage() {
       </section>
 
       <div className="site-shell section-space">
-        <AssessmentPathCta eyebrow="Find the right starting point" title="Clarify what should improve first." description="The readiness assessment helps identify your most important modernization priority. If the scope and desired outcome are already clear, start a direct conversation." assessmentLabel="Explore the assessment" contactLabel="Discuss a defined project" />
+        <AssessmentPathCta eyebrow="Find a starting point" title="Clarify what should improve first." description="Bring the recurring problem to a conversation. If you would like to explore priorities first, the readiness assessment offers a structured look at the conditions that may help or limit progress." assessmentLabel="Explore the assessment" />
       </div>
     </>
   );

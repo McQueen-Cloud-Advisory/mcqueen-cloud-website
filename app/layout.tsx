@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import brand from "@/brand/brand-system.json";
 import "./globals.css";
 
 const geistSans = localFont({
-  src: "./fonts/geist-latin.woff2",
+  src: "./fonts/geist-brand-v2.woff2",
   variable: "--font-geist-sans",
   weight: "100 900",
   display: "swap",
 });
 
 const geistMono = localFont({
-  src: "./fonts/geist-mono-latin.woff2",
+  src: "./fonts/geist-mono-brand-v2.woff2",
   variable: "--font-geist-mono",
   weight: "100 900",
   display: "swap",
@@ -21,8 +22,8 @@ const geistMono = localFont({
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mcqueencloud.com";
 
-const siteDescription =
-  "Practical analytics, workflow automation, and Google Cloud solutions for organizations outgrowing manual processes.";
+const siteDescription = brand.strategy.positioning;
+const socialTitle = `${brand.strategy.headline} | ${brand.meta.name}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   publisher: "McQueen Cloud Advisory",
 
   openGraph: {
-    title: "McQueen Cloud Advisory",
+    title: socialTitle,
     description: siteDescription,
     siteName: "McQueen Cloud Advisory",
     locale: "en_US",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "McQueen Cloud Advisory",
+    title: socialTitle,
     description: siteDescription,
   },
 };

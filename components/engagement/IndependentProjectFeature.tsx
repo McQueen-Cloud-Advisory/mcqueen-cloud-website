@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./IndependentProjectFeature.module.css";
 
 export const everythingIsRandomUrl = "https://everythingisrandom.mcqueencloud.com/";
@@ -9,11 +10,16 @@ export function IndependentProjectFeature() {
         <p className="eyebrow">Independent project / Live on the web</p>
         <h2 id="independent-project-title">Everything is Random.</h2>
         <p>A playful side of the same engineering practice. Charades and drawing games bring hidden prompts, round timers, and team scores to your next game night.</p>
-        <p>Spin a decision wheel, organize random teams, or generate data for a project. The games and tools are free to use in your browser, with no account required.</p>
-        <a href={everythingIsRandomUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-          Explore Everything is Random <span aria-hidden="true">↗</span>
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
+        <p>Plan a game night, spin a decision wheel, organize random teams, or generate data for a project. The games and tools are free to use in your browser, with no account required.</p>
+        <div className={styles.actions}>
+          <Link href="/work/everything-is-random" className="text-link">
+            Read the case study <span aria-hidden="true">→</span>
+          </Link>
+          <a href={everythingIsRandomUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+            Visit the live site <span aria-hidden="true">↗</span>
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
       </div>
       <div className={styles.visual} aria-hidden="true">
         <div className={styles.tile}>
